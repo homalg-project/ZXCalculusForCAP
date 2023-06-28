@@ -1,0 +1,56 @@
+  
+  
+                               [1X ZXCalculusForCAP [101X
+  
+  
+                         [1X The category of ZX-diagrams [101X
+  
+  
+                                   2023.06-01
+  
+  
+                                  28 June 2023
+  
+  
+                                Fabian Zickgraf
+  
+  
+  
+  Fabian Zickgraf
+      Email:    [7Xmailto:fabian.zickgraf@uni-siegen.de[107X
+      Homepage: [7Xhttps://zickgraf.github.io/[107X
+      Address:  [33X[0;14YWalter-Flex-Straße 3[133X
+                [33X[0;14Y57072 Siegen[133X
+                [33X[0;14YGermany[133X
+  
+  
+  
+  -------------------------------------------------------
+  
+  
+  [1XContents (ZXCalculusForCAP)[101X
+  
+  1 [33X[0;0YThe category of cospans[133X
+    1.1 [33X[0;0YConstructors[133X
+      1.1-1 CategoryOfCospans_for_ZXCalculus
+    1.2 [33X[0;0YFilters[133X
+      1.2-1 IsCategoryOfCospans
+      1.2-2 IsCategoryOfCospansObject
+      1.2-3 IsCategoryOfCospansMorphism
+    1.3 [33X[0;0YAttributes[133X
+      1.3-1 UnderlyingCategory
+      1.3-2 UnderlyingObject
+      1.3-3 UnderlyingMorphismPair
+  2 [33X[0;0YThe category of ZX diagrams[133X
+    2.1 [33X[0;0YConstructors[133X
+      2.1-1 CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers
+    2.2 [33X[0;0YFilters[133X
+      2.2-1 IsCategoryOfZXDiagrams
+      2.2-2 IsZXDiagramObject
+      2.2-3 IsZXDiagramMorphism
+    2.3 [33X[0;0YAttributes[133X
+      2.3-1 Integer
+      2.3-2 VertexLabeledGraph
+  
+  
+  [32X
