@@ -365,6 +365,8 @@ InstallGlobalFunction( CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecor
     
 end );
 
+BindGlobal( "ZX", CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers( ) );
+
 ##
 InstallMethod( ViewString,
         "for an object in a category of ZX-diagrams",

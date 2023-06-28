@@ -12,6 +12,11 @@
 #! @Returns a category of zx diagrams
 DeclareGlobalFunction( "CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers" );
 
+#! @Description
+#!  The default instance of the of ZX diagrams.
+#!  It is automatically created while loading this package.
+DeclareGlobalName( "ZX" );
+
 #! @Section Filters
 
 #! @Description
