@@ -11,6 +11,13 @@
   
   [33X[0;0YCreates a category of ZX diagrams as a tower.[133X
   
+  [1X2.1-2 ZX[101X
+  
+  [33X[1;0Y[29X[2XZX[102X [32X global variable[133X
+  
+  [33X[0;0YThe  default  instance  of  the  of ZX diagrams. It is automatically created
+  while loading this package.[133X
+  
   
   [1X2.2 [33X[0;0YFilters[133X[101X
   

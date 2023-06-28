@@ -6,7 +6,7 @@
                          [1X The category of ZX-diagrams [101X
   
   
-                                   2023.06-01
+                                   2023.06-02
   
   
                                   28 June 2023
@@ -44,6 +44,7 @@
   2 [33X[0;0YThe category of ZX diagrams[133X
     2.1 [33X[0;0YConstructors[133X
       2.1-1 CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers
+      2.1-2 ZX
     2.2 [33X[0;0YFilters[133X
       2.2-1 IsCategoryOfZXDiagrams
       2.2-2 IsZXDiagramObject
