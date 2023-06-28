@@ -13,7 +13,7 @@
 DeclareGlobalFunction( "CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers" );
 
 #! @Description
-#!  The default instance of the of ZX diagrams.
+#!  The default instance of the category of ZX diagrams.
 #!  It is automatically created while loading this package.
 DeclareGlobalName( "ZX" );
 
