@@ -35,7 +35,7 @@ BindGlobal( "ZX_LabelToInteger", function ( label )
     
 end );
 
-CapJitAddTypeSignature( "ZX_LabelToInteger", [ IsString ], IsInt );
+CapJitAddTypeSignature( "ZX_LabelToInteger", [ IsStringRep ], IsInt );
 
 BindGlobal( "ZX_IntegerToLabel", function ( pos, input_positions, output_positions, int )
     
@@ -88,7 +88,7 @@ CapJitAddTypeSignature( "ZX_IntegerToLabel", [ IsInt, IsList, IsList, IsInt ], f
     Assert( 0, input_types[2].element_type.filter = IsInt );
     Assert( 0, input_types[3].element_type.filter = IsInt );
     
-    return rec( filter := IsString );
+    return rec( filter := IsStringRep );
     
 end );
 
@@ -303,6 +303,8 @@ InstallGlobalFunction( CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecor
         category_filter := IsCategoryOfZXDiagrams,
         category_object_filter := IsZXDiagramObject,
         category_morphism_filter := IsZXDiagramMorphism,
+        object_datum_type := IsInt,
+        morphism_datum_type := CapJitDataTypeOfNTupleOf( 2, CapJitDataTypeOfListOf( IsStringRep ), CapJitDataTypeOfListOf( CapJitDataTypeOfNTupleOf( 2, IsInt, IsInt ) ) ),
         object_constructor := object_constructor,
         object_datum := object_datum,
         morphism_constructor := morphism_constructor,

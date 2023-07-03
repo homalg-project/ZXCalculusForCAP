@@ -45,7 +45,7 @@ CapJitAddTypeSignature( "Integer", [ IsZXDiagramObject ], IsInt );
 #! @Arguments mor
 DeclareAttribute( "VertexLabeledGraph", IsZXDiagramMorphism );
 
-CapJitAddTypeSignature( "VertexLabeledGraph", [ IsZXDiagramMorphism ], CapJitDataTypeOfNTupleOf( 2, CapJitDataTypeOfListOf( IsString ), CapJitDataTypeOfListOf( CapJitDataTypeOfNTupleOf( 2, IsInt, IsInt ) ) ) );
+CapJitAddTypeSignature( "VertexLabeledGraph", [ IsZXDiagramMorphism ], CapJitDataTypeOfNTupleOf( 2, CapJitDataTypeOfListOf( IsStringRep ), CapJitDataTypeOfListOf( CapJitDataTypeOfNTupleOf( 2, IsInt, IsInt ) ) ) );
 
 # helpers
 DeclareGlobalName( "ZX_LabelToInteger" );
