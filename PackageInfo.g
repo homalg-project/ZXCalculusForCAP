@@ -10,8 +10,8 @@ SetPackageInfo( rec(
 
 PackageName := "ZXCalculusForCAP",
 Subtitle := "The category of ZX-diagrams",
-Version := "2023.06-05",
-Date := "2023-06-29",
+Version := "2023.07-01",
+Date := "2023-07-03",
 License := "GPL-2.0-or-later",
 
 Persons := [
@@ -69,7 +69,7 @@ PackageDoc := rec(
 Dependencies := rec(
   GAP := ">= 4.12.1",
   NeededOtherPackages := [
-      [ "CAP", ">= 2021.05-01" ],
+      [ "CAP", ">= 2023.07-02" ],
       [ "MonoidalCategories", ">= 2021.05-01" ], # monoidal structure
       [ "FunctorCategories", ">= 2022.12-16" ], # CategoryOfDecoratedQuivers
   ],
