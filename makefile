@@ -31,6 +31,10 @@ test-with-coverage: doc
 	gap --quitonbreak --cover stats tst/testall.g
 	gap --quitonbreak --norepl -c 'LoadPackage("profiling"); OutputJsonCoverage("stats", "coverage.json");'
 
+test-with-coverage-without-precompiled-code: doc
+	gap --quitonbreak --cover stats_no_precompiled_code tst/testall_no_precompiled_code.g
+	gap --quitonbreak --norepl -c 'LoadPackage("profiling"); OutputJsonCoverage("stats_no_precompiled_code", "coverage_no_precompiled_code.json");'
+
 test-spacing:
 	# exit code 1 means no match, which is what we want here (exit code 2 signals an error)
 	grep -R "[^ [\"]  " gap/*.gi; test $$? -eq 1 || (echo "Duplicate spaces found" && exit 1)
@@ -54,4 +58,23 @@ test-spacing:
 	rm spacing_diff
 	rm spacing_diff_no_blanks
 
-ci-test: test-basic-spacing test-spacing test-doc test-with-coverage
+test-gap_to_julia: doc
+	if [ -d "../FinSetsForCAP" ]; then make -C "../FinSetsForCAP" doc; fi
+	git clone https://github.com/homalg-project/PackageJanitor.git ~/.gap/pkg/PackageJanitor
+	mkdir ~/.julia/dev
+	git clone https://github.com/zickgraf/CAP.jl.git ~/.julia/dev/CAP
+	git clone https://github.com/zickgraf/MonoidalCategories.jl.git ~/.julia/dev/MonoidalCategories
+	git clone https://github.com/zickgraf/CartesianCategories.jl.git ~/.julia/dev/CartesianCategories
+	git clone https://github.com/zickgraf/Toposes.jl.git ~/.julia/dev/Toposes
+	git clone https://github.com/zickgraf/FinSetsForCAP.jl.git ~/.julia/dev/FinSetsForCAP
+	git clone https://github.com/zickgraf/ZXCalculusForCAP.jl.git ~/.julia/dev/ZXCalculusForCAP
+	~/.gap/pkg/PackageJanitor/gap_to_julia CAP
+	~/.gap/pkg/PackageJanitor/gap_to_julia MonoidalCategories
+	~/.gap/pkg/PackageJanitor/gap_to_julia CartesianCategories
+	~/.gap/pkg/PackageJanitor/gap_to_julia Toposes
+	~/.gap/pkg/PackageJanitor/gap_to_julia FinSetsForCAP
+	~/.gap/pkg/PackageJanitor/gap_to_julia ZXCalculusForCAP
+	julia -e 'using Pkg; Pkg.develop("CAP"); Pkg.develop("MonoidalCategories"); Pkg.develop("CartesianCategories"); Pkg.develop("Toposes"); Pkg.develop("FinSetsForCAP"); Pkg.develop("ZXCalculusForCAP");'
+	julia -e 'using Pkg; Pkg.test("ZXCalculusForCAP", julia_args = ["--warn-overwrite=no"]);'
+
+ci-test: test-basic-spacing test-spacing test-doc test-with-coverage test-with-coverage-without-precompiled-code test-gap_to_julia

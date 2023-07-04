@@ -45,13 +45,28 @@ CapJitAddLogicTemplate(
     )
 );
 
-category_constructor := { } ->
-    CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers( );;
+##
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "func" ],
+        src_template := "ForAll( [ ], func )",
+        dst_template := "true",
+    )
+);
+
+##
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "s", "D" ],
+        src_template := "SKELETAL_FIN_SETS_ExplicitCoequalizer( s, D )",
+        dst_template := "SKELETAL_FIN_SETS_ExplicitCoequalizer_primitive_input( Length( s ), List( D, x -> Triple( Length( Source( x ) ), AsList( x ), Length( Range( x ) ) ) ) )",
+        new_funcs := [ [ "x" ] ],
+    )
+);
+
+category_constructor := { } -> CategoryOfZXDiagrams( );;
 given_arguments := [ ];;
-compiled_category_name := Concatenation(
-    "CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers",
-    "_precompiled"
-);;
+compiled_category_name := "CategoryOfZXDiagrams_precompiled";;
 package_name := "ZXCalculusForCAP";;
 
 CapJitPrecompileCategoryAndCompareResult(
@@ -59,7 +74,11 @@ CapJitPrecompileCategoryAndCompareResult(
     given_arguments,
     package_name,
     compiled_category_name :
-    operations := "primitive"
+    operations := "primitive",
+    number_of_objectified_objects_in_data_structure_of_object := 1,
+    number_of_objectified_morphisms_in_data_structure_of_object := 0,
+    number_of_objectified_objects_in_data_structure_of_morphism := 2,
+    number_of_objectified_morphisms_in_data_structure_of_morphism := 1
 );;
 
 # @EndExample
