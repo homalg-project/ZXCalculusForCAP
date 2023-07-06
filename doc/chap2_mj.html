@@ -28,8 +28,9 @@
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2_mj.html#X86EC0F0A78ECBC10">2.1 <span class="Heading">Constructors</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X860190AD857B53EE">2.1-1 CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X7CC773177F1234B6">2.1-1 CategoryOfZXDiagrams</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X7EEE07D7832D87ED">2.1-2 ZX</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X860190AD857B53EE">2.1-3 CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers</a></span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2_mj.html#X84EFA4C07D4277BB">2.2 <span class="Heading">Filters</span></a>
 </span>
@@ -41,7 +42,7 @@
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2_mj.html#X7C701DBF7BAE649A">2.3 <span class="Heading">Attributes</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X7EB7266F83F39513">2.3-1 Integer</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X78880FEA780FAE71">2.3-1 AsInteger</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X85A42149825DBD28">2.3-2 VertexLabeledGraph</a></span>
 </div></div>
 </div>
@@ -52,14 +53,14 @@
 
 <h4>2.1 <span class="Heading">Constructors</span></h4>
 
-<p><a id="X860190AD857B53EE" name="X860190AD857B53EE"></a></p>
+<p><a id="X7CC773177F1234B6" name="X7CC773177F1234B6"></a></p>
 
-<h5>2.1-1 CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers</h5>
+<h5>2.1-1 CategoryOfZXDiagrams</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers</code>( <var class="Arg">arg</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CategoryOfZXDiagrams</code>( <var class="Arg">arg</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: a category of zx diagrams</p>
 
-<p>Creates a category of ZX diagrams as a tower.</p>
+<p>Creates a category of ZX diagrams.</p>
 
 <p><a id="X7EEE07D7832D87ED" name="X7EEE07D7832D87ED"></a></p>
 
@@ -67,6 +68,15 @@
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ZX</code></td><td class="tdright">(&nbsp;global variable&nbsp;)</td></tr></table></div>
 <p>The default instance of the category of ZX diagrams. It is automatically created while loading this package.</p>
+
+<p><a id="X860190AD857B53EE" name="X860190AD857B53EE"></a></p>
+
+<h5>2.1-3 CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers</code>( <var class="Arg">arg</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: a category of zx diagrams</p>
+
+<p>Creates a category of ZX diagrams as a tower. Only available if the package <code class="code">FunctorCategories</code> is available.</p>
 
 <p><a id="X84EFA4C07D4277BB" name="X84EFA4C07D4277BB"></a></p>
 
@@ -97,11 +107,11 @@
 
 <h4>2.3 <span class="Heading">Attributes</span></h4>
 
-<p><a id="X7EB7266F83F39513" name="X7EB7266F83F39513"></a></p>
+<p><a id="X78880FEA780FAE71" name="X78880FEA780FAE71"></a></p>
 
-<h5>2.3-1 Integer</h5>
+<h5>2.3-1 AsInteger</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Integer</code>( <var class="Arg">obj</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AsInteger</code>( <var class="Arg">obj</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>The integer defining an object in a category of ZX-diagrams.</p>
 
 <p><a id="X85A42149825DBD28" name="X85A42149825DBD28"></a></p>

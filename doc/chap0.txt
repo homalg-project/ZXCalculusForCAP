@@ -6,10 +6,10 @@
                          [1X The category of ZX-diagrams [101X
   
   
-                                   2023.07-01
+                                   2023.07-02
   
   
-                                  3 July 2023
+                                  6 July 2023
   
   
                                 Fabian Zickgraf
@@ -43,14 +43,15 @@
       1.3-3 UnderlyingMorphismPair
   2 [33X[0;0YThe category of ZX diagrams[133X
     2.1 [33X[0;0YConstructors[133X
-      2.1-1 CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers
+      2.1-1 CategoryOfZXDiagrams
       2.1-2 ZX
+      2.1-3 CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers
     2.2 [33X[0;0YFilters[133X
       2.2-1 IsCategoryOfZXDiagrams
       2.2-2 IsZXDiagramObject
       2.2-3 IsZXDiagramMorphism
     2.3 [33X[0;0YAttributes[133X
-      2.3-1 Integer
+      2.3-1 AsInteger
       2.3-2 VertexLabeledGraph
   
   
