@@ -6,6 +6,16 @@
 
 ReadPackage( "ZXCalculusForCAP", "gap/CategoryOfCospans_for_ZXCalculus.gi" );
 
-ReadPackage( "ZXCalculusForCAP", "gap/precompiled_categories/CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers_precompiled.gi" );
+ReadPackage( "ZXCalculusForCAP", "gap/precompiled_categories/CategoryOfZXDiagrams_precompiled.gi" );
 
-ReadPackage( "ZXCalculusForCAP", "gap/CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers.gi" );
+ReadPackage( "ZXCalculusForCAP", "gap/CategoryOfZXDiagrams.gi" );
+
+#= comment for Julia
+if IsPackageMarkedForLoading( "FunctorCategories", ">= 2023.07-01" ) then
+    
+    ReadPackage( "ZXCalculusForCAP", "gap/CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers.gi" );
+    
+fi;
+# =#
+
+ReadPackage( "ZXCalculusForCAP", "gap/init.gi" );

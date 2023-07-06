@@ -11,12 +11,16 @@ gap> LoadPackage( "Toposes", false );
 true
 gap> LoadPackage( "FreydCategoriesForCAP", false );
 true
+gap> LoadPackage( "FunctorCategories", false );
+true
 gap> LoadPackage( "ZXCalculusForCAP", false );
 true
 gap> SetInfoLevel( InfoPackageLoading, PACKAGE_INFO );;
 gap> LoadPackage( "Toposes" );
 true
 gap> LoadPackage( "FreydCategoriesForCAP" );
+true
+gap> LoadPackage( "FunctorCategories" );
 true
 gap> LoadPackage( "ZXCalculusForCAP" );
 true
