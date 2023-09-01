@@ -16,7 +16,6 @@ InstallMethod( CategoryOfCospans_for_ZXCalculus,
         CapJitDataTypeOfObjectOfCategory( underlying_cat ), CapJitDataTypeOfNTupleOf( 2, CapJitDataTypeOfMorphismOfCategory( underlying_cat ), CapJitDataTypeOfMorphismOfCategory( underlying_cat ) ), fail
     );
     
-    cat!.category_as_first_argument := true;
     cat!.is_computable := false;
     
     cat!.compiler_hints := rec(

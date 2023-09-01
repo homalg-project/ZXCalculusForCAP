@@ -118,8 +118,6 @@ InstallGlobalFunction( CategoryOfZXDiagrams, function ( )
             : is_computable := false
         );
         
-        ZX!.category_as_first_argument := true;
-        
     fi;
     
     SetIsRigidSymmetricClosedMonoidalCategory( ZX, true );
