@@ -53,17 +53,21 @@ if IsPackageMarkedForLoading( "json", "2.1.1" ) then
             elif labels[pos] = "H" then
                 
                 node_vertices.(pos - 1) := rec( annotation := rec( coord := [ 1, - pos ] ),
-                                                data := rec( type := "hadamard" ) );
+                                                data := rec( type := "hadamard",
+                                                             is_edge := false,
+                                                             value := "\\pi" ) );
                 
             elif labels[pos] = "input" then
                 
-                wire_vertices.(pos - 1) := rec( annotation := rec( coord := [ 0, - pos ],
+                wire_vertices.(pos - 1) := rec( annotation := rec( boundary := true,
+                                                                   coord := [ 0, - pos ],
                                                                    input := true,
                                                                    output := false ) );
                 
             elif labels[pos] = "output" then
                 
-                wire_vertices.(pos - 1) := rec( annotation := rec( coord := [ 2, - pos ],
+                wire_vertices.(pos - 1) := rec( annotation := rec( boundary := true,
+                                                                   coord := [ 2, - pos ],
                                                                    input := false,
                                                                    output := true ) );
                 
