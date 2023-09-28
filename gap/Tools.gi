@@ -69,15 +69,13 @@ if IsPackageMarkedForLoading( "json", "2.1.1" ) then
         
         undir_edges := rec( );
         
-        edge_counter := 0;
-        
-        for edge in edges do
+        for edge_counter in [ 1 .. Length( edges ) ] do
+            
+            edge := edges[edge_counter];
             
             edge_name := Concatenation( "e", String( edge_counter ) );
             
             undir_edges.(edge_name) := rec( src := String( edge[1] ), tgt := String( edge[2] ) );
-            
-            edge_counter := edge_counter + 1;
             
         od;
         
