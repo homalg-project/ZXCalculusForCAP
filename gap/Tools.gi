@@ -25,44 +25,44 @@ if IsPackageMarkedForLoading( "json", "2.1.1" ) then
         # for a rough overview of the qgraph format.
         
         for pos in [ 1 .. Length( labels ) ] do
-        
-            if labels[pos] = "X" then
             
+            if labels[pos] = "X" then
+                
                 node_vertices.(pos - 1) := rec( annotation := rec( coord := [ 0, 0 ] ),
                                                 data := rec( type := "X" ) );
-            
+                
             elif labels[pos] = "Z" then
-            
+                
                 node_vertices.(pos - 1) := rec( annotation := rec( coord := [ 0, 0 ] ),
                                                 data := rec( type := "Z" ) );
-            
+                
             elif labels[pos] = "H" then
-            
+                
                 node_vertices.(pos - 1) := rec( annotation := rec( coord := [ 0, 0 ] ),
                                                 data := rec( type := "hadamard" ) );
-            
+                
             elif labels[pos] = "input" then
-            
+                
                 wire_vertices.(pos - 1) := rec( annotation := rec( coord := [ 0, 0 ],
                                                                    input := true,
                                                                    output := false ) );
-            
+                
             elif labels[pos] = "output" then
-            
+                
                 wire_vertices.(pos - 1) := rec( annotation := rec( coord := [ 0, 0 ],
                                                                    input := false,
                                                                    output := true ) );
-            
+                
             elif labels[pos] = "input_output" then
-            
+                
                 wire_vertices.(pos - 1) := rec( annotation := rec( coord := [ 0, 0 ],
                                                                    input := true,
                                                                    output := true ) );
-            
+                
             else
-            
+                
                 Error( "Unknown label." );
-            
+                
             fi;
             
         od;
@@ -72,13 +72,13 @@ if IsPackageMarkedForLoading( "json", "2.1.1" ) then
         edge_counter := 0;
         
         for edge in edges do
-        
+            
             edge_name := Concatenation( "e", String( edge_counter ) );
             
             undir_edges.(edge_name) := rec( src := String( edge[1] ), tgt := String( edge[2] ) );
             
             edge_counter := edge_counter + 1;
-        
+            
         od;
         
         qgraph := rec( wire_vertices := wire_vertices,
@@ -90,5 +90,5 @@ if IsPackageMarkedForLoading( "json", "2.1.1" ) then
         FileString( Concatenation( filename, ".qgraph" ), qgraph );
         
     end );
-
+    
 fi;
