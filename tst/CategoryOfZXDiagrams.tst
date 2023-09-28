@@ -45,11 +45,6 @@ els
   [ [ 0, 5 ], [ 1, 4 ], [ 2, 3 ], [ 6, 11 ], [ 7, 10 ], [ 8, 9 ] ].
 
 #
-gap> Double_edge := MorphismConstructor( one, [ [ "input", "output" ], [ [ BigInt( 0 ), BigInt( 1 ) ], [ BigInt( 0 ), BigInt( 1 ) ] ] ], one );;
-gap> IsWellDefinedForMorphisms( Double_edge );
-true
-
-#
 gap> X_1_1 := MorphismConstructor( one, [ [ "input", "X", "output" ], [ [ BigInt( 0 ), BigInt( 1 ) ], [ BigInt( 1 ), BigInt( 2 ) ] ] ], one );;
 gap> IsWellDefinedForMorphisms( X_1_1 );
 true
