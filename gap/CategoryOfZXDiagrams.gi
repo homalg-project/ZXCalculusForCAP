@@ -92,113 +92,7 @@ CapJitAddTypeSignature( "ZX_IntegerToLabel", [ IsBigInt, IsList, IsList, IsBigIn
     
 end );
 
-BindGlobal( "S_ZX_EDGES", Immutable( [ [ 0, 0 ], [ 0, 1 ], [ 1, 0 ], [ 0, 2 ], [ 2, 0 ], [ 0, 3 ], [ 3, 0 ] ] ) );
-
-InstallGlobalFunction( CategoryOfZXDiagrams, function ( )
-  local ZX;
-    
-    if ValueOption( "no_precompiled_code" ) = true then
-        
-        if IsPackageMarkedForLoading( "FunctorCategories", ">= 2023.07-01" ) then
-            
-            ZX := CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers( : FinalizeCategory := false );
-            
-        else
-            
-            Error( "To get a version of `CategoryOfZXDiagrams` without precompiled code, the package `FunctorCategories` is required." );
-            
-        fi;
-        
-    else
-        
-        ZX := CreateCapCategoryWithDataTypes(
-            "Category of ZX-diagrams", IsCategoryOfZXDiagrams,
-            IsZXDiagramObject, IsZXDiagramMorphism, IsCapCategoryTwoCell,
-            IsBigInt, CapJitDataTypeOfNTupleOf( 2, CapJitDataTypeOfListOf( IsStringRep ), CapJitDataTypeOfListOf( CapJitDataTypeOfNTupleOf( 2, IsBigInt, IsBigInt ) ) ), fail
-            : is_computable := false
-        );
-        
-    fi;
-    
-    SetIsRigidSymmetricClosedMonoidalCategory( ZX, true );
-    
-    ##
-    AddDualOnObjects( ZX, function ( cat, obj )
-        
-        return obj;
-        
-    end );
-    
-    ##
-    AddEvaluationForDualWithGivenTensorProduct( ZX, function ( cat, source, obj, range )
-      local pair;
-        
-        #% CAP_JIT_DROP_NEXT_STATEMENT
-        Assert( 0, AsInteger( source ) = 2 * AsInteger( obj ) );
-        #% CAP_JIT_DROP_NEXT_STATEMENT
-        Assert( 0, AsInteger( range ) = 0 );
-        
-        pair := Pair( ListWithIdenticalEntries( AsInteger( source ), "input" ), List( [ 0 .. AsInteger( obj ) - 1 ], i -> [ i, AsInteger( source ) - 1 - i ] ) );
-        
-        return MorphismConstructor( cat, source, pair, range );
-        
-    end );
-    
-    ##
-    AddCoevaluationForDualWithGivenTensorProduct( ZX, function ( cat, source, obj, range )
-      local pair;
-        
-        #% CAP_JIT_DROP_NEXT_STATEMENT
-        Assert( 0, AsInteger( source ) = 0 );
-        #% CAP_JIT_DROP_NEXT_STATEMENT
-        Assert( 0, AsInteger( range ) = 2 * AsInteger( obj ) );
-        
-        pair := Pair( ListWithIdenticalEntries( AsInteger( range ), "output" ), List( [ 0 .. AsInteger( obj ) - 1 ], i -> [ i, AsInteger( range ) - 1 - i ] ) );
-        
-        return MorphismConstructor( cat, source, pair, range );
-        
-    end );
-    
-    if ValueOption( "no_precompiled_code" ) <> true then
-        
-        ADD_FUNCTIONS_FOR_CategoryOfZXDiagrams_precompiled( ZX );
-        
-    fi;
-    
-    Finalize( ZX );
-    
-    return ZX;
-    
-end );
-
-##
-InstallMethod( ViewString,
-        "for an object in a category of ZX-diagrams",
-        [ IsZXDiagramObject ],
-        
-  function ( obj )
-    
-    return Concatenation( "<An object in ", Name( CapCategory( obj ) ), " representing ", String( AsInteger( obj ) ), " input/output vertices>" );
-    
-end );
-
-##
-InstallMethod( DisplayString,
-        "for an object in a category of ZX-diagrams",
-        [ IsZXDiagramObject ],
-        
-  function ( obj )
-    
-    return Concatenation( "An object in ", Name( CapCategory( obj ) ), " representing ", String( AsInteger( obj ) ), " input/output vertices.\n" );
-    
-end );
-
-##
-InstallMethod( DisplayString,
-        "for a morphism in a category of ZX-diagrams",
-        [ IsZXDiagramMorphism ],
-        
-  function ( phi )
+BindGlobal( "ZX_RemoveNeutralNodes", function ( phi )
     local pair, labels, edges, pos, edge_positions, new_edge, edge_1, edge_2, remaining_indices;
     
     pair := MorphismDatum( phi );
@@ -309,6 +203,123 @@ InstallMethod( DisplayString,
         end );
         
     od;
+    
+    return [ labels, edges ];
+    
+end );
+
+BindGlobal( "S_ZX_EDGES", Immutable( [ [ 0, 0 ], [ 0, 1 ], [ 1, 0 ], [ 0, 2 ], [ 2, 0 ], [ 0, 3 ], [ 3, 0 ] ] ) );
+
+InstallGlobalFunction( CategoryOfZXDiagrams, function ( )
+  local ZX;
+    
+    if ValueOption( "no_precompiled_code" ) = true then
+        
+        if IsPackageMarkedForLoading( "FunctorCategories", ">= 2023.07-01" ) then
+            
+            ZX := CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers( : FinalizeCategory := false );
+            
+        else
+            
+            Error( "To get a version of `CategoryOfZXDiagrams` without precompiled code, the package `FunctorCategories` is required." );
+            
+        fi;
+        
+    else
+        
+        ZX := CreateCapCategoryWithDataTypes(
+            "Category of ZX-diagrams", IsCategoryOfZXDiagrams,
+            IsZXDiagramObject, IsZXDiagramMorphism, IsCapCategoryTwoCell,
+            IsBigInt, CapJitDataTypeOfNTupleOf( 2, CapJitDataTypeOfListOf( IsStringRep ), CapJitDataTypeOfListOf( CapJitDataTypeOfNTupleOf( 2, IsBigInt, IsBigInt ) ) ), fail
+            : is_computable := false
+        );
+        
+    fi;
+    
+    SetIsRigidSymmetricClosedMonoidalCategory( ZX, true );
+    
+    ##
+    AddDualOnObjects( ZX, function ( cat, obj )
+        
+        return obj;
+        
+    end );
+    
+    ##
+    AddEvaluationForDualWithGivenTensorProduct( ZX, function ( cat, source, obj, range )
+      local pair;
+        
+        #% CAP_JIT_DROP_NEXT_STATEMENT
+        Assert( 0, AsInteger( source ) = 2 * AsInteger( obj ) );
+        #% CAP_JIT_DROP_NEXT_STATEMENT
+        Assert( 0, AsInteger( range ) = 0 );
+        
+        pair := Pair( ListWithIdenticalEntries( AsInteger( source ), "input" ), List( [ 0 .. AsInteger( obj ) - 1 ], i -> [ i, AsInteger( source ) - 1 - i ] ) );
+        
+        return MorphismConstructor( cat, source, pair, range );
+        
+    end );
+    
+    ##
+    AddCoevaluationForDualWithGivenTensorProduct( ZX, function ( cat, source, obj, range )
+      local pair;
+        
+        #% CAP_JIT_DROP_NEXT_STATEMENT
+        Assert( 0, AsInteger( source ) = 0 );
+        #% CAP_JIT_DROP_NEXT_STATEMENT
+        Assert( 0, AsInteger( range ) = 2 * AsInteger( obj ) );
+        
+        pair := Pair( ListWithIdenticalEntries( AsInteger( range ), "output" ), List( [ 0 .. AsInteger( obj ) - 1 ], i -> [ i, AsInteger( range ) - 1 - i ] ) );
+        
+        return MorphismConstructor( cat, source, pair, range );
+        
+    end );
+    
+    if ValueOption( "no_precompiled_code" ) <> true then
+        
+        ADD_FUNCTIONS_FOR_CategoryOfZXDiagrams_precompiled( ZX );
+        
+    fi;
+    
+    Finalize( ZX );
+    
+    return ZX;
+    
+end );
+
+##
+InstallMethod( ViewString,
+        "for an object in a category of ZX-diagrams",
+        [ IsZXDiagramObject ],
+        
+  function ( obj )
+    
+    return Concatenation( "<An object in ", Name( CapCategory( obj ) ), " representing ", String( AsInteger( obj ) ), " input/output vertices>" );
+    
+end );
+
+##
+InstallMethod( DisplayString,
+        "for an object in a category of ZX-diagrams",
+        [ IsZXDiagramObject ],
+        
+  function ( obj )
+    
+    return Concatenation( "An object in ", Name( CapCategory( obj ) ), " representing ", String( AsInteger( obj ) ), " input/output vertices.\n" );
+    
+end );
+
+##
+InstallMethod( DisplayString,
+        "for a morphism in a category of ZX-diagrams",
+        [ IsZXDiagramMorphism ],
+        
+  function ( phi )
+    local phi_without_neutral_nodes, labels, edges;
+    
+    phi_without_neutral_nodes := ZX_RemoveNeutralNodes( phi );
+    labels := phi_without_neutral_nodes[1];
+    edges := phi_without_neutral_nodes[2];
     
     return Concatenation(
         "A morphism in ", Name( CapCategory( phi ) ), " given by a ZX diagram with ", String( Length( labels ) ), " vertex labels\n",

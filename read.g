@@ -10,6 +10,8 @@ ReadPackage( "ZXCalculusForCAP", "gap/precompiled_categories/CategoryOfZXDiagram
 
 ReadPackage( "ZXCalculusForCAP", "gap/CategoryOfZXDiagrams.gi" );
 
+ReadPackage( "ZXCalculusForCAP", "gap/Tools.gi" );
+
 #= comment for Julia
 if IsPackageMarkedForLoading( "FunctorCategories", ">= 2023.07-01" ) then
     

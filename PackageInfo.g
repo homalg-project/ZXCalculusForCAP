@@ -75,6 +75,7 @@ Dependencies := rec(
   ],
   SuggestedOtherPackages := [
       [ "FunctorCategories", ">= 2023.07-01" ], # CategoryOfDecoratedQuivers
+      [ "json", "2.1.1" ], # Exporting to JSON
   ],
   ExternalConditions := [ ],
 ),

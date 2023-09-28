@@ -50,6 +50,7 @@ CapJitAddTypeSignature( "VertexLabeledGraph", [ IsZXDiagramMorphism ], CapJitDat
 # helpers
 DeclareGlobalName( "ZX_LabelToInteger" );
 DeclareGlobalName( "ZX_IntegerToLabel" );
+DeclareGlobalName( "ZX_RemoveNeutralNodes" );
 DeclareGlobalName( "S_ZX_EDGES" );
 
 DeclareGlobalFunction( "SKELETAL_FIN_SETS_ExplicitCoequalizer_primitive_input" );
