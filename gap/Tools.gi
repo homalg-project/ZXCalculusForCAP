@@ -73,7 +73,7 @@ if IsPackageMarkedForLoading( "json", "2.1.1" ) then
             
             edge := edges[edge_counter];
             
-            edge_name := Concatenation( "e", String( edge_counter ) );
+            edge_name := Concatenation( "e", String( edge_counter - 1 ) );
             
             undir_edges.(edge_name) := rec( src := String( edge[1] ), tgt := String( edge[2] ) );
             
