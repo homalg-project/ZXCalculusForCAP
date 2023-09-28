@@ -15,8 +15,22 @@ if IsPackageMarkedForLoading( "json", "2.1.1" ) then
         
         phi_without_neutral_nodes := ZX_RemoveNeutralNodes( phi );
         
-        labels := phi_without_neutral_nodes[1];
-        edges := phi_without_neutral_nodes[2];
+        labels := ShallowCopy( phi_without_neutral_nodes[1] );
+        edges := ShallowCopy( phi_without_neutral_nodes[2] );
+        
+        # nodes which are simultaneously inputs and outputs are not supported by PyZX
+        # split input_output nodes into an input and an output node connected by an edge
+        for pos in [ 1 .. Length( labels ) ] do
+            
+            if labels[pos] = "input_output" then
+                
+                labels[pos] := "input";
+                Add( labels, "output" );
+                Add( edges, [ pos - 1, Length( labels ) - 1 ] );
+                
+            fi;
+            
+        od;
         
         wire_vertices := rec( );
         node_vertices := rec( );
@@ -28,35 +42,29 @@ if IsPackageMarkedForLoading( "json", "2.1.1" ) then
             
             if labels[pos] = "Z" then
                 
-                node_vertices.(pos - 1) := rec( annotation := rec( coord := [ 0, 0 ] ),
+                node_vertices.(pos - 1) := rec( annotation := rec( coord := [ 1, - pos ] ),
                                                 data := rec( type := "Z" ) );
                 
             elif labels[pos] = "X" then
                 
-                node_vertices.(pos - 1) := rec( annotation := rec( coord := [ 0, 0 ] ),
+                node_vertices.(pos - 1) := rec( annotation := rec( coord := [ 1, - pos ] ),
                                                 data := rec( type := "X" ) );
                 
             elif labels[pos] = "H" then
                 
-                node_vertices.(pos - 1) := rec( annotation := rec( coord := [ 0, 0 ] ),
+                node_vertices.(pos - 1) := rec( annotation := rec( coord := [ 1, - pos ] ),
                                                 data := rec( type := "hadamard" ) );
                 
             elif labels[pos] = "input" then
                 
-                wire_vertices.(pos - 1) := rec( annotation := rec( coord := [ 0, 0 ],
+                wire_vertices.(pos - 1) := rec( annotation := rec( coord := [ 0, - pos ],
                                                                    input := true,
                                                                    output := false ) );
                 
             elif labels[pos] = "output" then
                 
-                wire_vertices.(pos - 1) := rec( annotation := rec( coord := [ 0, 0 ],
+                wire_vertices.(pos - 1) := rec( annotation := rec( coord := [ 2, - pos ],
                                                                    input := false,
-                                                                   output := true ) );
-                
-            elif labels[pos] = "input_output" then
-                
-                wire_vertices.(pos - 1) := rec( annotation := rec( coord := [ 0, 0 ],
-                                                                   input := true,
                                                                    output := true ) );
                 
             else
