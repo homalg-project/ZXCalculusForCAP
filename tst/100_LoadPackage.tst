@@ -13,6 +13,8 @@ gap> LoadPackage( "FreydCategoriesForCAP", false );
 true
 gap> LoadPackage( "FunctorCategories", false );
 true
+gap> LoadPackage( "json", false );
+true
 gap> LoadPackage( "ZXCalculusForCAP", false );
 true
 gap> SetInfoLevel( InfoPackageLoading, PACKAGE_INFO );;
@@ -21,6 +23,8 @@ true
 gap> LoadPackage( "FreydCategoriesForCAP" );
 true
 gap> LoadPackage( "FunctorCategories" );
+true
+gap> LoadPackage( "json" );
 true
 gap> LoadPackage( "ZXCalculusForCAP" );
 true

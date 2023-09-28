@@ -60,4 +60,14 @@ gap> IsWellDefinedForMorphisms( H );
 true
 
 #
+gap> X_1_2 := MorphismConstructor( one, [ [ "input", "X", "output", "output" ], [ [ BigInt( 0 ), BigInt( 1 ) ], [ BigInt( 1 ), BigInt( 2 ) ], [ BigInt( 1 ), BigInt( 3 ) ] ] ], two );;
+gap> IsWellDefinedForMorphisms( X_1_2 );
+true
+
+#
+gap> Z_2_1 := MorphismConstructor( two, [ [ "input", "input", "Z", "output" ], [ [ BigInt( 0 ), BigInt( 2 ) ], [ BigInt( 1 ), BigInt( 2 ) ], [ BigInt( 2 ), BigInt( 3 ) ] ] ], one );;
+gap> IsWellDefinedForMorphisms( Z_2_1 );
+true
+
+#
 gap> STOP_TEST( "CategoryOfZXDiagrams" );
