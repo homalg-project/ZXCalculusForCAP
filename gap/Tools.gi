@@ -26,15 +26,15 @@ if IsPackageMarkedForLoading( "json", "2.1.1" ) then
         
         for pos in [ 1 .. Length( labels ) ] do
             
-            if labels[pos] = "X" then
-                
-                node_vertices.(pos - 1) := rec( annotation := rec( coord := [ 0, 0 ] ),
-                                                data := rec( type := "X" ) );
-                
-            elif labels[pos] = "Z" then
+            if labels[pos] = "Z" then
                 
                 node_vertices.(pos - 1) := rec( annotation := rec( coord := [ 0, 0 ] ),
                                                 data := rec( type := "Z" ) );
+                
+            elif labels[pos] = "X" then
+                
+                node_vertices.(pos - 1) := rec( annotation := rec( coord := [ 0, 0 ] ),
+                                                data := rec( type := "X" ) );
                 
             elif labels[pos] = "H" then
                 
