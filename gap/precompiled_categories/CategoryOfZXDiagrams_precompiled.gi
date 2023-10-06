@@ -217,7 +217,7 @@ function ( cat_1, arg2_1, arg3_1 )
     deduped_3_1 := BigInt( 0 );
     deduped_2_1 := AsInteger( arg3_1 );
     deduped_1_1 := AsInteger( arg2_1 );
-    return deduped_1_1 = deduped_2_1 and true and (true and true) and (ListWithIdenticalEntries( deduped_1_1, deduped_3_1 ) = ListWithIdenticalEntries( deduped_2_1, deduped_3_1 ) and true);
+    return deduped_1_1 = deduped_2_1 and true and true and (ListWithIdenticalEntries( deduped_1_1, deduped_3_1 ) = ListWithIdenticalEntries( deduped_2_1, deduped_3_1 ) and true);
 end
 ########
         
@@ -228,14 +228,8 @@ end
         
 ########
 function ( cat_1, arg2_1 )
-    local hoisted_1_1, deduped_2_1, deduped_4_1, hoisted_5_1, deduped_7_1, deduped_8_1, deduped_9_1, deduped_10_1, deduped_11_1, deduped_12_1, deduped_13_1, deduped_14_1, deduped_15_1, deduped_16_1, deduped_17_1, deduped_18_1, deduped_19_1, deduped_20_1, deduped_21_1;
-    deduped_21_1 := true and true;
-    deduped_20_1 := BigInt( 0 );
-    deduped_19_1 := deduped_21_1 and true;
-    deduped_18_1 := deduped_21_1 and deduped_21_1;
-    deduped_17_1 := deduped_19_1 and deduped_19_1;
-    deduped_16_1 := deduped_18_1 and deduped_18_1;
-    deduped_15_1 := deduped_18_1 and deduped_21_1;
+    local hoisted_1_1, deduped_2_1, deduped_4_1, hoisted_5_1, deduped_7_1, deduped_8_1, deduped_9_1, deduped_10_1, deduped_11_1, deduped_12_1, deduped_13_1, deduped_14_1, deduped_15_1;
+    deduped_15_1 := BigInt( 0 );
     deduped_14_1 := AsInteger( Range( arg2_1 ) );
     deduped_13_1 := AsInteger( Source( arg2_1 ) );
     deduped_12_1 := VertexLabeledGraph( arg2_1 )[1];
@@ -249,7 +243,7 @@ function ( cat_1, arg2_1 )
         end );
     if not true then
         deduped_9_1 := false;
-    elif deduped_20_1 <> 0 then
+    elif deduped_15_1 <> 0 then
         deduped_9_1 := false;
     else
         deduped_9_1 := true;
@@ -262,39 +256,39 @@ function ( cat_1, arg2_1 )
         end );
     deduped_4_1 := List( deduped_12_1, ZX_LabelToInteger );
     deduped_2_1 := Length( deduped_12_1 );
-    return deduped_15_1 and deduped_15_1 and deduped_15_1 and (deduped_16_1 and (IdFunc( function (  )
-                          if not ForAll( deduped_7_1, function ( a_3 )
-                                       return (IsBigInt( a_3 ) and a_3 >= 0);
-                                   end ) then
-                              return false;
-                          elif deduped_13_1 <> Length( deduped_10_1 ) then
-                              return false;
-                          elif not ForAll( deduped_7_1, function ( a_3 )
-                                       return a_3 < deduped_2_1;
-                                   end ) then
-                              return false;
-                          else
-                              return true;
-                          fi;
-                          return;
-                      end )(  ) and deduped_9_1 and deduped_17_1) and (ListWithIdenticalEntries( deduped_13_1, deduped_20_1 ) = List( [ 0 .. deduped_13_1 - 1 ], function ( i_2 )
-                      return deduped_4_1[1 + deduped_7_1[(1 + i_2)]];
-                  end ) and true)) and (deduped_16_1 and (IdFunc( function (  )
-                        if not ForAll( deduped_8_1, function ( a_3 )
-                                     return (IsBigInt( a_3 ) and a_3 >= 0);
-                                 end ) then
-                            return false;
-                        elif deduped_14_1 <> Length( deduped_11_1 ) then
-                            return false;
-                        elif not ForAll( deduped_8_1, function ( a_3 )
-                                     return a_3 < deduped_2_1;
-                                 end ) then
-                            return false;
-                        else
-                            return true;
-                        fi;
-                        return;
-                    end )(  ) and deduped_9_1 and deduped_17_1) and (ListWithIdenticalEntries( deduped_14_1, deduped_20_1 ) = List( [ 0 .. deduped_14_1 - 1 ], function ( i_2 )
+    return IdFunc( function (  )
+                      if not ForAll( deduped_7_1, function ( a_3 )
+                                   return (IsBigInt( a_3 ) and a_3 >= 0);
+                               end ) then
+                          return false;
+                      elif deduped_13_1 <> Length( deduped_10_1 ) then
+                          return false;
+                      elif not ForAll( deduped_7_1, function ( a_3 )
+                                   return a_3 < deduped_2_1;
+                               end ) then
+                          return false;
+                      else
+                          return true;
+                      fi;
+                      return;
+                  end )(  ) and deduped_9_1 and true and (ListWithIdenticalEntries( deduped_13_1, deduped_15_1 ) = List( [ 0 .. deduped_13_1 - 1 ], function ( i_2 )
+                    return deduped_4_1[1 + deduped_7_1[(1 + i_2)]];
+                end ) and true) and (IdFunc( function (  )
+                      if not ForAll( deduped_8_1, function ( a_3 )
+                                   return (IsBigInt( a_3 ) and a_3 >= 0);
+                               end ) then
+                          return false;
+                      elif deduped_14_1 <> Length( deduped_11_1 ) then
+                          return false;
+                      elif not ForAll( deduped_8_1, function ( a_3 )
+                                   return a_3 < deduped_2_1;
+                               end ) then
+                          return false;
+                      else
+                          return true;
+                      fi;
+                      return;
+                  end )(  ) and deduped_9_1 and true and (ListWithIdenticalEntries( deduped_14_1, deduped_15_1 ) = List( [ 0 .. deduped_14_1 - 1 ], function ( i_2 )
                     return deduped_4_1[1 + deduped_8_1[(1 + i_2)]];
                 end ) and true));
 end
@@ -307,37 +301,35 @@ end
         
 ########
 function ( cat_1, arg2_1 )
-    local deduped_1_1, deduped_2_1, deduped_3_1, deduped_4_1, deduped_5_1;
-    deduped_5_1 := true and true;
-    deduped_4_1 := BigInt( 0 );
-    deduped_3_1 := AsInteger( arg2_1 );
-    deduped_2_1 := deduped_5_1 and true;
-    deduped_1_1 := ListWithIdenticalEntries( deduped_3_1, deduped_4_1 );
-    return deduped_5_1 and deduped_5_1 and (IdFunc( function (  )
-                    if not ForAll( deduped_1_1, function ( a_3 )
-                                 return (IsBigInt( a_3 ) and a_3 >= 0);
-                             end ) then
-                        return false;
-                    elif deduped_3_1 <> deduped_3_1 then
-                        return false;
-                    elif not ForAll( deduped_1_1, function ( a_3 )
-                                 return a_3 < 4;
-                             end ) then
-                        return false;
-                    else
-                        return true;
-                    fi;
-                    return;
-                end )(  ) and IdFunc( function (  )
-                    if not true then
-                        return false;
-                    elif deduped_4_1 <> 0 then
-                        return false;
-                    else
-                        return true;
-                    fi;
-                    return;
-                end )(  ) and (deduped_2_1 and deduped_2_1));
+    local deduped_1_1, deduped_2_1, deduped_3_1;
+    deduped_3_1 := BigInt( 0 );
+    deduped_2_1 := AsInteger( arg2_1 );
+    deduped_1_1 := ListWithIdenticalEntries( deduped_2_1, deduped_3_1 );
+    return IdFunc( function (  )
+                  if not ForAll( deduped_1_1, function ( a_3 )
+                               return (IsBigInt( a_3 ) and a_3 >= 0);
+                           end ) then
+                      return false;
+                  elif deduped_2_1 <> deduped_2_1 then
+                      return false;
+                  elif not ForAll( deduped_1_1, function ( a_3 )
+                               return a_3 < 4;
+                           end ) then
+                      return false;
+                  else
+                      return true;
+                  fi;
+                  return;
+              end )(  ) and IdFunc( function (  )
+                  if not true then
+                      return false;
+                  elif deduped_3_1 <> 0 then
+                      return false;
+                  else
+                      return true;
+                  fi;
+                  return;
+              end )(  ) and true;
 end
 ########
         
