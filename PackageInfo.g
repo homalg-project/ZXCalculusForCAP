@@ -10,8 +10,8 @@ SetPackageInfo( rec(
 
 PackageName := "ZXCalculusForCAP",
 Subtitle := "The category of ZX-diagrams",
-Version := "2023.08-01",
-Date := "2023-09-01",
+Version := "2023.10-01",
+Date := "2023-10-06",
 License := "GPL-2.0-or-later",
 
 Persons := [
@@ -75,6 +75,7 @@ Dependencies := rec(
   ],
   SuggestedOtherPackages := [
       [ "FunctorCategories", ">= 2023.07-01" ], # CategoryOfDecoratedQuivers
+      [ "json", "2.1.1" ], # Exporting to JSON
   ],
   ExternalConditions := [ ],
 ),
