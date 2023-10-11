@@ -1,5 +1,5 @@
 name: ZXCalculusForCAP
-version: "2023.10-02"
+version: "2023.10-03"
 license: "GPL-2.0-or-later"
 date: 2023-10-11
 description: |
@@ -40,11 +40,11 @@ packageinfo: https://homalg-project.github.io/ZXCalculusForCAP/PackageInfo.g
 
 downloads:
     - name: .tar.gz
-      url: https://github.com/homalg-project/ZXCalculusForCAP/releases/download/v2023.10-02/ZXCalculusForCAP-2023.10-02.tar.gz
+      url: https://github.com/homalg-project/ZXCalculusForCAP/releases/download/v2023.10-03/ZXCalculusForCAP-2023.10-03.tar.gz
     - name: .zip
-      url: https://github.com/homalg-project/ZXCalculusForCAP/releases/download/v2023.10-02/ZXCalculusForCAP-2023.10-02.zip
+      url: https://github.com/homalg-project/ZXCalculusForCAP/releases/download/v2023.10-03/ZXCalculusForCAP-2023.10-03.zip
 
-pdf: https://github.com/homalg-project/ZXCalculusForCAP/releases/download/v2023.10-02/ZXCalculusForCAP-2023.10-02-manual.pdf
+pdf: https://github.com/homalg-project/ZXCalculusForCAP/releases/download/v2023.10-03/ZXCalculusForCAP-2023.10-03-manual.pdf
 
 abstract: |
 
@@ -55,7 +55,7 @@ citeas: |
     <p class='BibEntry'>
     [<span class='BibKey'>Zic11</span>]   <b class='BibAuthor'>Zickgraf, F.</b>,
      <i class='BibTitle'>ZXCalculusForCAP, The category of ZX-diagrams,
-             Version 2023.10-02</i>
+             Version 2023.10-03</i>
      (<span class='BibYear'>0-11</span>)<br />
     (<span class='BibNote'>GAP package</span>),
     <span class='BibHowpublished'><a href="https://homalg-project.github.io/pkg/ZXCalculusForCAP">https://homalg-project.github.io/pkg/ZXCalculusForCAP</a></span>.
@@ -63,10 +63,10 @@ citeas: |
     
 
 bibtex: |
-    @misc{ ZXCalculusForCAP2023.10-02,
+    @misc{ ZXCalculusForCAP2023.10-03,
       author =           {Zickgraf, F.},
       title =            {{ZXCalculusForCAP},   The   category  of  ZX-diagrams,
-                          {V}ersion 2023.10-02},
+                          {V}ersion 2023.10-03},
       month =            {3-},
       year =             {0-11},
       note =             {GAP package},
