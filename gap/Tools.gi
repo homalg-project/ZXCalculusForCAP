@@ -54,7 +54,8 @@ if IsPackageMarkedForLoading( "json", "2.1.1" ) then
                 
                 node_vertices.(pos - 1) := rec( annotation := rec( coord := [ 1, - pos ] ),
                                                 data := rec( type := "hadamard",
-                                                             is_edge := false,
+                                                             # always use Hadamard edges to work around https://github.com/Quantomatic/pyzx/issues/161
+                                                             is_edge := "true",
                                                              value := "\\pi" ) );
                 
             elif labels[pos] = "input" then
