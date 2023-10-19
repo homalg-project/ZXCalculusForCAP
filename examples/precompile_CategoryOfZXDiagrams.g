@@ -48,6 +48,24 @@ CapJitAddLogicTemplate(
 ##
 CapJitAddLogicTemplate(
     rec(
+        variable_names := [ ],
+        src_template := "ZX_IntegerToLabel( BigInt( 0 ) )",
+        dst_template := "\"neutral\"",
+    )
+);
+
+##
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "label" ],
+        src_template := "ZX_IntegerToLabel( ZX_LabelToInteger( label ) )",
+        dst_template := "label",
+    )
+);
+
+##
+CapJitAddLogicTemplate(
+    rec(
         variable_names := [ "func" ],
         src_template := "ForAll( [ ], func )",
         dst_template := "true",

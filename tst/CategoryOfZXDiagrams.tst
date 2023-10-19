@@ -33,39 +33,46 @@ gap> PreCompose( IdentityMorphism( zero ), coev );;
 gap> Display( PreCompose( coev, ev ) );
 A morphism in Category of ZX-diagrams given by a ZX diagram with 0 vertex labe\
 ls
-  [ ]
+  [ ],
+  inputs
+  [ ],
+  outputs
+  [ ],
   and 0 edges
   [ ].
 gap> Display( PreCompose( ev, coev ) );
-A morphism in Category of ZX-diagrams given by a ZX diagram with 12 vertex lab\
-els
-  [ "input", "input", "input", "input", "input", "input", "output", "output", \
-"output", "output", "output", "output" ]
-  and 6 edges
-  [ [ 0, 5 ], [ 1, 4 ], [ 2, 3 ], [ 6, 11 ], [ 7, 10 ], [ 8, 9 ] ].
+A morphism in Category of ZX-diagrams given by a ZX diagram with 6 vertex labe\
+ls
+  [ "neutral", "neutral", "neutral", "neutral", "neutral", "neutral" ],
+  inputs
+  [ 0, 1, 2, 2, 1, 0 ],
+  outputs
+  [ 3, 4, 5, 5, 4, 3 ],
+  and 0 edges
+  [ ].
 
 #
-gap> X_1_1 := MorphismConstructor( one, [ [ "input", "X", "output" ], [ [ BigInt( 0 ), BigInt( 1 ) ], [ BigInt( 1 ), BigInt( 2 ) ] ] ], one );;
+gap> X_1_1 := MorphismConstructor( one, [ [ "neutral", "X", "neutral" ], [ BigInt( 0 ) ], [ BigInt( 2 ) ], [ [ BigInt( 0 ), BigInt( 1 ) ], [ BigInt( 1 ), BigInt( 2 ) ] ] ], one );;
 gap> IsWellDefinedForMorphisms( X_1_1 );
 true
 
 #
-gap> Z_1_1 := MorphismConstructor( one, [ [ "input", "Z", "output" ], [ [ BigInt( 0 ), BigInt( 1 ) ], [ BigInt( 1 ), BigInt( 2 ) ] ] ], one );;
+gap> Z_1_1 := MorphismConstructor( one, [ [ "neutral", "Z", "neutral" ], [ BigInt( 0 ) ], [ BigInt( 2 ) ], [ [ BigInt( 0 ), BigInt( 1 ) ], [ BigInt( 1 ), BigInt( 2 ) ] ] ], one );;
 gap> IsWellDefinedForMorphisms( Z_1_1 );
 true
 
 #
-gap> H := MorphismConstructor( one, [ [ "input", "H", "output" ], [ [ BigInt( 0 ), BigInt( 1 ) ], [ BigInt( 1 ), BigInt( 2 ) ] ] ], one );;
+gap> H := MorphismConstructor( one, [ [ "neutral", "H", "neutral" ], [ BigInt( 0 ) ], [ BigInt( 2 ) ], [ [ BigInt( 0 ), BigInt( 1 ) ], [ BigInt( 1 ), BigInt( 2 ) ] ] ], one );;
 gap> IsWellDefinedForMorphisms( H );
 true
 
 #
-gap> X_1_2 := MorphismConstructor( one, [ [ "input", "X", "output", "output" ], [ [ BigInt( 0 ), BigInt( 1 ) ], [ BigInt( 1 ), BigInt( 2 ) ], [ BigInt( 1 ), BigInt( 3 ) ] ] ], two );;
+gap> X_1_2 := MorphismConstructor( one, [ [ "neutral", "X", "neutral", "neutral" ], [ BigInt( 0 ) ], [ BigInt( 2 ), BigInt( 3 ) ], [ [ BigInt( 0 ), BigInt( 1 ) ], [ BigInt( 1 ), BigInt( 2 ) ], [ BigInt( 1 ), BigInt( 3 ) ] ] ], two );;
 gap> IsWellDefinedForMorphisms( X_1_2 );
 true
 
 #
-gap> Z_2_1 := MorphismConstructor( two, [ [ "input", "input", "Z", "output" ], [ [ BigInt( 0 ), BigInt( 2 ) ], [ BigInt( 1 ), BigInt( 2 ) ], [ BigInt( 2 ), BigInt( 3 ) ] ] ], one );;
+gap> Z_2_1 := MorphismConstructor( two, [ [ "neutral", "neutral", "Z", "neutral" ], [ BigInt( 0 ), BigInt( 1 ) ], [ BigInt( 3 ) ], [ [ BigInt( 0 ), BigInt( 2 ) ], [ BigInt( 1 ), BigInt( 2 ) ], [ BigInt( 2 ), BigInt( 3 ) ] ] ], one );;
 gap> IsWellDefinedForMorphisms( Z_2_1 );
 true
 
