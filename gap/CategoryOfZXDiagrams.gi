@@ -4,33 +4,30 @@
 # Implementations
 #
 
-# 0: IO
-# 1: green spider = Z, TODO: parametrize
-# 2: red spider = X, TODO: parametrize
+# 0: IO + inner neutral nodes
+# 1: green spider = Z
+# 2: red spider = X
 # 3: Hadamard = H
 
+BindGlobal( "S_ZX_NODES", [ "neutral", "Z", "X", "H" ] );
+BindGlobal( "S_ZX_EDGES", [ [ 0, 1 ], [ 0, 2 ], [ 0, 3 ] ] );
+
 BindGlobal( "ZX_LabelToInteger", function ( label )
+  local pos;
     
-    if label = "neutral" then
+    pos := Position( S_ZX_NODES, label );
+    
+    if pos = fail then
         
-        return BigInt( 0 );
+        Add( S_ZX_NODES, label );
         
-    elif label = "Z" then
+        Add( S_ZX_EDGES, [ 0, Length( S_ZX_NODES ) - 1 ] );
         
-        return BigInt( 1 );
-        
-    elif label = "X" then
-        
-        return BigInt( 2 );
-        
-    elif label = "H" then
-        
-        return BigInt( 3 );
+        return Length( S_ZX_NODES ) - 1;
         
     else
         
-        # COVERAGE_IGNORE_NEXT_LINE
-        Error( "unkown label ", label );
+        return pos - 1;
         
     fi;
     
@@ -40,28 +37,7 @@ CapJitAddTypeSignature( "ZX_LabelToInteger", [ IsStringRep ], IsBigInt );
 
 BindGlobal( "ZX_IntegerToLabel", function ( int )
     
-    if int = BigInt( 0 ) then
-        
-        return "neutral";
-        
-    elif int = BigInt( 1 ) then
-        
-        return "Z";
-        
-    elif int = BigInt( 2 ) then
-        
-        return "X";
-        
-    elif int = BigInt( 3 ) then
-        
-        return "H";
-        
-    else
-        
-        # COVERAGE_IGNORE_NEXT_LINE
-        Error( "unknown integer: ", int );
-        
-    fi;
+    return S_ZX_NODES[int + 1];
     
 end );
 
@@ -224,8 +200,6 @@ BindGlobal( "ZX_RemovedInnerNeutralNodes", function ( tuple )
     return NTuple( 4, labels, input_positions, output_positions, edges );
     
 end );
-
-BindGlobal( "S_ZX_EDGES", Immutable( [ [ 0, 1 ], [ 0, 2 ], [ 0, 3 ] ] ) );
 
 InstallGlobalFunction( CategoryOfZXDiagrams, function ( )
   local ZX;
