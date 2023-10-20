@@ -9,22 +9,78 @@ if IsPackageMarkedForLoading( "json", "2.1.1" ) then
   InstallGlobalFunction( ExportAsQGraph,
     
     function ( phi, filename )
-      local phi_without_neutral_nodes, labels, edges, wire_vertices, node_vertices, vertex_names, padding_length, get_vertex_name, vertex_name, undir_edges, edge, edge_name, src_vertex_name, tgt_vertex_name, qgraph, pos, edge_counter;
+      local tuple, labels, input_positions, output_positions, edges, input_positions_indices, output_positions_indices, wire_vertices, node_vertices, vertex_names, padding_length, get_vertex_name, vertex_name, is_input, is_output, undir_edges, edge, edge_name, src_vertex_name, tgt_vertex_name, qgraph, pos, edge_counter;
         
-        phi_without_neutral_nodes := ZX_RemoveNeutralNodes( phi );
+        tuple := ZX_RemovedInnerNeutralNodes( MorphismDatum( phi ) );
         
-        labels := ShallowCopy( phi_without_neutral_nodes[1] );
-        edges := ShallowCopy( phi_without_neutral_nodes[2] );
+        labels := ShallowCopy( tuple[1] );
+        input_positions := ShallowCopy( tuple[2] );
+        output_positions := ShallowCopy( tuple[3] );
+        edges := ShallowCopy( tuple[4] );
         
-        # nodes which are simultaneously inputs and outputs are not supported by PyZX
-        # split input_output nodes into an input and an output node connected by an edge
+        # nodes which are simultaneously inputs and outputs or multiple inputs or outputs are not supported by PyZX
+        # split such nodes into multiple input or outputs nodes connected by an edge
         for pos in [ 1 .. Length( labels ) ] do
             
-            if labels[pos] = "input_output" then
+            # find input and output indices corresponding to this node
+            input_positions_indices := Positions( input_positions, pos - 1 );
+            output_positions_indices := Positions( output_positions, pos - 1 );
+            
+            if Length( input_positions_indices ) = 0 and Length( output_positions_indices ) = 0 then
                 
-                labels[pos] := "input";
-                Add( labels, "output" );
+                # not an input or output node
+                
+                # inner neutral nodes have been removed above
+                Assert( 0, labels[pos] <> "neutral" );
+                
+                continue;
+                
+            fi;
+            
+            Assert( 0, labels[pos] = "neutral" );
+            
+            if Length( input_positions_indices ) = 1 and Length( output_positions_indices ) = 0 then
+                
+                # normal input node
+                continue;
+                
+            elif Length( input_positions_indices ) = 0 and Length( output_positions_indices ) = 1 then
+                
+                # normal output node
+                continue;
+                
+            elif Length( input_positions_indices ) = 1 and Length( output_positions_indices ) = 1 then
+                
+                # simultaneously an input and an output:
+                # add a new neutral node for the output and an edge between input and output
+                Add( labels, "neutral" );
+                output_positions[output_positions_indices[1]] := Length( labels ) - 1;
                 Add( edges, [ pos - 1, Length( labels ) - 1 ] );
+                
+            elif Length( input_positions_indices ) = 2 and Length( output_positions_indices ) = 0 then
+                
+                # simultaneously two inputs:
+                # add a new neutral node for a separate input and a dummy Z node to connect the two inputs
+                Add( labels, "neutral" );
+                input_positions[input_positions_indices[2]] := Length( labels ) - 1;
+                Add( labels, "Z" );
+                Add( edges, [ input_positions[input_positions_indices[1]], Length( labels ) - 1 ] );
+                Add( edges, [ input_positions[input_positions_indices[2]], Length( labels ) - 1 ] );
+                
+            elif Length( input_positions_indices ) = 0 and Length( output_positions_indices ) = 2 then
+                
+                # simultaneously two outputs:
+                # add a new neutral node for a separate output and a dummy Z node to connect the two outputs
+                Add( labels, "neutral" );
+                output_positions[output_positions_indices[2]] := Length( labels ) - 1;
+                Add( labels, "Z" );
+                Add( edges, [ output_positions[output_positions_indices[1]], Length( labels ) - 1 ] );
+                Add( edges, [ output_positions[output_positions_indices[2]], Length( labels ) - 1 ] );
+                
+            else
+                
+                # COVERAGE_IGNORE_NEXT_LINE
+                Error( "this case should not appear in a well-defined ZX-diagram" );
                 
             fi;
             
@@ -102,35 +158,49 @@ if IsPackageMarkedForLoading( "json", "2.1.1" ) then
                     ),
                 );
                 
-            elif labels[pos] = "input" then
+            elif labels[pos] = "neutral" then
                 
                 vertex_name := get_vertex_name( "b", wire_vertices );
                 
-                wire_vertices.(vertex_name) := rec(
-                    annotation := rec(
-                        boundary := true,
-                        coord := [ 0, - pos ],
-                        input := true,
-                        output := false,
-                    ),
-                );
+                is_input := (pos - 1) in input_positions;
+                is_output := (pos - 1) in output_positions;
                 
-            elif labels[pos] = "output" then
-                
-                vertex_name := get_vertex_name( "b", wire_vertices );
-                
-                wire_vertices.(vertex_name) := rec(
-                    annotation := rec(
-                        boundary := true,
-                        coord := [ 2, - pos ],
-                        input := false,
-                        output := true,
-                    ),
-                );
+                if is_input and is_output then
+                    
+                    # COVERAGE_IGNORE_NEXT_LINE
+                    Error( "found neutral node which is simultaneously an input and an output, this is not supported by PyZX" );
+                    
+                elif is_input then
+                    
+                    wire_vertices.(vertex_name) := rec(
+                        annotation := rec(
+                            boundary := true,
+                            coord := [ 0, - pos ],
+                            input := SafeUniquePosition( input_positions, pos - 1 ) - 1,
+                        ),
+                    );
+                    
+                elif is_output then
+                    
+                    wire_vertices.(vertex_name) := rec(
+                        annotation := rec(
+                            boundary := true,
+                            coord := [ 2, - pos ],
+                            output := SafeUniquePosition( output_positions, pos - 1 ) - 1,
+                        ),
+                    );
+                    
+                else
+                    
+                    # COVERAGE_IGNORE_NEXT_LINE
+                    Error( "found inner neutral node, this is not supported by PyZX" );
+                    
+                fi;
                 
             else
                 
-                Error( "Unknown label." );
+                # COVERAGE_IGNORE_NEXT_LINE
+                Error( "unknown label ", labels[pos] );
                 
             fi;
             
