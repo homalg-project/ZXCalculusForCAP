@@ -225,7 +225,7 @@ BindGlobal( "ZX_RemovedInnerNeutralNodes", function ( tuple )
     
 end );
 
-BindGlobal( "S_ZX_EDGES", Immutable( [ [ 0, 1 ], [ 1, 0 ], [ 0, 2 ], [ 2, 0 ], [ 0, 3 ], [ 3, 0 ] ] ) );
+BindGlobal( "S_ZX_EDGES", Immutable( [ [ 0, 1 ], [ 0, 2 ], [ 0, 3 ] ] ) );
 
 InstallGlobalFunction( CategoryOfZXDiagrams, function ( )
   local ZX;
