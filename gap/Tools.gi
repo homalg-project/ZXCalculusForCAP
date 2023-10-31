@@ -86,6 +86,8 @@ if IsPackageMarkedForLoading( "json", "2.1.1" ) then
             
         od;
         
+        edges := Set( edges );
+        
         wire_vertices := rec( );
         node_vertices := rec( );
         
