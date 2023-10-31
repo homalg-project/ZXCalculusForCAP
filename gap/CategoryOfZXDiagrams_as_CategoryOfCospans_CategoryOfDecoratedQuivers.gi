@@ -8,11 +8,13 @@ InstallGlobalFunction( CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecor
   local S_ZX, decorated_quivers, FinalizeCategory, csp, object_constructor, modeling_tower_object_constructor, object_datum, modeling_tower_object_datum, morphism_constructor, modeling_tower_morphism_constructor, morphism_datum, modeling_tower_morphism_datum, ZX;
     
     # expanded version of: S_ZX := CreateQuiver( 4, S_ZX_EDGES );
-    S_ZX := CreateCapCategoryObjectWithAttributes( FinQuivers, DefiningTripleOfQuiverEnrichedOverSkeletalFinSets, Triple( 4, 6, S_ZX_EDGES ) );
+    S_ZX := CreateCapCategoryObjectWithAttributes( FinQuivers, DefiningTripleOfQuiverEnrichedOverSkeletalFinSets, Triple( 4, 3, S_ZX_EDGES ) );
     
-    decorated_quivers := CategoryOfDecoratedQuivers( S_ZX, [ "white", "green", "red", "yellow" ], [ "black", "black", "black", "black", "black", "black" ] : FinalizeCategory := true );
+    Assert( 0, IsWellDefinedForObjects( FinQuivers, S_ZX ) );
     
-    # Display( ENHANCED_SYNTAX_TREE( x -> CreateCapCategoryObjectWithAttributes( FinQuivers, DefiningTripleOfQuiverEnrichedOverSkeletalFinSets, Triple( 4, 6, S_ZX_EDGES ) ) ).bindings.BINDING_RETURN_VALUE );
+    decorated_quivers := CategoryOfDecoratedQuivers( S_ZX, [ "white", "green", "red", "yellow" ], [ "black", "black", "black" ] : FinalizeCategory := true );
+    
+    # Display( ENHANCED_SYNTAX_TREE( x -> CreateCapCategoryObjectWithAttributes( FinQuivers, DefiningTripleOfQuiverEnrichedOverSkeletalFinSets, Triple( 4, 3, S_ZX_EDGES ) ) ).bindings.BINDING_RETURN_VALUE );
     ModelingCategory( decorated_quivers )!.compiler_hints.category_attribute_resolving_functions := rec(
         BaseObject := { } -> rec(
             args := rec(
@@ -32,7 +34,7 @@ InstallGlobalFunction( CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecor
                         ),
                         2 := rec(
                             type := "EXPR_INT",
-                            value := 6
+                            value := 3
                         ),
                         3 := rec(
                             gvar := "S_ZX_EDGES",
