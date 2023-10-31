@@ -82,6 +82,15 @@ CapJitAddLogicTemplate(
     )
 );
 
+##
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "entry" ],
+        src_template := "ListWithIdenticalEntries( 2, entry )",
+        dst_template := "[ entry, entry ]",
+    )
+);
+
 category_constructor := { } -> CategoryOfZXDiagrams( );;
 given_arguments := [ ];;
 compiled_category_name := "CategoryOfZXDiagrams_precompiled";;
