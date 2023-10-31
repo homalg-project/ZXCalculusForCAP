@@ -9,8 +9,8 @@
   [33X[1;0Y[29X[2XCategoryOfCospans_for_ZXCalculus[102X( [3XC[103X ) [32X operation[133X
   [6XReturns:[106X  [33X[0;10Ya category of cospans[133X
   
-  [33X[0;0YCreates  a  category  of cospans in the cocartesian category [3XC[103X. The monoidal
-  structure is lifted from the cocartesian structure of [3XC[103X.[133X
+  [33X[0;0YCreates  a  category  of  cospans in the cocartesian category [3XC[103X with a rigid
+  symmetric monoidal structure induced by the cocartesian structure of [3XC[103X.[133X
   
   
   [1X1.2 [33X[0;0YFilters[133X[101X
