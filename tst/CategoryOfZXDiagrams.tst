@@ -45,9 +45,9 @@ A morphism in Category of ZX-diagrams given by a ZX diagram with 6 vertex labe\
 ls
   [ "neutral", "neutral", "neutral", "neutral", "neutral", "neutral" ],
   inputs
-  [ 0, 1, 2, 2, 1, 0 ],
+  [ 0, 1, 2, 0, 1, 2 ],
   outputs
-  [ 3, 4, 5, 5, 4, 3 ],
+  [ 3, 4, 5, 3, 4, 5 ],
   and 0 edges
   [ ].
 

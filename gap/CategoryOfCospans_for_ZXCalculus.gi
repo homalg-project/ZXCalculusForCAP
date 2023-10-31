@@ -26,7 +26,7 @@ InstallMethod( CategoryOfCospans_for_ZXCalculus,
     
     SetUnderlyingCategory( cat, underlying_cat );
     
-    SetIsSymmetricMonoidalCategory( cat, true );
+    SetIsRigidSymmetricClosedMonoidalCategory( cat, true );
     
     ##
     AddObjectConstructor( cat, function ( cat, underlying_object )
@@ -338,6 +338,41 @@ InstallMethod( CategoryOfCospans_for_ZXCalculus,
         underlying_braiding := CocartesianBraidingInverseWithGivenCoproducts( underlying_cat, underlying_s, underlying_a, underlying_b, underlying_r );
         
         return MorphismConstructor( cat, s, Pair( underlying_braiding, IdentityMorphism( underlying_cat, underlying_r ) ), r );
+        
+    end );
+    
+    ##
+    AddDualOnObjects( cat, function ( cat, obj )
+        
+        return obj;
+        
+    end );
+    
+    ##
+    Assert( 0, CanCompute( underlying_cat, "CocartesianCodiagonal" ) );
+    Assert( 0, CanCompute( underlying_cat, "UniversalMorphismFromInitialObject" ) );
+    
+    AddEvaluationForDualWithGivenTensorProduct( cat, function ( cat, source, obj, range )
+      local underlying_cat, underlying_obj;
+        
+        underlying_cat := UnderlyingCategory( cat );
+        underlying_obj := UnderlyingObject( obj );
+        
+        return MorphismConstructor( cat, source, Pair( CocartesianCodiagonal( underlying_cat, underlying_obj, 2 ), UniversalMorphismFromInitialObject( underlying_cat, underlying_obj ) ), range );
+        
+    end );
+    
+    ##
+    Assert( 0, CanCompute( underlying_cat, "CocartesianCodiagonal" ) );
+    Assert( 0, CanCompute( underlying_cat, "UniversalMorphismFromInitialObject" ) );
+    
+    AddCoevaluationForDualWithGivenTensorProduct( cat, function ( cat, source, obj, range )
+      local underlying_cat, underlying_obj;
+        
+        underlying_cat := UnderlyingCategory( cat );
+        underlying_obj := UnderlyingObject( obj );
+        
+        return MorphismConstructor( cat, source, Pair( UniversalMorphismFromInitialObject( underlying_cat, underlying_obj ), CocartesianCodiagonal( underlying_cat, underlying_obj, 2 ) ), range );
         
     end );
     

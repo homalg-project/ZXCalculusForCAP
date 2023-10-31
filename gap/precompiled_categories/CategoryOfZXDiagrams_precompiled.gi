@@ -84,7 +84,7 @@ function ( cat_1, s_1, a_1, r_1 )
     deduped_3_1 := [  ];
     deduped_2_1 := AsInteger( a_1 );
     deduped_1_1 := [ 0 .. deduped_2_1 - 1 ];
-    return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, r_1, VertexLabeledGraph, NTuple( 4, ListWithIdenticalEntries( deduped_2_1, "neutral" ), deduped_3_1, Concatenation( deduped_1_1, Reversed( deduped_1_1 ) ), deduped_3_1 ) );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, r_1, VertexLabeledGraph, NTuple( 4, ListWithIdenticalEntries( deduped_2_1, "neutral" ), deduped_3_1, Concatenation( deduped_1_1, deduped_1_1 ), deduped_3_1 ) );
 end
 ########
         
@@ -110,7 +110,7 @@ function ( cat_1, s_1, a_1, r_1 )
     deduped_3_1 := [  ];
     deduped_2_1 := AsInteger( a_1 );
     deduped_1_1 := [ 0 .. deduped_2_1 - 1 ];
-    return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, r_1, VertexLabeledGraph, NTuple( 4, ListWithIdenticalEntries( deduped_2_1, "neutral" ), Concatenation( deduped_1_1, Reversed( deduped_1_1 ) ), deduped_3_1, deduped_3_1 ) );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, r_1, VertexLabeledGraph, NTuple( 4, ListWithIdenticalEntries( deduped_2_1, "neutral" ), Concatenation( deduped_1_1, deduped_1_1 ), deduped_3_1, deduped_3_1 ) );
 end
 ########
         

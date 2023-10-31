@@ -252,46 +252,9 @@ InstallGlobalFunction( CategoryOfZXDiagrams, function ( )
             : is_computable := false
         );
         
+        SetIsRigidSymmetricClosedMonoidalCategory( ZX, true );
+        
     fi;
-    
-    SetIsRigidSymmetricClosedMonoidalCategory( ZX, true );
-    
-    ##
-    AddDualOnObjects( ZX, function ( cat, obj )
-        
-        return obj;
-        
-    end );
-    
-    ##
-    AddEvaluationForDualWithGivenTensorProduct( ZX, function ( cat, source, obj, range )
-      local tuple;
-        
-        #% CAP_JIT_DROP_NEXT_STATEMENT
-        Assert( 0, AsInteger( source ) = 2 * AsInteger( obj ) );
-        #% CAP_JIT_DROP_NEXT_STATEMENT
-        Assert( 0, AsInteger( range ) = 0 );
-        
-        tuple := NTuple( 4, ListWithIdenticalEntries( AsInteger( obj ), "neutral" ), Concatenation( [ 0 .. AsInteger( obj ) - 1 ], Reversed( [ 0 .. AsInteger( obj ) - 1 ] ) ), [ ], [ ] );
-        
-        return MorphismConstructor( cat, source, tuple, range );
-        
-    end );
-    
-    ##
-    AddCoevaluationForDualWithGivenTensorProduct( ZX, function ( cat, source, obj, range )
-      local tuple;
-        
-        #% CAP_JIT_DROP_NEXT_STATEMENT
-        Assert( 0, AsInteger( source ) = 0 );
-        #% CAP_JIT_DROP_NEXT_STATEMENT
-        Assert( 0, AsInteger( range ) = 2 * AsInteger( obj ) );
-        
-        tuple := NTuple( 4, ListWithIdenticalEntries( AsInteger( obj ), "neutral" ), [ ], Concatenation( [ 0 .. AsInteger( obj ) - 1 ], Reversed( [ 0 .. AsInteger( obj ) - 1 ] ) ), [ ] );
-        
-        return MorphismConstructor( cat, source, tuple, range );
-        
-    end );
     
     if ValueOption( "no_precompiled_code" ) <> true then
         
