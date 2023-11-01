@@ -91,6 +91,51 @@ CapJitAddLogicTemplate(
     )
 );
 
+##
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "from", "to", "x" ],
+        src_template := "[ from .. to ][1 + x]",
+        dst_template := "from + x",
+    )
+);
+
+##
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "value", "to" ],
+        src_template := "List( [ 0 .. to ], i -> value + i )",
+        dst_template := "[ value .. value + to ]",
+    )
+);
+
+##
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "value1", "value2", "to" ],
+        src_template := "List( [ 0 .. to ], i -> value1 + (value2 + i) )",
+        dst_template := "[ value1 + value2 .. value1 + value2 + to ]",
+    )
+);
+
+##
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "from", "via", "to" ],
+        src_template := "Concatenation( [ from .. via - 1 ], [ via .. to ] )",
+        dst_template := "[ from .. to ]",
+    )
+);
+
+##
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "from", "via1", "via2", "to" ],
+        src_template := "Concatenation( [ from .. via1 + (via2 - 1) ], [ via1 + via2 .. to ] )",
+        dst_template := "[ from .. to ]",
+    )
+);
+
 category_constructor := { } -> CategoryOfZXDiagrams( );;
 given_arguments := [ ];;
 compiled_category_name := "CategoryOfZXDiagrams_precompiled";;
