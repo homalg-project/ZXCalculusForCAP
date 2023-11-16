@@ -253,4 +253,220 @@ if IsPackageMarkedForLoading( "json", "2.1.1" ) then
         
     end );
     
+    InstallGlobalFunction( ImportFromQGraph,
+      
+      function ( cat, filename )
+        local labels, edges, qgraph, wire_vertices, node_vertices, undir_edges, vertex_names, input_positions, output_positions, edge, src_vertex, tgt_vertex, annotation, data, full_type, io_positions, src_index, tgt_index, via_index, source, range, mor, name;
+        
+        labels := [ ];
+        edges := [ ];
+        
+        qgraph := StringFile( Concatenation( filename, ".qgraph" ) );
+        
+        Assert( 0, qgraph <> fail );
+        
+        qgraph := JsonStringToGap( qgraph );
+        
+        wire_vertices := qgraph.wire_vertices;
+        node_vertices := qgraph.node_vertices;
+        undir_edges := qgraph.undir_edges;
+        
+        vertex_names := [ ];
+        input_positions := [ ];
+        output_positions := [ ];
+        
+        # identify inputs or outputs connected to other inputs or outputs
+        for name in SortedList( RecNames( undir_edges ) ) do
+            
+            edge := undir_edges.(name);
+            
+            if edge.src = edge.tgt then
+                
+                Error( "loops are currently not supported" );
+                
+            fi;
+            
+            if IsBound( wire_vertices.(edge.src) ) and IsBound( wire_vertices.(edge.tgt) ) then
+                
+                src_vertex := wire_vertices.(edge.src);
+                tgt_vertex := wire_vertices.(edge.tgt);
+                
+                if IsBound( src_vertex.annotation.input ) and IsBound( tgt_vertex.annotation.input ) then
+                    
+                    Assert( 0, not IsBound( src_vertex.annotation.output ) );
+                    Assert( 0, not IsBound( tgt_vertex.annotation.output ) );
+                    
+                    src_vertex.annotation.input2 := tgt_vertex.annotation.input;
+                    
+                elif IsBound( src_vertex.annotation.input ) and IsBound( tgt_vertex.annotation.output ) then
+                    
+                    Assert( 0, not IsBound( src_vertex.annotation.output ) );
+                    Assert( 0, not IsBound( tgt_vertex.annotation.input ) );
+                    
+                    src_vertex.annotation.output := tgt_vertex.annotation.output;
+                    
+                elif IsBound( src_vertex.annotation.output ) and IsBound( tgt_vertex.annotation.input ) then
+                    
+                    Assert( 0, not IsBound( src_vertex.annotation.input ) );
+                    Assert( 0, not IsBound( tgt_vertex.annotation.output ) );
+                    
+                    src_vertex.annotation.input := tgt_vertex.annotation.input;
+                    
+                elif IsBound( src_vertex.annotation.output ) and IsBound( tgt_vertex.annotation.output ) then
+                    
+                    Assert( 0, not IsBound( src_vertex.annotation.input ) );
+                    Assert( 0, not IsBound( tgt_vertex.annotation.input ) );
+                    
+                    src_vertex.annotation.output2 := tgt_vertex.annotation.output;
+                    
+                else
+                    
+                    Error( "this should never happen" );
+                    
+                fi;
+                
+                Unbind( wire_vertices.(edge.tgt) );
+                
+                Unbind( undir_edges.(name) );
+                
+            fi;
+            
+        od;
+        
+        for name in SortedList( RecNames( wire_vertices ) ) do
+            
+            Add( vertex_names, name );
+            
+            annotation := wire_vertices.(name).annotation;
+            
+            Add( labels, "neutral" );
+            
+            Assert( 0, Number( [ "input", "input2", "output", "output2" ], name -> IsBound( annotation.(name) ) ) <= 2 );
+            
+            if IsBound( annotation.input ) then
+                
+                input_positions[annotation.input + 1] := Length( labels ) - 1;
+                
+            fi;
+            
+            if IsBound( annotation.input2 ) then
+                
+                Assert( 0, IsBound( annotation.input ) );
+                
+                input_positions[annotation.input2 + 1] := Length( labels ) - 1;
+                
+            fi;
+            
+            if IsBound( annotation.output ) then
+                
+                output_positions[annotation.output + 1] := Length( labels ) - 1;
+                
+            fi;
+            
+            if IsBound( annotation.output2 ) then
+                
+                Assert( 0, IsBound( annotation.output ) );
+                
+                output_positions[annotation.output2 + 1] := Length( labels ) - 1;
+                
+            fi;
+            
+        od;
+        
+        Assert( 0, IsDenseList( input_positions ) );
+        Assert( 0, IsDenseList( output_positions ) );
+        
+        for name in SortedList( RecNames( node_vertices ) ) do
+            
+            Add( vertex_names, name );
+            
+            data := node_vertices.(name).data;
+            
+            if data.type = "Z" then
+                
+                if IsBound( data.value ) then
+                    
+                    full_type := Concatenation( "Z", data.value );
+                    
+                else
+                    
+                    full_type := "Z";
+                    
+                fi;
+                
+                Add( labels, full_type );
+                
+            elif data.type = "X" then
+                
+                if IsBound( data.value ) then
+                    
+                    full_type := Concatenation( "X", data.value );
+                    
+                else
+                    
+                    full_type := "X";
+                    
+                fi;
+                
+                Add( labels, full_type );
+                
+            elif data.type = "hadamard" then
+                
+                Add( labels, "H" );
+                
+            else
+                
+                Error( "node vertex has unkown type ", data.type );
+                
+            fi;
+            
+        od;
+        
+        Assert( 0, Length( labels ) = Length( vertex_names ) );
+        
+        io_positions := Concatenation( input_positions, output_positions );
+        
+        for name in SortedList( RecNames( undir_edges ) ) do
+            
+            edge := undir_edges.(name);
+            
+            src_index := SafeUniquePosition( vertex_names, edge.src ) - 1;
+            tgt_index := SafeUniquePosition( vertex_names, edge.tgt ) - 1;
+            
+            if src_index in io_positions and tgt_index in io_positions then
+                
+                Error( "this case should have been handled above" );
+                
+            elif src_index in io_positions then
+                
+                Add( edges, [ src_index, tgt_index ] );
+                
+            elif tgt_index in io_positions then
+                
+                Add( edges, [ tgt_index, src_index ] );
+                
+            else
+                
+                Add( labels, "neutral" );
+                
+                via_index := Length( labels ) - 1;
+                
+                Add( edges, [ via_index, src_index ] );
+                Add( edges, [ via_index, tgt_index ] );
+                
+            fi;
+            
+        od;
+        
+        source := ObjectConstructor( cat, Length( input_positions ) );
+        range := ObjectConstructor( cat, Length( output_positions ) );
+        
+        mor := MorphismConstructor( cat, source, NTuple( 4, labels, input_positions, output_positions, edges ), range );
+        
+        Assert( 0, IsWellDefinedForMorphisms( cat, mor ) );
+        
+        return mor;
+        
+    end );
+    
 fi;
