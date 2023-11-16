@@ -117,7 +117,7 @@ if IsPackageMarkedForLoading( "json", "2.1.1" ) then
         
         for pos in [ 1 .. Length( labels ) ] do
             
-            if labels[pos] = "Z" then
+            if labels[pos][1] = 'Z' then
                 
                 vertex_name := get_vertex_name( "v", node_vertices );
                 
@@ -130,7 +130,13 @@ if IsPackageMarkedForLoading( "json", "2.1.1" ) then
                     )
                 );
                 
-            elif labels[pos] = "X" then
+                if Length( labels[pos] ) > 1 then
+                    
+                    node_vertices.(vertex_name).data.value := labels[pos]{[ 2 .. Length( labels[pos] ) ]};
+                    
+                fi;
+                
+            elif labels[pos][1] = 'X' then
                 
                 vertex_name := get_vertex_name( "v", node_vertices );
                 
@@ -143,6 +149,11 @@ if IsPackageMarkedForLoading( "json", "2.1.1" ) then
                     )
                 );
                 
+                if Length( labels[pos] ) > 1 then
+                    
+                    node_vertices.(vertex_name).data.value := labels[pos]{[ 2 .. Length( labels[pos] ) ]};
+                    
+                fi;
                 
             elif labels[pos] = "H" then
                 
