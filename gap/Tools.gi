@@ -9,7 +9,7 @@ if IsPackageMarkedForLoading( "json", "2.1.1" ) then
   InstallGlobalFunction( ExportAsQGraph,
     
     function ( phi, filename )
-      local tuple, labels, input_positions, output_positions, edges, input_positions_indices, output_positions_indices, wire_vertices, node_vertices, vertex_names, padding_length, get_vertex_name, vertex_name, is_input, is_output, undir_edges, edge, edge_name, src_vertex_name, tgt_vertex_name, qgraph, pos, edge_counter;
+      local tuple, labels, input_positions, output_positions, edges, input_positions_indices, output_positions_indices, wire_vertices, node_vertices, vertex_names, padding_length, get_vertex_name, vertex_name, is_input, is_output, input_position, output_position, undir_edges, edge, edge_name, src_vertex_name, tgt_vertex_name, qgraph, pos, edge_counter;
         
         tuple := ZX_RemovedInnerNeutralNodes( MorphismDatum( phi ) );
         
@@ -174,21 +174,25 @@ if IsPackageMarkedForLoading( "json", "2.1.1" ) then
                     
                 elif is_input then
                     
+                    input_position := SafeUniquePosition( input_positions, pos - 1 ) - 1;
+                    
                     wire_vertices.(vertex_name) := rec(
                         annotation := rec(
                             boundary := true,
-                            coord := [ 0, - pos ],
-                            input := SafeUniquePosition( input_positions, pos - 1 ) - 1,
+                            coord := [ 0, - input_position ],
+                            input := input_position,
                         ),
                     );
                     
                 elif is_output then
                     
+                    output_position := SafeUniquePosition( output_positions, pos - 1 ) - 1;
+                    
                     wire_vertices.(vertex_name) := rec(
                         annotation := rec(
                             boundary := true,
-                            coord := [ 2, - pos ],
-                            output := SafeUniquePosition( output_positions, pos - 1 ) - 1,
+                            coord := [ 2, - output_position ],
+                            output := output_position,
                         ),
                     );
                     
