@@ -6,10 +6,10 @@
                          [1X The category of ZX-diagrams [101X
   
   
-                                   2023.11-03
+                                   2024.01-01
   
   
-                                16 November 2023
+                                 9 January 2024
   
   
                                 Fabian Zickgraf
@@ -54,8 +54,9 @@
       2.3-1 AsInteger
       2.3-2 VertexLabeledGraph
   3 [33X[0;0YTools[133X
-    3.1 [33X[0;0YExporting ZX-diagrams[133X
+    3.1 [33X[0;0YImporting and exporting ZX-diagrams[133X
       3.1-1 ExportAsQGraph
+      3.1-2 ImportFromQGraph
   
   
   [32X
