@@ -173,14 +173,14 @@ end
     AddIsWellDefinedForMorphisms( cat,
         
 ########
-function ( cat_1, arg2_1 )
+function ( cat_1, alpha_1 )
     local deduped_1_1, deduped_3_1, deduped_5_1, deduped_6_1, deduped_7_1, deduped_8_1, deduped_9_1, deduped_10_1, deduped_11_1, deduped_12_1;
     deduped_12_1 := BigInt( 0 );
-    deduped_11_1 := VertexLabeledGraph( arg2_1 );
+    deduped_11_1 := VertexLabeledGraph( alpha_1 );
     deduped_10_1 := deduped_11_1[1];
-    deduped_9_1 := AsInteger( Range( arg2_1 ) );
+    deduped_9_1 := AsInteger( Range( alpha_1 ) );
     deduped_8_1 := deduped_11_1[3];
-    deduped_7_1 := AsInteger( Source( arg2_1 ) );
+    deduped_7_1 := AsInteger( Source( alpha_1 ) );
     deduped_6_1 := deduped_11_1[2];
     if not true then
         deduped_5_1 := false;
@@ -191,7 +191,7 @@ function ( cat_1, arg2_1 )
     fi;
     deduped_3_1 := List( deduped_10_1, ZX_LabelToInteger );
     deduped_1_1 := Length( deduped_10_1 );
-    return IdFunc( function (  )
+    return CAP_JIT_EXPR_CASE_WRAPPER( function (  )
                       if not ForAll( deduped_6_1, function ( a_3 )
                                    return (IsBigInt( a_3 ) and a_3 >= 0);
                                end ) then
@@ -208,7 +208,7 @@ function ( cat_1, arg2_1 )
                       return;
                   end )(  ) and deduped_5_1 and true and (ListWithIdenticalEntries( deduped_7_1, deduped_12_1 ) = List( [ 0 .. deduped_7_1 - 1 ], function ( i_2 )
                     return deduped_3_1[1 + deduped_6_1[(1 + i_2)]];
-                end ) and true) and (IdFunc( function (  )
+                end ) and true) and (CAP_JIT_EXPR_CASE_WRAPPER( function (  )
                       if not ForAll( deduped_8_1, function ( a_3 )
                                    return (IsBigInt( a_3 ) and a_3 >= 0);
                                end ) then
@@ -240,7 +240,7 @@ function ( cat_1, arg2_1 )
     deduped_3_1 := BigInt( 0 );
     deduped_2_1 := AsInteger( arg2_1 );
     deduped_1_1 := ListWithIdenticalEntries( deduped_2_1, deduped_3_1 );
-    return IdFunc( function (  )
+    return CAP_JIT_EXPR_CASE_WRAPPER( function (  )
                   if not ForAll( deduped_1_1, function ( a_3 )
                                return (IsBigInt( a_3 ) and a_3 >= 0);
                            end ) then
@@ -255,7 +255,7 @@ function ( cat_1, arg2_1 )
                       return true;
                   fi;
                   return;
-              end )(  ) and IdFunc( function (  )
+              end )(  ) and CAP_JIT_EXPR_CASE_WRAPPER( function (  )
                   if not true then
                       return false;
                   elif deduped_3_1 <> 0 then
