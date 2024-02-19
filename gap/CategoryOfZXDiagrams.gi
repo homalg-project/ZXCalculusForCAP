@@ -201,10 +201,14 @@ BindGlobal( "ZX_RemovedInnerNeutralNodes", function ( tuple )
     
 end );
 
-InstallGlobalFunction( CategoryOfZXDiagrams, function ( )
-  local ZX;
+InstallGlobalFunction( CategoryOfZXDiagrams, FunctionWithNamedArguments(
+  [
+    [ "no_precompiled_code", false ],
+  ],
+  function ( CAP_NAMED_ARGUMENTS )
+    local ZX;
     
-    if ValueOption( "no_precompiled_code" ) = true then
+    if CAP_NAMED_ARGUMENTS.no_precompiled_code then
         
         if IsPackageMarkedForLoading( "FunctorCategories", ">= 2023.07-01" ) then
             
@@ -230,7 +234,7 @@ InstallGlobalFunction( CategoryOfZXDiagrams, function ( )
         
     fi;
     
-    if ValueOption( "no_precompiled_code" ) <> true then
+    if not CAP_NAMED_ARGUMENTS.no_precompiled_code then
         
         ADD_FUNCTIONS_FOR_CategoryOfZXDiagrams_precompiled( ZX );
         
@@ -240,7 +244,7 @@ InstallGlobalFunction( CategoryOfZXDiagrams, function ( )
     
     return ZX;
     
-end );
+end ) );
 
 ##
 InstallMethod( ViewString,
