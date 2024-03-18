@@ -75,6 +75,6 @@ test-gap_to_julia: doc
 	~/.gap/pkg/PackageJanitor/gap_to_julia FinSetsForCAP
 	~/.gap/pkg/PackageJanitor/gap_to_julia ZXCalculusForCAP
 	julia -e 'using Pkg; Pkg.develop("CAP"); Pkg.develop("MonoidalCategories"); Pkg.develop("CartesianCategories"); Pkg.develop("Toposes"); Pkg.develop("FinSetsForCAP"); Pkg.develop("ZXCalculusForCAP");'
-	julia -e 'using Pkg; Pkg.test("ZXCalculusForCAP", julia_args = ["--warn-overwrite=no"]);'
+	julia -e 'using Pkg; Pkg.test("ZXCalculusForCAP");'
 
 ci-test: test-basic-spacing test-spacing test-doc test-with-coverage test-with-coverage-without-precompiled-code test-gap_to_julia
