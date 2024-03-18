@@ -33,13 +33,13 @@ gap> PreCompose( IdentityMorphism( zero ), coev );;
 gap> Display( PreCompose( coev, ev ) );
 A morphism in Category of ZX-diagrams given by a ZX diagram with 0 vertex labe\
 ls
-  [ ],
+  [  ],
   inputs
-  [ ],
+  [  ],
   outputs
-  [ ],
+  [  ],
   and 0 edges
-  [ ].
+  [  ].
 gap> Display( PreCompose( ev, coev ) );
 A morphism in Category of ZX-diagrams given by a ZX diagram with 6 vertex labe\
 ls
@@ -49,7 +49,7 @@ ls
   outputs
   [ 3, 4, 5, 3, 4, 5 ],
   and 0 edges
-  [ ].
+  [  ].
 
 #
 gap> X_1_1 := MorphismConstructor( one, [ [ "neutral", "X", "neutral" ], [ BigInt( 0 ) ], [ BigInt( 2 ) ], [ [ BigInt( 0 ), BigInt( 1 ) ], [ BigInt( 2 ), BigInt( 1 ) ] ] ], one );;
