@@ -4,9 +4,20 @@
   
   [1X3.1 [33X[0;0YImporting and exporting ZX-diagrams[133X[101X
   
-  [1X3.1-1 ExportAsQGraph[101X
+  [1X3.1-1 ExportAsQGraphString[101X
   
-  [33X[1;0Y[29X[2XExportAsQGraph[102X( [3Xmorphism[103X, [3Xfilename[103X ) [32X function[133X
+  [33X[1;0Y[29X[2XExportAsQGraphString[102X( [3Xmorphism[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10Ya JSON string[133X
+  
+  [33X[0;0YTakes  a morphism in a category of ZX-diagrams and exports the morphism as a
+  JSON  string.  This  function  is  only  available  if  the  package [10Xjson[110X is
+  available.                                                               See
+  https://github.com/Quantomatic/quantomatic/blob/stable/docs/json_formats.txt
+  for an overview of the qgraph format.[133X
+  
+  [1X3.1-2 ExportAsQGraphFile[101X
+  
+  [33X[1;0Y[29X[2XExportAsQGraphFile[102X( [3Xmorphism[103X, [3Xfilename[103X ) [32X function[133X
   
   [33X[0;0YTakes  a  morphism  in  a  category  of  ZX-diagrams and a filename [13Xfile[113X and
   exports  the morphism as [13Xfile[113X.qgraph. This function is only available if the
@@ -14,12 +25,25 @@
   https://github.com/Quantomatic/quantomatic/blob/stable/docs/json_formats.txt
   for an overview of the qgraph format.[133X
   
-  [1X3.1-2 ImportFromQGraph[101X
+  [1X3.1-3 ImportFromQGraphString[101X
   
-  [33X[1;0Y[29X[2XImportFromQGraph[102X( [3Xcategory[103X, [3Xfilename[103X ) [32X function[133X
+  [33X[1;0Y[29X[2XImportFromQGraphString[102X( [3Xcategory[103X, [3Xstring[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10Ya morphism[133X
+  
+  [33X[0;0YTakes  a  category  of ZX-diagrams and a JSON string describing a ZX-diagram
+  and imports the ZX-diagram as a morphism. This function is only available if
+  the          package          [10Xjson[110X         is         available.         See
+  https://github.com/Quantomatic/quantomatic/blob/stable/docs/json_formats.txt
+  for an overview of the qgraph format.[133X
+  
+  [1X3.1-4 ImportFromQGraphFile[101X
+  
+  [33X[1;0Y[29X[2XImportFromQGraphFile[102X( [3Xcategory[103X, [3Xfilename[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10Ya morphism[133X
   
   [33X[0;0YTakes  a  category  of  ZX-diagrams  and  a  filename  [13Xfile[113X  and imports the
-  ZX-diagram       in       [13Xfile[113X.qgraph      as      a      morphism.      See
+  ZX-diagram  in [13Xfile[113X.qgraph as a morphism. This function is only available if
+  the          package          [10Xjson[110X         is         available.         See
   https://github.com/Quantomatic/quantomatic/blob/stable/docs/json_formats.txt
   for an overview of the qgraph format.[133X
   

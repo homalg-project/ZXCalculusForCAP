@@ -6,8 +6,10 @@
   [2XCategoryOfCospans_for_ZXCalculus[102X, for IsCapCategory 1.1-1 
   [2XCategoryOfZXDiagrams[102X 2.1-1 
   [2XCategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers[102X 2.1-3 
-  [2XExportAsQGraph[102X 3.1-1 
-  [2XImportFromQGraph[102X 3.1-2 
+  [2XExportAsQGraphFile[102X 3.1-2 
+  [2XExportAsQGraphString[102X 3.1-1 
+  [2XImportFromQGraphFile[102X 3.1-4 
+  [2XImportFromQGraphString[102X 3.1-3 
   [2XIsCategoryOfCospans[102X 1.2-1 
   [2XIsCategoryOfCospansMorphism[102X 1.2-3 
   [2XIsCategoryOfCospansObject[102X 1.2-2 
