@@ -18,6 +18,11 @@ if IsPackageMarkedForLoading( "json", "2.1.1" ) then
         output_positions := ShallowCopy( tuple[3] );
         edges := ShallowCopy( tuple[4] );
         
+        # input_positions and output_positions might be ranges, which are immutable in Julia
+        # -> convert to regular lists
+        input_positions := List( [ 1 .. Length( input_positions ) ], i -> input_positions[i] );
+        output_positions := List( [ 1 .. Length( output_positions ) ], i -> output_positions[i] );
+        
         # nodes which are simultaneously inputs and outputs or multiple inputs or outputs are not supported by PyZX
         # split such nodes into multiple input or outputs nodes connected by an edge
         for pos in [ 1 .. Length( labels ) ] do
@@ -277,8 +282,9 @@ if IsPackageMarkedForLoading( "json", "2.1.1" ) then
         undir_edges := qgraph.undir_edges;
         
         vertex_names := [ ];
-        input_positions := [ ];
-        output_positions := [ ];
+        # will be turned into lists later because Julia does not support non-dense lists
+        input_positions := rec( );
+        output_positions := rec( );
         
         # identify inputs or outputs connected to other inputs or outputs
         for name in SortedList( RecNames( undir_edges ) ) do
@@ -350,7 +356,7 @@ if IsPackageMarkedForLoading( "json", "2.1.1" ) then
             
             if IsBound( annotation.input ) then
                 
-                input_positions[annotation.input + 1] := Length( labels ) - 1;
+                input_positions.(annotation.input + 1) := Length( labels ) - 1;
                 
             fi;
             
@@ -358,13 +364,13 @@ if IsPackageMarkedForLoading( "json", "2.1.1" ) then
                 
                 Assert( 0, IsBound( annotation.input ) );
                 
-                input_positions[annotation.input2 + 1] := Length( labels ) - 1;
+                input_positions.(annotation.input2 + 1) := Length( labels ) - 1;
                 
             fi;
             
             if IsBound( annotation.output ) then
                 
-                output_positions[annotation.output + 1] := Length( labels ) - 1;
+                output_positions.(annotation.output + 1) := Length( labels ) - 1;
                 
             fi;
             
@@ -372,14 +378,17 @@ if IsPackageMarkedForLoading( "json", "2.1.1" ) then
                 
                 Assert( 0, IsBound( annotation.output ) );
                 
-                output_positions[annotation.output2 + 1] := Length( labels ) - 1;
+                output_positions.(annotation.output2 + 1) := Length( labels ) - 1;
                 
             fi;
             
         od;
         
-        Assert( 0, IsDenseList( input_positions ) );
-        Assert( 0, IsDenseList( output_positions ) );
+        Assert( 0, SortedList( RecNames( input_positions ) ) = List( [ 1 .. Length( RecNames( input_positions ) ) ], i -> String( i ) ) );
+        Assert( 0, SortedList( RecNames( output_positions ) ) = List( [ 1 .. Length( RecNames( output_positions ) ) ], i -> String( i ) ) );
+        
+        input_positions := List( [ 1 .. Length( RecNames( input_positions ) ) ], i -> BigInt( input_positions.(i) ) );
+        output_positions := List( [ 1 .. Length( RecNames( output_positions ) ) ], i -> BigInt( output_positions.(i) ) );
         
         for name in SortedList( RecNames( node_vertices ) ) do
             
@@ -435,8 +444,8 @@ if IsPackageMarkedForLoading( "json", "2.1.1" ) then
             
             edge := undir_edges.(name);
             
-            src_index := SafeUniquePosition( vertex_names, edge.src ) - 1;
-            tgt_index := SafeUniquePosition( vertex_names, edge.tgt ) - 1;
+            src_index := BigInt( SafeUniquePosition( vertex_names, edge.src ) ) - 1;
+            tgt_index := BigInt( SafeUniquePosition( vertex_names, edge.tgt ) ) - 1;
             
             if src_index in io_positions and tgt_index in io_positions then
                 
@@ -454,7 +463,7 @@ if IsPackageMarkedForLoading( "json", "2.1.1" ) then
                 
                 Add( labels, "neutral" );
                 
-                via_index := Length( labels ) - 1;
+                via_index := BigInt( Length( labels ) ) - 1;
                 
                 Add( edges, [ via_index, src_index ] );
                 Add( edges, [ via_index, tgt_index ] );
@@ -477,7 +486,7 @@ if IsPackageMarkedForLoading( "json", "2.1.1" ) then
     InstallGlobalFunction( ImportFromQGraphFile,
       
       function ( cat, filename )
-        local labels, edges, qgraph, wire_vertices, node_vertices, undir_edges, vertex_names, input_positions, output_positions, edge, src_vertex, tgt_vertex, annotation, data, full_type, io_positions, src_index, tgt_index, via_index, source, range, mor, name;
+        local qgraph;
         
         qgraph := StringFile( Concatenation( filename, ".qgraph" ) );
         
