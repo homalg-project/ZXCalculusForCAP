@@ -6,9 +6,9 @@
 
 if IsPackageMarkedForLoading( "json", "2.1.1" ) then
 
-  InstallGlobalFunction( ExportAsQGraph,
+  InstallGlobalFunction( ExportAsQGraphString,
     
-    function ( phi, filename )
+    function ( phi )
       local tuple, labels, input_positions, output_positions, edges, input_positions_indices, output_positions_indices, wire_vertices, node_vertices, vertex_names, padding_length, get_vertex_name, vertex_name, is_input, is_output, input_position, output_position, undir_edges, edge, edge_name, src_vertex_name, tgt_vertex_name, qgraph, pos, edge_counter;
         
         tuple := ZX_RemovedInnerNeutralNodes( MorphismDatum( phi ) );
@@ -247,23 +247,28 @@ if IsPackageMarkedForLoading( "json", "2.1.1" ) then
                        node_vertices := node_vertices,
                        undir_edges := undir_edges );
         
-        qgraph := GapToJsonString( qgraph );
+        return GapToJsonString( qgraph );
+        
+    end );
+    
+  InstallGlobalFunction( ExportAsQGraphFile,
+    
+    function ( phi, filename )
+      local tuple, labels, input_positions, output_positions, edges, input_positions_indices, output_positions_indices, wire_vertices, node_vertices, vertex_names, padding_length, get_vertex_name, vertex_name, is_input, is_output, input_position, output_position, undir_edges, edge, edge_name, src_vertex_name, tgt_vertex_name, qgraph, pos, edge_counter;
+        
+        qgraph := ExportAsQGraphString( phi );
         
         FileString( Concatenation( filename, ".qgraph" ), qgraph );
         
     end );
     
-    InstallGlobalFunction( ImportFromQGraph,
+    InstallGlobalFunction( ImportFromQGraphString,
       
-      function ( cat, filename )
-        local labels, edges, qgraph, wire_vertices, node_vertices, undir_edges, vertex_names, input_positions, output_positions, edge, src_vertex, tgt_vertex, annotation, data, full_type, io_positions, src_index, tgt_index, via_index, source, range, mor, name;
+      function ( cat, qgraph )
+        local labels, edges, wire_vertices, node_vertices, undir_edges, vertex_names, input_positions, output_positions, edge, src_vertex, tgt_vertex, annotation, data, full_type, io_positions, src_index, tgt_index, via_index, source, range, mor, name;
         
         labels := [ ];
         edges := [ ];
-        
-        qgraph := StringFile( Concatenation( filename, ".qgraph" ) );
-        
-        Assert( 0, qgraph <> fail );
         
         qgraph := JsonStringToGap( qgraph );
         
@@ -466,6 +471,19 @@ if IsPackageMarkedForLoading( "json", "2.1.1" ) then
         Assert( 0, IsWellDefinedForMorphisms( cat, mor ) );
         
         return mor;
+        
+    end );
+    
+    InstallGlobalFunction( ImportFromQGraphFile,
+      
+      function ( cat, filename )
+        local labels, edges, qgraph, wire_vertices, node_vertices, undir_edges, vertex_names, input_positions, output_positions, edge, src_vertex, tgt_vertex, annotation, data, full_type, io_positions, src_index, tgt_index, via_index, source, range, mor, name;
+        
+        qgraph := StringFile( Concatenation( filename, ".qgraph" ) );
+        
+        Assert( 0, qgraph <> fail );
+        
+        return ImportFromQGraphString( cat, qgraph );
         
     end );
     
