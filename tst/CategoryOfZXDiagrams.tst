@@ -77,4 +77,53 @@ gap> IsWellDefinedForMorphisms( Z_2_1 );
 true
 
 #
+gap> X_1_2_Z_2_1 := PreCompose( X_1_2, Z_2_1 );;
+gap> IsWellDefinedForMorphisms( X_1_2_Z_2_1 );
+true
+
+#
+gap> json_id := ExportAsQGraphString( id );;
+gap> json_ev := ExportAsQGraphString( ev );;
+gap> json_coev := ExportAsQGraphString( coev );;
+gap> json_X_1_1 := ExportAsQGraphString( X_1_1 );;
+gap> json_Z_1_1 := ExportAsQGraphString( Z_1_1 );;
+gap> json_H := ExportAsQGraphString( H );;
+gap> json_X_1_2 := ExportAsQGraphString( X_1_2 );;
+gap> json_Z_2_1 := ExportAsQGraphString( Z_2_1 );;
+gap> json_X_1_2_Z_2_1 := ExportAsQGraphString( X_1_2_Z_2_1 );;
+
+#
+# due to reordering during import/export, we have to make some roundtrips
+# until import/export is stable
+gap> test_inverse := function( json )
+>      local mor, json2, mor2, json3, mor3;
+>        mor := ImportFromQGraphString( ZX, json );
+>        json2 := ExportAsQGraphString( mor );
+>        mor2 := ImportFromQGraphString( ZX, json2 );
+>        json3 := ExportAsQGraphString( mor2 );
+>        mor3 := ImportFromQGraphString( ZX, json3 );
+>        return IsEqualForMorphisms( mor2, mor3 ) and json2 = json3;
+>    end;;
+
+#
+gap> test_inverse( json_id );
+true
+gap> test_inverse( json_ev );
+true
+gap> test_inverse( json_coev );
+true
+gap> test_inverse( json_X_1_1 );
+true
+gap> test_inverse( json_Z_1_1 );
+true
+gap> test_inverse( json_H );
+true
+gap> test_inverse( json_X_1_2 );
+true
+gap> test_inverse( json_Z_2_1 );
+true
+gap> test_inverse( json_X_1_2_Z_2_1 );
+true
+
+#
 gap> STOP_TEST( "CategoryOfZXDiagrams" );
