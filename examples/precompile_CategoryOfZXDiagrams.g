@@ -67,7 +67,7 @@ CapJitAddLogicTemplate(
 CapJitAddLogicTemplate(
     rec(
         variable_names := [ "func" ],
-        src_template := "ForAll( [ ], func )",
+        src_template := "ForAll( CapJitTypedExpression( [ ], { } -> CapJitDataTypeOfListOf( IsBigInt ) ), func )",
         dst_template := "true",
     )
 );

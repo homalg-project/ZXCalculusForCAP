@@ -14,7 +14,7 @@ InstallGlobalFunction( CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecor
     
     decorated_quivers := CategoryOfDecoratedQuivers( S_ZX, [ "white", "green", "red", "yellow" ], [ "black", "black", "black" ] : FinalizeCategory := true );
     
-    # Display( ENHANCED_SYNTAX_TREE( x -> CreateCapCategoryObjectWithAttributes( FinQuivers, DefiningTripleOfQuiverEnrichedOverSkeletalFinSets, Triple( 4, 3, S_ZX_EDGES ) ) ).bindings.BINDING_RETURN_VALUE );
+    # Display( ENHANCED_SYNTAX_TREE( x -> CreateCapCategoryObjectWithAttributes( FinQuivers, DefiningTripleOfQuiverEnrichedOverSkeletalFinSets, Triple( 4, 3, CapJitTypedExpression( S_ZX_EDGES, { } -> CapJitDataTypeOfListOf( CapJitDataTypeOfNTupleOf( 2, IsBigInt, IsBigInt ) ) ) ) ) ).bindings.BINDING_RETURN_VALUE );
     ModelingCategory( decorated_quivers )!.compiler_hints.category_attribute_resolving_functions := rec(
         BaseObject := { } -> rec(
             args := rec(
@@ -37,6 +37,20 @@ InstallGlobalFunction( CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecor
                             value := 3
                         ),
                         3 := rec(
+                            data_type := rec(
+                                element_type := rec(
+                                    element_types := [
+                                        rec(
+                                            filter := IsBigInt
+                                        ),
+                                        rec(
+                                            filter := IsBigInt
+                                        )
+                                    ],
+                                    filter := IsNTuple
+                                ),
+                                filter := IsList
+                            ),
                             gvar := "S_ZX_EDGES",
                             type := "EXPR_REF_GVAR"
                         ),
@@ -96,8 +110,8 @@ InstallGlobalFunction( CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecor
         decorated_quivers := UnderlyingCategory( csp );
         
         decorated_quiver := ObjectConstructor( decorated_quivers, Pair(
-            Triple( integer, BigInt( 0 ), [ ] ), # (nr_vertices, nr_edges, edges)
-            Pair( ListWithIdenticalEntries( integer, BigInt( 0 ) ), [ ] ) # (decorations_of_vertices, deocorations_of_edges)
+            Triple( integer, BigInt( 0 ), CapJitTypedExpression( [ ], { } -> CapJitDataTypeOfListOf( CapJitDataTypeOfNTupleOf( 2, IsBigInt, IsBigInt ) ) ) ), # (nr_vertices, nr_edges, edges)
+            Pair( ListWithIdenticalEntries( integer, BigInt( 0 ) ), CapJitTypedExpression( [ ], { } -> CapJitDataTypeOfListOf( IsBigInt ) ) ) # (decorations_of_vertices, deocorations_of_edges)
         ) );
         
         #% CAP_JIT_DROP_NEXT_STATEMENT
@@ -199,8 +213,8 @@ InstallGlobalFunction( CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecor
         #% CAP_JIT_DROP_NEXT_STATEMENT
         Assert( 0, IsWellDefinedForObjects( decorated_quivers, central_decorated_quiver ) );
         
-        input_morphism := MorphismConstructor( decorated_quivers, source_decorated_quiver, Pair( input_positions, [ ] ), central_decorated_quiver );
-        output_morphism := MorphismConstructor( decorated_quivers, range_decorated_quiver, Pair( output_positions, [ ] ), central_decorated_quiver );
+        input_morphism := MorphismConstructor( decorated_quivers, source_decorated_quiver, Pair( input_positions, CapJitTypedExpression( [ ], { } -> CapJitDataTypeOfListOf( IsBigInt ) ) ), central_decorated_quiver );
+        output_morphism := MorphismConstructor( decorated_quivers, range_decorated_quiver, Pair( output_positions, CapJitTypedExpression( [ ], { } -> CapJitDataTypeOfListOf( IsBigInt ) ) ), central_decorated_quiver );
         
         #% CAP_JIT_DROP_NEXT_STATEMENT
         Assert( 0, IsWellDefinedForMorphisms( decorated_quivers, input_morphism ) );
