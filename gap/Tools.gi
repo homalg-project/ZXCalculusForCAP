@@ -352,6 +352,7 @@ if IsPackageMarkedForLoading( "json", "2.1.1" ) then
             
             Add( labels, "neutral" );
             
+            Assert( 0, Number( [ "input", "input2", "output", "output2" ], name -> IsBound( annotation.(name) ) ) > 0 );
             Assert( 0, Number( [ "input", "input2", "output", "output2" ], name -> IsBound( annotation.(name) ) ) <= 2 );
             
             if IsBound( annotation.input ) then
