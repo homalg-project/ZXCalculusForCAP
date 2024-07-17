@@ -176,9 +176,13 @@ InstallGlobalFunction( CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecor
         nr_edges := Length( edges );
         
         decorations_of_vertices := List( labels, ZX_LabelToInteger );
-        # find each edge in list of S_ZX_EDGES
-        # TODO: introduce SafePositions
-        decorations_of_edges := List( edges, edge -> BigInt( SafePositionProperty( S_ZX_EDGES, e -> e = Pair( decorations_of_vertices[1 + edge[1]], decorations_of_vertices[1 + edge[2]] ) ) ) - 1 );
+        
+        #% CAP_JIT_DROP_NEXT_STATEMENT
+        Assert( 0, ZX_LabelToInteger( "neutral" ) = 0 and ForAll( edges, edge -> decorations_of_vertices[1 + edge[1]] = 0 ) ); # all edges start from a neutrally decorated vertex
+        #% CAP_JIT_DROP_NEXT_STATEMENT
+        Assert( 0, ForAll( edges, edge -> S_ZX_EDGES[decorations_of_vertices[1 + edge[2]]] = Pair( decorations_of_vertices[1 + edge[1]], decorations_of_vertices[1 + edge[2]] ) ) ); # the edge [ 0, i ] has position i in S_ZX_EDGES
+        
+        decorations_of_edges := List( edges, edge -> decorations_of_vertices[1 + edge[2]] - 1 );
         
         central_decorated_quiver := ObjectConstructor( decorated_quivers, Pair(
             Triple(

@@ -137,17 +137,9 @@ function ( cat_1, arg2_1, arg3_1 )
                     end ) = List( deduped_8_1, function ( a_2 )
                         return a_2[2];
                     end )) and (deduped_3_1 = deduped_4_1 and List( deduped_7_1, function ( edge_2 )
-                      local hoisted_1_2;
-                      hoisted_1_2 := NTuple( 2, deduped_3_1[1 + edge_2[1]], deduped_3_1[1 + edge_2[2]] );
-                      return BigInt( SafePositionProperty( S_ZX_EDGES, function ( e_3 )
-                                  return (e_3 = hoisted_1_2);
-                              end ) ) - 1;
+                      return deduped_3_1[1 + edge_2[2]] - 1;
                   end ) = List( deduped_8_1, function ( edge_2 )
-                      local hoisted_1_2;
-                      hoisted_1_2 := NTuple( 2, deduped_4_1[1 + edge_2[1]], deduped_4_1[1 + edge_2[2]] );
-                      return BigInt( SafePositionProperty( S_ZX_EDGES, function ( e_3 )
-                                  return (e_3 = hoisted_1_2);
-                              end ) ) - 1;
+                      return deduped_4_1[1 + edge_2[2]] - 1;
                   end )) and (deduped_10_1[2] = deduped_9_1[2] and true) and (deduped_10_1[3] = deduped_9_1[3] and true);
 end
 ########
