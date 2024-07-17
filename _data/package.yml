@@ -1,7 +1,7 @@
 name: ZXCalculusForCAP
-version: "2024.06-02"
+version: "2024.07-01"
 license: "GPL-2.0-or-later"
-date: 2024-06-27
+date: 2024-07-17
 description: |
     The category of ZX-diagrams
 
@@ -40,11 +40,11 @@ packageinfo: https://homalg-project.github.io/ZXCalculusForCAP/PackageInfo.g
 
 downloads:
     - name: .tar.gz
-      url: https://github.com/homalg-project/ZXCalculusForCAP/releases/download/v2024.06-02/ZXCalculusForCAP-2024.06-02.tar.gz
+      url: https://github.com/homalg-project/ZXCalculusForCAP/releases/download/v2024.07-01/ZXCalculusForCAP-2024.07-01.tar.gz
     - name: .zip
-      url: https://github.com/homalg-project/ZXCalculusForCAP/releases/download/v2024.06-02/ZXCalculusForCAP-2024.06-02.zip
+      url: https://github.com/homalg-project/ZXCalculusForCAP/releases/download/v2024.07-01/ZXCalculusForCAP-2024.07-01.zip
 
-pdf: https://github.com/homalg-project/ZXCalculusForCAP/releases/download/v2024.06-02/ZXCalculusForCAP-2024.06-02-manual.pdf
+pdf: https://github.com/homalg-project/ZXCalculusForCAP/releases/download/v2024.07-01/ZXCalculusForCAP-2024.07-01-manual.pdf
 
 abstract: |
 
@@ -53,10 +53,10 @@ doc-html: doc/chap0.html
 doc-pdf: doc/manual.pdf
 citeas: |
     <p class='BibEntry'>
-    [<span class='BibKey'>Zic27</span>]   <b class='BibAuthor'>Zickgraf, F.</b>,
+    [<span class='BibKey'>Zic17</span>]   <b class='BibAuthor'>Zickgraf, F.</b>,
      <i class='BibTitle'>ZXCalculusForCAP, The category of ZX-diagrams,
-             Version 2024.06-02</i>
-     (<span class='BibYear'>6-27</span>)<br />
+             Version 2024.07-01</i>
+     (<span class='BibYear'>7-17</span>)<br />
     (<span class='BibNote'>GAP package</span>),
     <span class='BibHowpublished'><a href="https://homalg-project.github.io/pkg/ZXCalculusForCAP">https://homalg-project.github.io/pkg/ZXCalculusForCAP</a></span>.
     </p>
@@ -67,15 +67,15 @@ bibtex: |
       author =           {Zickgraf, F.},
       title =            {{ZXCalculusForCAP},        The       category       of
                           ZX\texttt{\symbol{45}}diagrams,              {V}ersion
-                          2024.06\texttt{\symbol{45}}02},
+                          2024.07\texttt{\symbol{45}}01},
       month =            {4\texttt{\symbol{45}}},
-      year =             {6\texttt{\symbol{45}}27},
+      year =             {7\texttt{\symbol{45}}17},
       note =             {GAP package},
       howpublished =     {\href
                           {https://homalg-project.github.io/pkg/ZXCalculusForCAP}
                           {\texttt{https://homalg\texttt{\symbol{45}}project.github.io/}\discretionary
                           {}{}{}\texttt{pkg/}\discretionary
                           {}{}{}\texttt{ZXCalculusForCAP}}},
-      printedkey =       {Zic27}
+      printedkey =       {Zic17}
     }
 
