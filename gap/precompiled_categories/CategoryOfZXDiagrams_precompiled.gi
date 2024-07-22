@@ -12,7 +12,15 @@ BindGlobal( "ADD_FUNCTIONS_FOR_CategoryOfZXDiagrams_precompiled", function ( cat
 function ( cat_1, s_1, a_1, b_1, c_1, r_1 )
     local deduped_1_1;
     deduped_1_1 := AsInteger( r_1 );
-    return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, r_1, VertexLabeledGraph, NTuple( 4, ListWithIdenticalEntries( deduped_1_1, "neutral" ), [ 0 .. AsInteger( a_1 ) + AsInteger( b_1 ) + (AsInteger( c_1 ) - 1) ], [ 0 .. deduped_1_1 - 1 ], [  ] ) );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, r_1, VertexLabeledGraph, NTuple( 4, ListWithIdenticalEntries( deduped_1_1, "neutral" ), [ 0 .. AsInteger( a_1 ) + AsInteger( b_1 ) + (AsInteger( c_1 ) - 1) ], [ 0 .. deduped_1_1 - 1 ], CapJitTypedExpression( [  ], function (  )
+                return rec(
+                    filter := IsList,
+                    element_type := rec(
+                        filter := IsNTuple,
+                        element_types := [ rec(
+                                filter := IsInt ), rec(
+                                filter := IsInt ) ] ) );
+            end ) ) );
 end
 ########
         
@@ -25,7 +33,15 @@ end
 function ( cat_1, s_1, a_1, b_1, c_1, r_1 )
     local deduped_1_1;
     deduped_1_1 := AsInteger( r_1 );
-    return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, r_1, VertexLabeledGraph, NTuple( 4, ListWithIdenticalEntries( deduped_1_1, "neutral" ), [ 0 .. AsInteger( a_1 ) + AsInteger( b_1 ) + AsInteger( c_1 ) - 1 ], [ 0 .. deduped_1_1 - 1 ], [  ] ) );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, r_1, VertexLabeledGraph, NTuple( 4, ListWithIdenticalEntries( deduped_1_1, "neutral" ), [ 0 .. AsInteger( a_1 ) + AsInteger( b_1 ) + AsInteger( c_1 ) - 1 ], [ 0 .. deduped_1_1 - 1 ], CapJitTypedExpression( [  ], function (  )
+                return rec(
+                    filter := IsList,
+                    element_type := rec(
+                        filter := IsNTuple,
+                        element_types := [ rec(
+                                filter := IsInt ), rec(
+                                filter := IsInt ) ] ) );
+            end ) ) );
 end
 ########
         
@@ -39,7 +55,15 @@ function ( cat_1, s_1, a_1, b_1, r_1 )
     local deduped_1_1, deduped_2_1;
     deduped_2_1 := AsInteger( a_1 );
     deduped_1_1 := AsInteger( r_1 );
-    return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, r_1, VertexLabeledGraph, NTuple( 4, ListWithIdenticalEntries( deduped_1_1, "neutral" ), Concatenation( [ deduped_2_1 .. deduped_2_1 + AsInteger( b_1 ) - 1 ], [ 0 .. deduped_2_1 - 1 ] ), [ 0 .. deduped_1_1 - 1 ], [  ] ) );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, r_1, VertexLabeledGraph, NTuple( 4, ListWithIdenticalEntries( deduped_1_1, "neutral" ), Concatenation( [ deduped_2_1 .. deduped_2_1 + AsInteger( b_1 ) - 1 ], [ 0 .. deduped_2_1 - 1 ] ), [ 0 .. deduped_1_1 - 1 ], CapJitTypedExpression( [  ], function (  )
+                return rec(
+                    filter := IsList,
+                    element_type := rec(
+                        filter := IsNTuple,
+                        element_types := [ rec(
+                                filter := IsInt ), rec(
+                                filter := IsInt ) ] ) );
+            end ) ) );
 end
 ########
         
@@ -53,7 +77,15 @@ function ( cat_1, s_1, a_1, b_1, r_1 )
     local deduped_1_1, deduped_2_1;
     deduped_2_1 := AsInteger( b_1 );
     deduped_1_1 := AsInteger( r_1 );
-    return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, r_1, VertexLabeledGraph, NTuple( 4, ListWithIdenticalEntries( deduped_1_1, "neutral" ), Concatenation( [ deduped_2_1 .. deduped_2_1 + AsInteger( a_1 ) - 1 ], [ 0 .. deduped_2_1 - 1 ] ), [ 0 .. deduped_1_1 - 1 ], [  ] ) );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, r_1, VertexLabeledGraph, NTuple( 4, ListWithIdenticalEntries( deduped_1_1, "neutral" ), Concatenation( [ deduped_2_1 .. deduped_2_1 + AsInteger( a_1 ) - 1 ], [ 0 .. deduped_2_1 - 1 ] ), [ 0 .. deduped_1_1 - 1 ], CapJitTypedExpression( [  ], function (  )
+                return rec(
+                    filter := IsList,
+                    element_type := rec(
+                        filter := IsNTuple,
+                        element_types := [ rec(
+                                filter := IsInt ), rec(
+                                filter := IsInt ) ] ) );
+            end ) ) );
 end
 ########
         
@@ -64,11 +96,23 @@ end
         
 ########
 function ( cat_1, s_1, a_1, r_1 )
-    local deduped_1_1, deduped_2_1, deduped_3_1;
-    deduped_3_1 := [  ];
+    local deduped_1_1, deduped_2_1;
     deduped_2_1 := AsInteger( a_1 );
     deduped_1_1 := [ 0 .. deduped_2_1 - 1 ];
-    return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, r_1, VertexLabeledGraph, NTuple( 4, ListWithIdenticalEntries( deduped_2_1, "neutral" ), deduped_3_1, Concatenation( deduped_1_1, deduped_1_1 ), deduped_3_1 ) );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, r_1, VertexLabeledGraph, NTuple( 4, ListWithIdenticalEntries( deduped_2_1, "neutral" ), CapJitTypedExpression( [  ], function (  )
+                return rec(
+                    filter := IsList,
+                    element_type := rec(
+                        filter := IsInt ) );
+            end ), Concatenation( deduped_1_1, deduped_1_1 ), CapJitTypedExpression( [  ], function (  )
+                return rec(
+                    filter := IsList,
+                    element_type := rec(
+                        filter := IsNTuple,
+                        element_types := [ rec(
+                                filter := IsInt ), rec(
+                                filter := IsInt ) ] ) );
+            end ) ) );
 end
 ########
         
@@ -90,11 +134,23 @@ end
         
 ########
 function ( cat_1, s_1, a_1, r_1 )
-    local deduped_1_1, deduped_2_1, deduped_3_1;
-    deduped_3_1 := [  ];
+    local deduped_1_1, deduped_2_1;
     deduped_2_1 := AsInteger( a_1 );
     deduped_1_1 := [ 0 .. deduped_2_1 - 1 ];
-    return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, r_1, VertexLabeledGraph, NTuple( 4, ListWithIdenticalEntries( deduped_2_1, "neutral" ), Concatenation( deduped_1_1, deduped_1_1 ), deduped_3_1, deduped_3_1 ) );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, r_1, VertexLabeledGraph, NTuple( 4, ListWithIdenticalEntries( deduped_2_1, "neutral" ), Concatenation( deduped_1_1, deduped_1_1 ), CapJitTypedExpression( [  ], function (  )
+                return rec(
+                    filter := IsList,
+                    element_type := rec(
+                        filter := IsInt ) );
+            end ), CapJitTypedExpression( [  ], function (  )
+                return rec(
+                    filter := IsList,
+                    element_type := rec(
+                        filter := IsNTuple,
+                        element_types := [ rec(
+                                filter := IsInt ), rec(
+                                filter := IsInt ) ] ) );
+            end ) ) );
 end
 ########
         
@@ -108,7 +164,15 @@ function ( cat_1, a_1 )
     local deduped_1_1, deduped_2_1;
     deduped_2_1 := AsInteger( a_1 );
     deduped_1_1 := [ 0 .. deduped_2_1 - 1 ];
-    return CreateCapCategoryMorphismWithAttributes( cat_1, a_1, a_1, VertexLabeledGraph, NTuple( 4, ListWithIdenticalEntries( deduped_2_1, "neutral" ), deduped_1_1, deduped_1_1, [  ] ) );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, a_1, a_1, VertexLabeledGraph, NTuple( 4, ListWithIdenticalEntries( deduped_2_1, "neutral" ), deduped_1_1, deduped_1_1, CapJitTypedExpression( [  ], function (  )
+                return rec(
+                    filter := IsList,
+                    element_type := rec(
+                        filter := IsNTuple,
+                        element_types := [ rec(
+                                filter := IsInt ), rec(
+                                filter := IsInt ) ] ) );
+            end ) ) );
 end
 ########
         
@@ -269,7 +333,15 @@ end
 function ( cat_1, a_1, r_1 )
     local deduped_1_1;
     deduped_1_1 := AsInteger( a_1 ) - 1;
-    return CreateCapCategoryMorphismWithAttributes( cat_1, a_1, r_1, VertexLabeledGraph, NTuple( 4, ListWithIdenticalEntries( AsInteger( r_1 ), "neutral" ), [ BigInt( 0 ) .. deduped_1_1 ], [ 0 .. deduped_1_1 ], [  ] ) );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, a_1, r_1, VertexLabeledGraph, NTuple( 4, ListWithIdenticalEntries( AsInteger( r_1 ), "neutral" ), [ BigInt( 0 ) .. deduped_1_1 ], [ 0 .. deduped_1_1 ], CapJitTypedExpression( [  ], function (  )
+                return rec(
+                    filter := IsList,
+                    element_type := rec(
+                        filter := IsNTuple,
+                        element_types := [ rec(
+                                filter := IsInt ), rec(
+                                filter := IsInt ) ] ) );
+            end ) ) );
 end
 ########
         
@@ -286,7 +358,15 @@ function ( cat_1, a_1, s_1 )
     hoisted_1_1 := [ BigInt( 0 ) .. deduped_2_1 ];
     return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, a_1, VertexLabeledGraph, NTuple( 4, ListWithIdenticalEntries( deduped_3_1, "neutral" ), List( [ 0 .. AsInteger( s_1 ) - 1 ], function ( x_2 )
                 return -1 + BigInt( SafePosition( hoisted_1_1, x_2 ) );
-            end ), [ 0 .. deduped_2_1 ], [  ] ) );
+            end ), [ 0 .. deduped_2_1 ], CapJitTypedExpression( [  ], function (  )
+                return rec(
+                    filter := IsList,
+                    element_type := rec(
+                        filter := IsNTuple,
+                        element_types := [ rec(
+                                filter := IsInt ), rec(
+                                filter := IsInt ) ] ) );
+            end ) ) );
 end
 ########
         
@@ -360,7 +440,12 @@ function ( cat_1, alpha_1, beta_1 )
     deduped_25_1 := deduped_27_1 + deduped_28_1;
     deduped_24_1 := [ 0 .. deduped_30_1 - 1 ];
     deduped_23_1 := [ 0 .. deduped_29_1 - 1 ];
-    deduped_22_1 := NTuple( 3, BigInt( 0 ), [  ], deduped_26_1 );
+    deduped_22_1 := NTuple( 3, BigInt( 0 ), CapJitTypedExpression( [  ], function (  )
+              return rec(
+                  filter := IsList,
+                  element_type := rec(
+                      filter := IsInt ) );
+          end ), deduped_26_1 );
     deduped_21_1 := [ 0 .. deduped_26_1 - 1 ];
     deduped_20_1 := SKELETAL_FIN_SETS_ExplicitCoequalizer_primitive_input( deduped_26_1, [ deduped_22_1, deduped_22_1 ] );
     hoisted_2_1 := deduped_40_1[2];
@@ -436,7 +521,15 @@ end
 function ( cat_1, a_1, r_1 )
     local deduped_1_1;
     deduped_1_1 := AsInteger( r_1 );
-    return CreateCapCategoryMorphismWithAttributes( cat_1, a_1, r_1, VertexLabeledGraph, NTuple( 4, ListWithIdenticalEntries( deduped_1_1, "neutral" ), [ 0 .. AsInteger( a_1 ) - 1 ], [ 0 .. deduped_1_1 - 1 ], [  ] ) );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, a_1, r_1, VertexLabeledGraph, NTuple( 4, ListWithIdenticalEntries( deduped_1_1, "neutral" ), [ 0 .. AsInteger( a_1 ) - 1 ], [ 0 .. deduped_1_1 - 1 ], CapJitTypedExpression( [  ], function (  )
+                return rec(
+                    filter := IsList,
+                    element_type := rec(
+                        filter := IsNTuple,
+                        element_types := [ rec(
+                                filter := IsInt ), rec(
+                                filter := IsInt ) ] ) );
+            end ) ) );
 end
 ########
         
@@ -453,7 +546,15 @@ function ( cat_1, a_1, s_1 )
     hoisted_1_1 := [ 0 .. deduped_3_1 - 1 ];
     return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, a_1, VertexLabeledGraph, NTuple( 4, ListWithIdenticalEntries( deduped_3_1, "neutral" ), List( deduped_2_1, function ( x_2 )
                 return -1 + BigInt( SafePosition( hoisted_1_1, x_2 ) );
-            end ), deduped_2_1, [  ] ) );
+            end ), deduped_2_1, CapJitTypedExpression( [  ], function (  )
+                return rec(
+                    filter := IsList,
+                    element_type := rec(
+                        filter := IsNTuple,
+                        element_types := [ rec(
+                                filter := IsInt ), rec(
+                                filter := IsInt ) ] ) );
+            end ) ) );
 end
 ########
         
