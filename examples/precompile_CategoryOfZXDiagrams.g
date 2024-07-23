@@ -39,6 +39,56 @@ end );
 ##
 CapJitAddLogicTemplate(
     rec(
+        variable_names := [ "presheaf", "object" ],
+        variable_filters := [ IsObjectInPreSheafCategoryOfFpEnrichedCategory, IsCapCategoryObject ],
+        src_template := "presheaf( object )",
+        dst_template := "ApplyObjectInPreSheafCategoryOfFpEnrichedCategoryToObject( CapCategory( presheaf ), presheaf, object )",
+    )
+);
+
+##
+# WARNING: the following is wrong if <morphism> is not a generating morphism
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "presheaf", "morphism" ],
+        variable_filters := [ IsObjectInPreSheafCategoryOfFpEnrichedCategory, IsCapCategoryMorphism ],
+        src_template := "presheaf( morphism )",
+        dst_template := "ValuesOfPreSheaf( presheaf )[2][SafeUniquePositionProperty( SetOfGeneratingMorphisms( Source( CapCategory( presheaf ) ) ), m -> IsEqualForMorphisms( Source( CapCategory( presheaf ) ), m, morphism ) )]",
+        new_funcs := [ [ "m" ] ],
+    )
+);
+
+##
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "eta", "object" ],
+        variable_filters := [ IsMorphismInPreSheafCategoryOfFpEnrichedCategory, IsCapCategoryObject ],
+        src_template := "eta( object )",
+        dst_template := "ApplyMorphismInPreSheafCategoryOfFpEnrichedCategoryToObject( CapCategory( eta ), eta, object )",
+    )
+);
+
+##
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ ],
+        src_template := "SafeUniquePosition( [ 1, 2 ], 1 )",
+        dst_template := "1",
+    )
+);
+
+##
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ ],
+        src_template := "SafeUniquePosition( [ 1, 2 ], 2 )",
+        dst_template := "2",
+    )
+);
+
+##
+CapJitAddLogicTemplate(
+    rec(
         variable_names := [ "value" ],
         src_template := "CAP_JIT_INCOMPLETE_LOGIC( value )",
         dst_template := "value",
