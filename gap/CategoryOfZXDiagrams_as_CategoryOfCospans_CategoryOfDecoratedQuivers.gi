@@ -7,12 +7,41 @@
 InstallGlobalFunction( CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers, function ( )
   local S_ZX, decorated_quivers, FinalizeCategory, csp, object_constructor, modeling_tower_object_constructor, object_datum, modeling_tower_object_datum, morphism_constructor, modeling_tower_morphism_constructor, morphism_datum, modeling_tower_morphism_datum, ZX;
     
-    # expanded version of: S_ZX := CreateQuiver( 4, S_ZX_EDGES );
-    S_ZX := CreateCapCategoryObjectWithAttributes( FinQuivers, DefiningTripleOfQuiverEnrichedOverSkeletalFinSets, Triple( 4, 3, S_ZX_EDGES ) );
+    # expanded version of: S_ZX := CreateQuiver( Length( S_ZX_NODES ), S_ZX_EDGES );
+    S_ZX := CreateCapCategoryObjectWithAttributes( FinQuivers, DefiningTripleOfQuiverEnrichedOverSkeletalFinSets, Triple( Length( S_ZX_NODES ), Length( S_ZX_EDGES ), S_ZX_EDGES ) );
     
     Assert( 0, IsWellDefinedForObjects( FinQuivers, S_ZX ) );
     
-    decorated_quivers := CategoryOfDecoratedQuivers( S_ZX, [ "white", "green", "red", "yellow" ], [ "black", "black", "black" ] : FinalizeCategory := true );
+    decorated_quivers := CategoryOfDecoratedQuivers( S_ZX,
+        List( S_ZX_NODES, function ( label )
+            
+            if label = "neutral" then
+                
+                return "white";
+                
+            elif label = "H" then
+                
+                return "yellow";
+                
+            elif StartsWith( label, "Z" ) then
+                
+                return "green";
+                
+            elif StartsWith( label, "X" ) then
+                
+                return "red";
+                
+            else
+                
+                # COVERAGE_IGNORE_NEXT_LINE
+                Error( "unknown label: ", label );
+                
+            fi;
+            
+        end ),
+        ListWithIdenticalEntries( Length( S_ZX_EDGES ), Immutable( "black" ) )
+        : FinalizeCategory := true
+    );
     
     # Display( ENHANCED_SYNTAX_TREE( x -> CreateCapCategoryObjectWithAttributes( FinQuivers, DefiningTripleOfQuiverEnrichedOverSkeletalFinSets, Triple( 4, 3, CapJitTypedExpression( S_ZX_EDGES, { } -> CapJitDataTypeOfListOf( CapJitDataTypeOfNTupleOf( 2, IsBigInt, IsBigInt ) ) ) ) ) ).bindings.BINDING_RETURN_VALUE );
     ModelingCategory( decorated_quivers )!.compiler_hints.category_attribute_resolving_functions := rec(
