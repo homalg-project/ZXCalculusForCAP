@@ -265,6 +265,9 @@ if IsPackageMarkedForLoading( "json", "2.1.1" ) then
         
         FileString( filename, qgraph );
         
+        # suppress return value for julia
+        return;
+        
     end );
     
     InstallGlobalFunction( ImportFromQGraphString,
