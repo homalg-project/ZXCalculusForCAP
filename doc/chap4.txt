@@ -1,0 +1,42 @@
+  
+  [1X4 [33X[0;0YPrecompilation[133X[101X
+  
+  
+  [1X4.1 [33X[0;0YPrecompiling the category of ZX-diagrams[133X[101X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X#@if ValueOption( "no_precompiled_code" ) <> true[128X[104X
+    [4X[25Xgap>[125X [27XLoadPackage( "ZXCalculusForCAP", false );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XReadPackageOnce( "FinSetsForCAP", "gap/CompilerLogic.gi" );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XReadPackageOnce( "Algebroids", "gap/CompilerLogic.gi" );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XReadPackageOnce( "FunctorCategories", "gap/CompilerLogic.gi" );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XReadPackageOnce( "ZXCalculusForCAP", "gap/CompilerLogic.gi" );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xcategory_constructor := { } -> CategoryOfZXDiagrams( );;[127X[104X
+    [4X[25Xgap>[125X [27Xgiven_arguments := [ ];;[127X[104X
+    [4X[25Xgap>[125X [27Xcompiled_category_name := "CategoryOfZXDiagrams_precompiled";;[127X[104X
+    [4X[25Xgap>[125X [27Xpackage_name := "ZXCalculusForCAP";;[127X[104X
+    [4X[25Xgap>[125X [27XCapJitPrecompileCategoryAndCompareResult([127X[104X
+    [4X[25X>[125X [27X    category_constructor,[127X[104X
+    [4X[25X>[125X [27X    given_arguments,[127X[104X
+    [4X[25X>[125X [27X    package_name,[127X[104X
+    [4X[25X>[125X [27X    compiled_category_name :[127X[104X
+    [4X[25X>[125X [27X    operations := "primitive",[127X[104X
+    [4X[25X>[125X [27X    number_of_objectified_objects_in_data_structure_of_object := 1,[127X[104X
+    [4X[25X>[125X [27X    number_of_objectified_morphisms_in_data_structure_of_object := 0,[127X[104X
+    [4X[25X>[125X [27X    number_of_objectified_objects_in_data_structure_of_morphism := 2,[127X[104X
+    [4X[25X>[125X [27X    number_of_objectified_morphisms_in_data_structure_of_morphism := 1[127X[104X
+    [4X[25X>[125X [27X);;[127X[104X
+    [4X[25Xgap>[125X [27XCategoryOfZXDiagrams_precompiled( );[127X[104X
+    [4X[28XCategory of ZX-diagrams[128X[104X
+    [4X[25Xgap>[125X [27Xcat := CategoryOfZXDiagrams( );[127X[104X
+    [4X[28XCategory of ZX-diagrams[128X[104X
+    [4X[25Xgap>[125X [27Xcat!.precompiled_functions_added;[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[28X#@fi[128X[104X
+  [4X[32X[104X
+  
