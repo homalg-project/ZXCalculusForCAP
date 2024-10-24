@@ -34,6 +34,11 @@ gap> PreCompose( coev, IdentityMorphism( TensorProduct( three, three ) ) );;
 gap> PreCompose( IdentityMorphism( zero ), coev );;
 
 #
+#@if ValueOption( "no_precompiled_code" ) <> true
+gap> ZX!.cached_precompiled_functions.PreCompose( ZX, IdentityMorphism( TensorProduct( three, three ) ), ev );;
+#@fi
+
+#
 gap> Display( PreCompose( coev, ev ) );
 A morphism in Category of ZX-diagrams given by a ZX diagram with 0 vertex labe\
 ls
@@ -58,6 +63,15 @@ ls
 #
 gap> IsEqualForMorphisms( TensorProductOnMorphisms( IdentityMorphism( one ), IdentityMorphism( two ) ), IdentityMorphism( three ) );
 true
+
+#
+#@if ValueOption( "no_precompiled_code" ) <> true
+gap> ZX!.cached_precompiled_functions.TensorProductOnMorphismsWithGivenTensorProducts( ZX, 
+>   TensorProductOnObjects( one, two ),
+>   IdentityMorphism( one ), IdentityMorphism( two ),
+>   TensorProductOnObjects( one, two )
+> );;
+#@fi
 
 #
 gap> IsEqualForMorphisms( AssociatorLeftToRight( zero, one, two ), IdentityMorphism( three ) );

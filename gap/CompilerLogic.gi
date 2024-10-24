@@ -15,12 +15,6 @@ CapJitAddTypeSignature( "CoproductFunctorial", [ IsCapCategory, IsList ], functi
     
 end );
 
-CapJitAddTypeSignature( "CAP_JIT_INCOMPLETE_LOGIC", [ IsObject ], function ( input_types )
-    
-    return input_types[1];
-    
-end );
-
 ##
 CapJitAddLogicTemplate(
     rec(
@@ -68,15 +62,6 @@ CapJitAddLogicTemplate(
         variable_names := [ ],
         src_template := "SafeUniquePosition( [ 1, 2 ], 2 )",
         dst_template := "2",
-    )
-);
-
-##
-CapJitAddLogicTemplate(
-    rec(
-        variable_names := [ "value" ],
-        src_template := "CAP_JIT_INCOMPLETE_LOGIC( value )",
-        dst_template := "value",
     )
 );
 
