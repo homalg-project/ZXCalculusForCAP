@@ -4,7 +4,13 @@
 # Implementations
 #
 
-InstallGlobalFunction( CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers, function ( )
+##
+InstallGlobalFunction( CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers, FunctionWithNamedArguments(
+  [
+    [ "no_precompiled_code", false ],
+    [ "FinalizeCategory", true ],
+  ],
+  function ( CAP_NAMED_ARGUMENTS )
     local object_constructor, object_datum, morphism_constructor, morphism_datum,
           S_ZX, decorated_quivers, FinalizeCategory, csp,
           modeling_tower_object_constructor, modeling_tower_object_datum, modeling_tower_morphism_constructor, modeling_tower_morphism_datum,
@@ -340,8 +346,18 @@ InstallGlobalFunction( CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecor
         only_primitive_operations := true,
     ) : FinalizeCategory := false );
     
-    Finalize( ZX );
+    if not CAP_NAMED_ARGUMENTS.no_precompiled_code then
+        
+        ADD_FUNCTIONS_FOR_CategoryOfZXDiagrams_precompiled( ZX );
+        
+    fi;
+    
+    if CAP_NAMED_ARGUMENTS.FinalizeCategory then
+        
+        Finalize( ZX );
+        
+    fi;
     
     return ZX;
     
-end );
+end ) );
