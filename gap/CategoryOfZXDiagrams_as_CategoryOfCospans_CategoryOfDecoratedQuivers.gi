@@ -4,8 +4,66 @@
 # Implementations
 #
 
-InstallGlobalFunction( CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers, function ( )
-  local S_ZX, decorated_quivers, FinalizeCategory, csp, object_constructor, modeling_tower_object_constructor, object_datum, modeling_tower_object_datum, morphism_constructor, modeling_tower_morphism_constructor, morphism_datum, modeling_tower_morphism_datum, ZX;
+##
+InstallGlobalFunction( CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers, FunctionWithNamedArguments(
+  [
+    [ "no_precompiled_code", false ],
+    [ "FinalizeCategory", true ],
+  ],
+  function ( CAP_NAMED_ARGUMENTS )
+    local object_constructor, object_datum, morphism_constructor, morphism_datum,
+          S_ZX, decorated_quivers, FinalizeCategory, csp,
+          modeling_tower_object_constructor, modeling_tower_object_datum, modeling_tower_morphism_constructor, modeling_tower_morphism_datum,
+          ZX;
+    
+    ##
+    object_constructor :=
+      function ( cat, integer )
+        local obj;
+        
+        if not (IsBigInt( integer ) and integer >= 0) then
+            
+            # COVERAGE_IGNORE_NEXT_LINE
+            Error( "The object datum in the category of ZX-diagrams must be a non-negative integer." );
+            
+        fi;
+        
+        obj := CreateCapCategoryObjectWithAttributes( cat, AsInteger, integer );
+        
+        #% CAP_JIT_DROP_NEXT_STATEMENT
+        Assert( 0, IsWellDefinedForObjects( cat, obj ) );
+        
+        return obj;
+        
+    end;
+    
+    ##
+    object_datum :=
+      function ( cat, object )
+        
+        return AsInteger( object );
+        
+    end;
+    
+    morphism_constructor :=
+      function ( cat, source, tuple, range )
+        local mor;
+        
+        mor := CreateCapCategoryMorphismWithAttributes( cat, source, range, VertexLabeledGraph, tuple );
+        
+        #% CAP_JIT_DROP_NEXT_STATEMENT
+        Assert( 0, IsWellDefinedForMorphisms( cat, mor ) );
+        
+        return mor;
+        
+    end;
+    
+    morphism_datum :=
+      function ( cat, morphism )
+        
+        return VertexLabeledGraph( morphism );
+        
+    end;
     
     # expanded version of: S_ZX := CreateQuiver( Length( S_ZX_NODES ), S_ZX_EDGES );
     S_ZX := CreateCapCategoryObjectWithAttributes( FinQuivers, DefiningTripleOfQuiverEnrichedOverSkeletalFinSets, Triple( Length( S_ZX_NODES ), Length( S_ZX_EDGES ), S_ZX_EDGES ) );
@@ -105,27 +163,10 @@ InstallGlobalFunction( CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecor
     
     csp := CategoryOfCospans_for_ZXCalculus( decorated_quivers : FinalizeCategory := true );
     
-    object_constructor := function ( cat, integer )
-      local obj;
-        
-        if not (IsBigInt( integer ) and integer >= 0) then
-            
-            # COVERAGE_IGNORE_NEXT_LINE
-            Error( "The object datum in the category of ZX-diagrams must be a non-negative integer." );
-            
-        fi;
-        
-        obj := CreateCapCategoryObjectWithAttributes( cat, AsInteger, integer );
-        
-        #% CAP_JIT_DROP_NEXT_STATEMENT
-        Assert( 0, IsWellDefinedForObjects( cat, obj ) );
-        
-        return obj;
-        
-    end;
-    
-    modeling_tower_object_constructor := function ( cat, integer )
-      local csp, decorated_quivers, decorated_quiver, obj;
+    ## from the raw object data to the object in the modeling category
+    modeling_tower_object_constructor :=
+      function ( cat, integer )
+        local csp, decorated_quivers, decorated_quiver, obj;
         
         if not (IsBigInt( integer ) and integer >= 0) then
             
@@ -139,9 +180,10 @@ InstallGlobalFunction( CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecor
         decorated_quivers := UnderlyingCategory( csp );
         
         decorated_quiver := ObjectConstructor( decorated_quivers, Pair(
-            Triple( integer, BigInt( 0 ), CapJitTypedExpression( [ ], { } -> CapJitDataTypeOfListOf( CapJitDataTypeOfNTupleOf( 2, IsBigInt, IsBigInt ) ) ) ), # (nr_vertices, nr_edges, edges)
-            Pair( ListWithIdenticalEntries( integer, BigInt( 0 ) ), CapJitTypedExpression( [ ], { } -> CapJitDataTypeOfListOf( IsBigInt ) ) ) # (decorations_of_vertices, deocorations_of_edges)
-        ) );
+            # (nr_vertices, nr_edges, edges)
+            Triple( integer, BigInt( 0 ), CapJitTypedExpression( [ ], { } -> CapJitDataTypeOfListOf( CapJitDataTypeOfNTupleOf( 2, IsBigInt, IsBigInt ) ) ) ),
+            # (decorations_of_vertices, deocorations_of_edges)
+            Pair( ListWithIdenticalEntries( integer, BigInt( 0 ) ), CapJitTypedExpression( [ ], { } -> CapJitDataTypeOfListOf( IsBigInt ) ) ) ) );
         
         #% CAP_JIT_DROP_NEXT_STATEMENT
         Assert( 0, IsWellDefinedForObjects( decorated_quivers, decorated_quiver ) );
@@ -155,12 +197,7 @@ InstallGlobalFunction( CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecor
         
     end;
     
-    object_datum := function ( cat, object )
-        
-        return AsInteger( object );
-        
-    end;
-    
+    ## from the object in the modeling category to the raw object data
     modeling_tower_object_datum := function ( cat, object )
       local csp, decorated_quivers, pair, integer;
         
@@ -176,8 +213,10 @@ InstallGlobalFunction( CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecor
         Assert(
             0,
             pair = Pair(
-                Triple( integer, BigInt( 0 ), [ ] ), # (nr_vertices, nr_edges, edges)
-                Pair( ListWithIdenticalEntries( integer, BigInt( 0 ) ), [ ] ) # (decorations_of_vertices, deocorations_of_edges)
+                # (nr_vertices, nr_edges, edges)
+                Triple( integer, BigInt( 0 ), [ ] ),
+                # (decorations_of_vertices, deocorations_of_edges)
+                Pair( ListWithIdenticalEntries( integer, BigInt( 0 ) ), [ ] )
             )
         );
         
@@ -185,18 +224,7 @@ InstallGlobalFunction( CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecor
         
     end;
     
-    morphism_constructor := function ( cat, source, tuple, range )
-      local mor;
-        
-        mor := CreateCapCategoryMorphismWithAttributes( cat, source, range, VertexLabeledGraph, tuple );
-        
-        #% CAP_JIT_DROP_NEXT_STATEMENT
-        Assert( 0, IsWellDefinedForMorphisms( cat, mor ) );
-        
-        return mor;
-        
-    end;
-    
+    ## from the raw morphism data to the morphism in the modeling category
     modeling_tower_morphism_constructor := function ( cat, source, tuple, range )
       local csp, decorated_quivers, labels, edges, input_positions, output_positions, source_decorated_quiver, source_pair, range_decorated_quiver, range_pair, nr_vertices, nr_edges, decorations_of_vertices, decorations_of_edges, central_decorated_quiver, input_morphism, output_morphism, morphism_pair, mor;
         
@@ -219,7 +247,7 @@ InstallGlobalFunction( CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecor
         nr_edges := Length( edges );
         
         decorations_of_vertices := List( labels, ZX_LabelToInteger );
-        
+
         #% CAP_JIT_DROP_NEXT_STATEMENT
         Assert( 0, ZX_LabelToInteger( "neutral" ) = 0 and ForAll( edges, edge -> decorations_of_vertices[1 + edge[1]] = 0 ) ); # all edges start from a neutrally decorated vertex
         #% CAP_JIT_DROP_NEXT_STATEMENT
@@ -261,12 +289,7 @@ InstallGlobalFunction( CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecor
         
     end;
     
-    morphism_datum := function ( cat, morphism )
-        
-        return VertexLabeledGraph( morphism );
-        
-    end;
-    
+    ## from the morphism in the modeling category to the raw morphism data
     modeling_tower_morphism_datum := function ( cat, morphism )
       local csp, decorated_quivers, morphism_pair, input_morphism, output_morphism, source_decorated_quiver, range_decorated_quiver, central_decorated_quiver, central_decorated_quiver_data, nr_vertices, decorations_of_vertices, input_positions, output_positions, labels, edges;
         
@@ -323,8 +346,18 @@ InstallGlobalFunction( CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecor
         only_primitive_operations := true,
     ) : FinalizeCategory := false );
     
-    Finalize( ZX );
+    if not CAP_NAMED_ARGUMENTS.no_precompiled_code then
+        
+        ADD_FUNCTIONS_FOR_CategoryOfZXDiagrams_precompiled( ZX );
+        
+    fi;
+    
+    if CAP_NAMED_ARGUMENTS.FinalizeCategory then
+        
+        Finalize( ZX );
+        
+    fi;
     
     return ZX;
     
-end );
+end ) );
