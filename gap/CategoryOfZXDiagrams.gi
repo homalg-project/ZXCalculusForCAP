@@ -224,9 +224,18 @@ InstallGlobalFunction( CategoryOfZXDiagrams, FunctionWithNamedArguments(
     else
         
         ZX := CreateCapCategoryWithDataTypes(
-            "Category of ZX-diagrams", IsCategoryOfZXDiagrams,
-            IsZXDiagramObject, IsZXDiagramMorphism, IsCapCategoryTwoCell,
-            IsBigInt, CapJitDataTypeOfNTupleOf( 4, CapJitDataTypeOfListOf( IsStringRep ), CapJitDataTypeOfListOf( IsBigInt ), CapJitDataTypeOfListOf( IsBigInt ), CapJitDataTypeOfListOf( CapJitDataTypeOfNTupleOf( 2, IsBigInt, IsBigInt ) ) ), fail
+                      "Category of ZX-diagrams",
+                      IsCategoryOfZXDiagrams,
+                      IsZXDiagramObject,
+                      IsZXDiagramMorphism,
+                      IsCapCategoryTwoCell,
+                      IsBigInt,
+                      CapJitDataTypeOfNTupleOf( 4,
+                              CapJitDataTypeOfListOf( IsStringRep ),
+                              CapJitDataTypeOfListOf( IsBigInt ),
+                              CapJitDataTypeOfListOf( IsBigInt ),
+                              CapJitDataTypeOfListOf( CapJitDataTypeOfNTupleOf( 2, IsBigInt, IsBigInt ) ) ),
+                      fail
             : is_computable := false
         );
         
