@@ -10,7 +10,7 @@ SetPackageInfo( rec(
 
 PackageName := "ZXCalculusForCAP",
 Subtitle := "The category of ZX-diagrams",
-Version := "2025.06-01",
+Version := "2025.06-02",
 Date := (function ( ) if IsBound( GAPInfo.SystemEnvironment.GAP_PKG_RELEASE_DATE ) then return GAPInfo.SystemEnvironment.GAP_PKG_RELEASE_DATE; else return Concatenation( ~.Version{[ 1 .. 4 ]}, "-", ~.Version{[ 6, 7 ]}, "-01" ); fi; end)( ),
 License := "GPL-2.0-or-later",
 
@@ -69,7 +69,7 @@ PackageDoc := rec(
 Dependencies := rec(
   GAP := ">= 4.13.0",
   NeededOtherPackages := [
-      [ "CAP", ">= 2023.08-18" ],
+      [ "CAP", ">= 2025.06-06" ],
       [ "MonoidalCategories", ">= 2023.05-03" ], # monoidal structure
       [ "FinSetsForCAP", ">= 2023.06-05" ], # SKELETAL_FIN_SETS_ExplicitCoequalizer_primitive_input
   ],

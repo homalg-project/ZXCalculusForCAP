@@ -3,12 +3,13 @@
 #
 # Declarations
 #
-#! @Chapter The category of ZX diagrams
+#! @Chapter The category of ZX-diagrams
 
 #! @Section Constructors
 
 #! @Description
-#!   Creates a category of ZX diagrams as a tower.
+#!   Creates a category of ZX-diagrams as a tower.
 #!   Only available if the package `FunctorCategories` is available.
-#! @Returns a category of zx diagrams
+#! @Arguments
+#! @Returns a category of ZX-diagrams
 DeclareGlobalFunction( "CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers" );

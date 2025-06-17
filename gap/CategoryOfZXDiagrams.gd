@@ -3,21 +3,13 @@
 #
 # Declarations
 #
-#! @Chapter The category of ZX diagrams
+#! @Chapter The category of ZX-diagrams
 
-#! @Section Constructors
-
-#! @Description
-#!   Creates a category of ZX diagrams.
-#! @Returns a category of zx diagrams
-DeclareGlobalFunction( "CategoryOfZXDiagrams" );
-
-#! @Description
-#!  The default instance of the category of ZX diagrams.
-#!  It is automatically created while loading this package.
-DeclareGlobalName( "ZX" );
-
+####################################
+##
 #! @Section Filters
+##
+####################################
 
 #! @Description
 #!   The filter of categories of ZX-diagrams.
@@ -25,27 +17,86 @@ DeclareFilter( "IsCategoryOfZXDiagrams", IsCapCategory );
 
 #! @Description
 #!   The filter of objects in a category of ZX-diagrams.
-DeclareFilter( "IsZXDiagramObject", IsCapCategoryObject );
+DeclareFilter( "IsObjectInCategoryOfZXDiagrams", IsCapCategoryObject );
 
 #! @Description
 #!   The filter of morphisms in a category of ZX-diagrams.
-DeclareFilter( "IsZXDiagramMorphism", IsCapCategoryMorphism );
+DeclareFilter( "IsMorphismInCategoryOfZXDiagrams", IsCapCategoryMorphism );
 
+####################################
+##
+#! @Section Constructors
+##
+####################################
+
+#! @Description
+#!   Creates a category of ZX-diagrams.
+#! @Arguments
+#! @Returns a category of ZX-diagrams
+DeclareGlobalFunction( "CategoryOfZXDiagrams" );
+
+#! @Description
+#!  The default instance of the category of ZX-diagrams.
+#!  It is automatically created while loading this package.
+DeclareGlobalName( "ZX" );
+
+#! @Description
+#!  Create <A>n</A> qubits as an object in the category <A>zx</A> of ZX-diagrams.
+#! @Arguments zx, n
+#! @Returns an object
+DeclareOperation( "Qubits",
+        [ IsCategoryOfZXDiagrams, IsInt ] );
+
+#! @Description
+#!  Create an $Z$-spider of phase <A>phi</A>
+#!  with <A>nr_inputs</A> inputs and <A>nr_outputs</A> outputs
+#!  as a morphism in the category <A>zx</A> of ZX-diagrams.
+#! @Arguments zx, phi, nr_inputs, nr_outputs
+#! @Returns a morphism
+DeclareOperation( "Z_Spider",
+        [ IsCategoryOfZXDiagrams, IsStringRep, IsInt, IsInt ] );
+
+#! @Description
+#!  Create an $X$-spider of phase <A>phi</A>
+#!  with <A>nr_inputs</A> inputs and <A>nr_outputs</A> outputs
+#!  as a morphism in the category <A>zx</A> of ZX-diagrams.
+#! @Arguments zx, phi, nr_inputs, nr_outputs
+#! @Returns a morphism
+DeclareOperation( "X_Spider",
+        [ IsCategoryOfZXDiagrams, IsStringRep, IsInt, IsInt ] );
+
+#! @Description
+#!  Create an H-gate with $1$ input and $1$ output
+#!  as a morphism in the category <A>zx</A> of ZX-diagrams.
+#! @Arguments zx
+#! @Returns a morphism
+DeclareOperation( "H_Gate",
+        [ IsCategoryOfZXDiagrams ] );
+
+####################################
+##
 #! @Section Attributes
+##
+####################################
 
 #! @Description
 #!   The integer defining an object in a category of ZX-diagrams.
 #! @Arguments obj
-DeclareAttribute( "AsInteger", IsZXDiagramObject );
+DeclareAttribute( "AsInteger", IsObjectInCategoryOfZXDiagrams );
 
 #! @Description
 #!   The labeled graph defining a morphism in a category of ZX-diagrams.
 #! @Arguments mor
-DeclareAttribute( "VertexLabeledGraph", IsZXDiagramMorphism );
+DeclareAttribute( "VertexLabeledGraph", IsMorphismInCategoryOfZXDiagrams );
 
-CapJitAddTypeSignature( "VertexLabeledGraph", [ IsZXDiagramMorphism ], CapJitDataTypeOfNTupleOf( 4, CapJitDataTypeOfListOf( IsStringRep ), CapJitDataTypeOfListOf( IsBigInt ), CapJitDataTypeOfListOf( IsBigInt ), CapJitDataTypeOfListOf( CapJitDataTypeOfNTupleOf( 2, IsBigInt, IsBigInt ) ) ) );
+CapJitAddTypeSignature( "VertexLabeledGraph", [ IsMorphismInCategoryOfZXDiagrams ], CapJitDataTypeOfNTupleOf( 4, CapJitDataTypeOfListOf( IsStringRep ), CapJitDataTypeOfListOf( IsBigInt ), CapJitDataTypeOfListOf( IsBigInt ), CapJitDataTypeOfListOf( CapJitDataTypeOfNTupleOf( 2, IsBigInt, IsBigInt ) ) ) );
 
-# helpers
+####################################
+##
+## helpers
+##
+####################################
+
 DeclareGlobalName( "ZX_LabelToInteger" );
 DeclareGlobalName( "ZX_IntegerToLabel" );
 DeclareGlobalName( "ZX_RemovedInnerNeutralNodes" );

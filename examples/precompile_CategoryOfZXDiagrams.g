@@ -39,10 +39,10 @@ CapJitPrecompileCategoryAndCompareResult(
 );;
 
 CategoryOfZXDiagrams_precompiled( );
-#! Category of ZX-diagrams
+#! CategoryOfZXDiagramsAsTower( )
 
 cat := CategoryOfZXDiagrams( );
-#! Category of ZX-diagrams
+#! CategoryOfZXDiagrams( )
 
 cat!.precompiled_functions_added;
 #! true

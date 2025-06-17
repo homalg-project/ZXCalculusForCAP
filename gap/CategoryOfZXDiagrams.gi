@@ -9,8 +9,11 @@
 # 2: red spider = X
 # 3: Hadamard = H
 
-BindGlobal( "S_ZX_NODES", [ "neutral", "Z", "X", "H" ] );
-BindGlobal( "S_ZX_EDGES", [ [ 0, 1 ], [ 0, 2 ], [ 0, 3 ] ] );
+#BindGlobal( "S_ZX_NODES", [ "neutral", "Z", "X", "H" ] );
+#BindGlobal( "S_ZX_EDGES", [ [ 0, 1 ], [ 0, 2 ], [ 0, 3 ] ] );
+
+BindGlobal( "S_ZX_NODES", [ "neutral", "Z", "Zπ", "X", "Xπ", "H" ] );
+BindGlobal( "S_ZX_EDGES", List( [ 1 .. Length( S_ZX_NODES ) - 1 ], i -> [ 0, i ] ) );
 
 BindGlobal( "ZX_LabelToInteger", function ( label )
   local pos;
@@ -224,10 +227,10 @@ InstallGlobalFunction( CategoryOfZXDiagrams, FunctionWithNamedArguments(
     else
         
         ZX := CreateCapCategoryWithDataTypes(
-                      "Category of ZX-diagrams",
+                      "CategoryOfZXDiagrams( )",
                       IsCategoryOfZXDiagrams,
-                      IsZXDiagramObject,
-                      IsZXDiagramMorphism,
+                      IsObjectInCategoryOfZXDiagrams,
+                      IsMorphismInCategoryOfZXDiagrams,
                       IsCapCategoryTwoCell,
                       IsBigInt,
                       CapJitDataTypeOfNTupleOf( 4,
@@ -256,9 +259,219 @@ InstallGlobalFunction( CategoryOfZXDiagrams, FunctionWithNamedArguments(
 end ) );
 
 ##
+InstallMethod( Qubits,
+        "for a category of ZX-diagram and an integer",
+        [ IsCategoryOfZXDiagrams, IsInt ],
+        
+  function ( ZX, m )
+    
+    return ObjectConstructor( ZX, BigInt( m ) );
+    
+end );
+
+
+##
+InstallOtherMethod( Qubits,
+        "for an integer",
+        [ IsInt ],
+        
+  function ( m )
+    
+    return Qubits( ZX, m );
+    
+end );
+
+
+##
+BindGlobal( "CreateZXMorphism",
+  function ( ZX, Z_or_X_or_H, phi, nr_inputs, nr_outputs )
+    
+    return MorphismConstructor( ZX,
+                   Qubits( ZX, nr_inputs ),
+                   NTuple( 4,
+                           Concatenation(
+                                   ListWithIdenticalEntries( nr_inputs, "neutral" ),
+                                   [ Concatenation( Z_or_X_or_H, phi ) ],
+                                   ListWithIdenticalEntries( nr_outputs, "neutral" ) ),
+                           List( [ 0 .. nr_inputs - 1 ], i -> BigInt( i ) ),
+                           List( [ nr_inputs + 1 .. nr_inputs + nr_outputs ], o -> BigInt( o ) ),
+                           Concatenation(
+                                   List( [ 0 .. nr_inputs - 1 ], i -> Pair( BigInt( i ), BigInt( nr_inputs ) ) ),
+                                   List( [ nr_inputs + 1 .. nr_inputs + nr_outputs ], o -> Pair( BigInt( o ), BigInt( nr_inputs ) ) ) ) ),
+                   Qubits( ZX, nr_outputs ) );
+    
+end );
+  
+
+##
+InstallMethod( Z_Spider,
+        "for a category of ZX-diagram, a string, and two integers",
+        [ IsCategoryOfZXDiagrams, IsStringRep, IsInt, IsInt ],
+        
+  function ( ZX, phi, nr_inputs, nr_outputs )
+    
+    return CreateZXMorphism( ZX, "Z", phi, nr_inputs, nr_outputs );
+    
+end );
+
+##
+InstallOtherMethod( Z_Spider,
+        "for a category of ZX-diagram and two integers",
+        [ IsCategoryOfZXDiagrams, IsInt, IsInt ],
+        
+  function ( ZX, nr_inputs, nr_outputs )
+    
+    return Z_Spider( ZX, "", nr_inputs, nr_outputs );
+    
+end );
+
+##
+InstallOtherMethod( Z_Spider,
+        "for a string and two integers",
+        [ IsStringRep, IsInt, IsInt ],
+        
+  function ( phi, nr_inputs, nr_outputs )
+    
+    return Z_Spider( ZX, phi, nr_inputs, nr_outputs );
+    
+end );
+
+##
+InstallOtherMethod( Z_Spider,
+        "for two integers",
+        [ IsInt, IsInt ],
+        
+  function ( nr_inputs, nr_outputs )
+    
+    return Z_Spider( ZX, nr_inputs, nr_outputs );
+    
+end );
+
+##
+InstallMethod( X_Spider,
+        "for a category of ZX-diagram, a string, and two integers",
+        [ IsCategoryOfZXDiagrams, IsStringRep, IsInt, IsInt ],
+        
+  function ( ZX, phi, nr_inputs, nr_outputs )
+    
+    return CreateZXMorphism( ZX, "X", phi, nr_inputs, nr_outputs );
+    
+end );
+
+##
+InstallOtherMethod( X_Spider,
+        "for a category of ZX-diagram and two integers",
+        [ IsCategoryOfZXDiagrams, IsInt, IsInt ],
+        
+  function ( ZX, nr_inputs, nr_outputs )
+    
+    return X_Spider( ZX, "", nr_inputs, nr_outputs );
+    
+end );
+
+##
+InstallOtherMethod( X_Spider,
+        "for a string and two integers",
+        [ IsStringRep, IsInt, IsInt ],
+        
+  function ( phi, nr_inputs, nr_outputs )
+    
+    return X_Spider( ZX, phi, nr_inputs, nr_outputs );
+    
+end );
+
+##
+InstallOtherMethod( X_Spider,
+        "for two integers",
+        [ IsInt, IsInt ],
+        
+  function ( nr_inputs, nr_outputs )
+    
+    return X_Spider( ZX, nr_inputs, nr_outputs );
+    
+end );
+
+##
+InstallMethod( H_Gate,
+        "for a category of ZX-diagram",
+        [ IsCategoryOfZXDiagrams ],
+        
+  function ( ZX )
+    
+    return CreateZXMorphism( ZX, "H", "", 1, 1 );
+    
+end );
+
+##
+InstallOtherMethod( H_Gate,
+        "",
+        [  ],
+        
+  function ( )
+    
+    return H_Gate( ZX );
+    
+end );
+
+##
+InstallOtherMethod( \*,
+        "for a morphism and an object in a category of ZX-diagrams",
+        [ IsMorphismInCategoryOfZXDiagrams, IsMorphismInCategoryOfZXDiagrams ],
+        
+  function ( qubits, zx_diagram )
+    
+    return PreCompose( qubits, zx_diagram );
+    
+end );
+
+##
+InstallOtherMethod( \+,
+        "for two objects in a category of ZX-diagrams",
+        [ IsObjectInCategoryOfZXDiagrams, IsObjectInCategoryOfZXDiagrams ],
+        
+  function ( qubits1, qubits2 )
+    
+    return TensorProduct( qubits1, qubits2 );
+    
+end );
+
+##
+InstallOtherMethod( \+,
+        "for two morphisms in a category of ZX-diagrams",
+        [ IsMorphismInCategoryOfZXDiagrams, IsMorphismInCategoryOfZXDiagrams ],
+        
+  function ( zx_diagram1, zx_diagram2 )
+    
+    return TensorProduct( zx_diagram1, zx_diagram2 );
+    
+end );
+
+##
+InstallOtherMethod( \+,
+        "for an object and a morphism in a category of ZX-diagrams",
+        [ IsObjectInCategoryOfZXDiagrams, IsMorphismInCategoryOfZXDiagrams ],
+        
+  function ( qubits, zx_diagram )
+    
+    return TensorProduct( qubits, zx_diagram );
+    
+end );
+
+##
+InstallOtherMethod( \+,
+        "for a morphism and an object in a category of ZX-diagrams",
+        [ IsMorphismInCategoryOfZXDiagrams, IsObjectInCategoryOfZXDiagrams ],
+        
+  function ( qubits, zx_diagram )
+    
+    return TensorProduct( qubits, zx_diagram );
+    
+end );
+
+##
 InstallMethod( ViewString,
         "for an object in a category of ZX-diagrams",
-        [ IsZXDiagramObject ],
+        [ IsObjectInCategoryOfZXDiagrams ],
         
   function ( obj )
     
@@ -269,7 +482,7 @@ end );
 ##
 InstallMethod( DisplayString,
         "for an object in a category of ZX-diagrams",
-        [ IsZXDiagramObject ],
+        [ IsObjectInCategoryOfZXDiagrams ],
         
   function ( obj )
     
@@ -280,7 +493,7 @@ end );
 ##
 InstallMethod( DisplayString,
         "for a morphism in a category of ZX-diagrams",
-        [ IsZXDiagramMorphism ],
+        [ IsMorphismInCategoryOfZXDiagrams ],
         
   function ( phi )
     local tuple, labels, input_positions, output_positions, edges;
@@ -293,7 +506,7 @@ InstallMethod( DisplayString,
     edges := tuple[4];
     
     return Concatenation(
-        "A morphism in ", Name( CapCategory( phi ) ), " given by a ZX diagram with ", String( Length( labels ) ), " vertex labels\n",
+        "A morphism in ", Name( CapCategory( phi ) ), " given by a ZX-diagram with ", String( Length( labels ) ), " vertex labels\n",
         "  ", PrintString( labels ), ",\n",
         "  inputs\n",
         "  ", PrintString( input_positions ), ",\n",
