@@ -75,7 +75,7 @@ InstallGlobalFunction( CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecor
             
             if label = "neutral" then
                 
-                return "white";
+                return "black";
                 
             elif label = "H" then
                 
@@ -329,10 +329,10 @@ InstallGlobalFunction( CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecor
     end;
     
     ZX := ReinterpretationOfCategory( csp, rec(
-        name := "Category of ZX-diagrams",
+        name := "CategoryOfZXDiagrams( )",
         category_filter := IsCategoryOfZXDiagrams,
-        category_object_filter := IsZXDiagramObject,
-        category_morphism_filter := IsZXDiagramMorphism,
+        category_object_filter := IsObjectInCategoryOfZXDiagrams,
+        category_morphism_filter := IsMorphismInCategoryOfZXDiagrams,
         object_datum_type := IsBigInt,
         morphism_datum_type := CapJitDataTypeOfNTupleOf( 4, CapJitDataTypeOfListOf( IsStringRep ), CapJitDataTypeOfListOf( IsBigInt ), CapJitDataTypeOfListOf( IsBigInt ), CapJitDataTypeOfListOf( CapJitDataTypeOfNTupleOf( 2, IsBigInt, IsBigInt ) ) ),
         object_constructor := object_constructor,

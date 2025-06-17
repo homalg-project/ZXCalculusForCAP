@@ -5,18 +5,28 @@ gap> LoadPackage( "ZXCalculusForCAP", false );
 true
 
 #
-gap> zero := ObjectConstructor( ZX, BigInt( 0 ) );
-<An object in Category of ZX-diagrams representing 0 input/output vertices>
-gap> one := ObjectConstructor( ZX, BigInt( 1 ) );
-<An object in Category of ZX-diagrams representing 1 input/output vertices>
-gap> two := ObjectConstructor( ZX, BigInt( 2 ) );
-<An object in Category of ZX-diagrams representing 2 input/output vertices>
-gap> three := ObjectConstructor( ZX, BigInt( 3 ) );
-<An object in Category of ZX-diagrams representing 3 input/output vertices>
+gap> zero := Qubits( 0 );
+<An object in CategoryOfZXDiagrams( ) representing 0 input/output vertices>
+gap> one := Qubits( 1 );
+<An object in CategoryOfZXDiagrams( ) representing 1 input/output vertices>
+gap> two := Qubits( 2 );
+<An object in CategoryOfZXDiagrams( ) representing 2 input/output vertices>
+gap> three := Qubits( 3 );
+<An object in CategoryOfZXDiagrams( ) representing 3 input/output vertices>
+
+#
+gap> zero = 0 / ZX;
+true
+gap> one = 1 / ZX;
+true
+gap> two = 2 / ZX;
+true
+gap> three = 3 / ZX;
+true
 
 #
 gap> Display( three );
-An object in Category of ZX-diagrams representing 3 input/output vertices.
+An object in CategoryOfZXDiagrams( ) representing 3 input/output vertices.
 
 #
 gap> id := IdentityMorphism( three );;
@@ -40,8 +50,7 @@ gap> ZX!.cached_precompiled_functions.PreCompose( ZX, IdentityMorphism( TensorPr
 
 #
 gap> Display( PreCompose( coev, ev ) );
-A morphism in Category of ZX-diagrams given by a ZX diagram with 0 vertex labe\
-ls
+A morphism in CategoryOfZXDiagrams( ) given by a ZX-diagram with 0 vertex labels
   [  ],
   inputs
   [  ],
@@ -50,8 +59,7 @@ ls
   and 0 edges
   [  ].
 gap> Display( PreCompose( ev, coev ) );
-A morphism in Category of ZX-diagrams given by a ZX diagram with 6 vertex labe\
-ls
+A morphism in CategoryOfZXDiagrams( ) given by a ZX-diagram with 6 vertex labels
   [ "neutral", "neutral", "neutral", "neutral", "neutral", "neutral" ],
   inputs
   [ 0, 1, 2, 0, 1, 2 ],
@@ -61,7 +69,7 @@ ls
   [  ].
 
 #
-gap> IsEqualForMorphisms( TensorProductOnMorphisms( IdentityMorphism( one ), IdentityMorphism( two ) ), IdentityMorphism( three ) );
+gap> IsEqualForMorphisms( TensorProductOnMorphisms( IdentityMorphism( one ), IdentityMorphism( two ) ), id );
 true
 
 #
@@ -74,27 +82,27 @@ gap> ZX!.cached_precompiled_functions.TensorProductOnMorphismsWithGivenTensorPro
 #@fi
 
 #
-gap> IsEqualForMorphisms( AssociatorLeftToRight( zero, one, two ), IdentityMorphism( three ) );
+gap> IsEqualForMorphisms( AssociatorLeftToRight( zero, one, two ), id );
 true
 
 #
-gap> IsEqualForMorphisms( AssociatorRightToLeft( zero, one, two ), IdentityMorphism( three ) );
+gap> IsEqualForMorphisms( AssociatorRightToLeft( zero, one, two ), id );
 true
 
 #
-gap> IsEqualForMorphisms( LeftUnitor( three ), IdentityMorphism( three ) );
+gap> IsEqualForMorphisms( LeftUnitor( three ), id );
 true
 
 #
-gap> IsEqualForMorphisms( LeftUnitorInverse( three ), IdentityMorphism( three ) );
+gap> IsEqualForMorphisms( LeftUnitorInverse( three ), id );
 true
 
 #
-gap> IsEqualForMorphisms( RightUnitor( three ), IdentityMorphism( three ) );
+gap> IsEqualForMorphisms( RightUnitor( three ), id );
 true
 
 #
-gap> IsEqualForMorphisms( RightUnitorInverse( three ), IdentityMorphism( three ) );
+gap> IsEqualForMorphisms( RightUnitorInverse( three ), id );
 true
 
 #
@@ -102,27 +110,27 @@ gap> IsEqualForMorphisms( Braiding( one, two ), BraidingInverse( two, one ) );
 true
 
 #
-gap> X_1_1 := MorphismConstructor( one, [ [ "neutral", "X", "neutral" ], [ BigInt( 0 ) ], [ BigInt( 2 ) ], [ [ BigInt( 0 ), BigInt( 1 ) ], [ BigInt( 2 ), BigInt( 1 ) ] ] ], one );;
+gap> X_1_1 := X_Spider( 1, 1 );;
 gap> IsWellDefinedForMorphisms( X_1_1 );
 true
 
 #
-gap> Z_1_1 := MorphismConstructor( one, [ [ "neutral", "Z", "neutral" ], [ BigInt( 0 ) ], [ BigInt( 2 ) ], [ [ BigInt( 0 ), BigInt( 1 ) ], [ BigInt( 2 ), BigInt( 1 ) ] ] ], one );;
+gap> Z_1_1 := Z_Spider( 1, 1 );;
 gap> IsWellDefinedForMorphisms( Z_1_1 );
 true
 
 #
-gap> H := MorphismConstructor( one, [ [ "neutral", "H", "neutral" ], [ BigInt( 0 ) ], [ BigInt( 2 ) ], [ [ BigInt( 0 ), BigInt( 1 ) ], [ BigInt( 2 ), BigInt( 1 ) ] ] ], one );;
+gap> H := H_Gate( );;
 gap> IsWellDefinedForMorphisms( H );
 true
 
 #
-gap> X_1_2 := MorphismConstructor( one, [ [ "neutral", "X", "neutral", "neutral" ], [ BigInt( 0 ) ], [ BigInt( 2 ), BigInt( 3 ) ], [ [ BigInt( 0 ), BigInt( 1 ) ], [ BigInt( 2 ), BigInt( 1 ) ], [ BigInt( 3 ), BigInt( 1 ) ] ] ], two );;
+gap> X_1_2 := X_Spider( 1, 2 );;
 gap> IsWellDefinedForMorphisms( X_1_2 );
 true
 
 #
-gap> Z_2_1 := MorphismConstructor( two, [ [ "neutral", "neutral", "Z", "neutral" ], [ BigInt( 0 ), BigInt( 1 ) ], [ BigInt( 3 ) ], [ [ BigInt( 0 ), BigInt( 2 ) ], [ BigInt( 1 ), BigInt( 2 ) ], [ BigInt( 3 ), BigInt( 2 ) ] ] ], one );;
+gap> Z_2_1 := Z_Spider( 2, 1 );;
 gap> IsWellDefinedForMorphisms( Z_2_1 );
 true
 
