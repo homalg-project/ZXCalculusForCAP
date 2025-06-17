@@ -39,7 +39,7 @@ CapJitPrecompileCategoryAndCompareResult(
 );;
 
 CategoryOfZXDiagrams_precompiled( );
-#! CategoryOfZXDiagramsAsTower( )
+#! CategoryOfZXDiagrams( )
 
 cat := CategoryOfZXDiagrams( );
 #! CategoryOfZXDiagrams( )

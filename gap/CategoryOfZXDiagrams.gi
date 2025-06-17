@@ -405,7 +405,7 @@ end );
 ##
 InstallOtherMethod( H_Gate,
         "",
-        [  ],
+        [ ],
         
   function ( )
     

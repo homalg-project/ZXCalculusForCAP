@@ -69,7 +69,7 @@ A morphism in CategoryOfZXDiagrams( ) given by a ZX-diagram with 6 vertex labels
   [  ].
 
 #
-gap> IsEqualForMorphisms( TensorProductOnMorphisms( IdentityMorphism( one ), IdentityMorphism( two ) ), IdentityMorphism( three ) );
+gap> IsEqualForMorphisms( TensorProductOnMorphisms( IdentityMorphism( one ), IdentityMorphism( two ) ), id );
 true
 
 #
@@ -82,27 +82,27 @@ gap> ZX!.cached_precompiled_functions.TensorProductOnMorphismsWithGivenTensorPro
 #@fi
 
 #
-gap> IsEqualForMorphisms( AssociatorLeftToRight( zero, one, two ), IdentityMorphism( three ) );
+gap> IsEqualForMorphisms( AssociatorLeftToRight( zero, one, two ), id );
 true
 
 #
-gap> IsEqualForMorphisms( AssociatorRightToLeft( zero, one, two ), IdentityMorphism( three ) );
+gap> IsEqualForMorphisms( AssociatorRightToLeft( zero, one, two ), id );
 true
 
 #
-gap> IsEqualForMorphisms( LeftUnitor( three ), IdentityMorphism( three ) );
+gap> IsEqualForMorphisms( LeftUnitor( three ), id );
 true
 
 #
-gap> IsEqualForMorphisms( LeftUnitorInverse( three ), IdentityMorphism( three ) );
+gap> IsEqualForMorphisms( LeftUnitorInverse( three ), id );
 true
 
 #
-gap> IsEqualForMorphisms( RightUnitor( three ), IdentityMorphism( three ) );
+gap> IsEqualForMorphisms( RightUnitor( three ), id );
 true
 
 #
-gap> IsEqualForMorphisms( RightUnitorInverse( three ), IdentityMorphism( three ) );
+gap> IsEqualForMorphisms( RightUnitorInverse( three ), id );
 true
 
 #

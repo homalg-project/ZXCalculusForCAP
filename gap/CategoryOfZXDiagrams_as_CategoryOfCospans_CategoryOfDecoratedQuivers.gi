@@ -329,7 +329,7 @@ InstallGlobalFunction( CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecor
     end;
     
     ZX := ReinterpretationOfCategory( csp, rec(
-        name := "CategoryOfZXDiagramsAsTower( )",
+        name := "CategoryOfZXDiagrams( )",
         category_filter := IsCategoryOfZXDiagrams,
         category_object_filter := IsObjectInCategoryOfZXDiagrams,
         category_morphism_filter := IsMorphismInCategoryOfZXDiagrams,

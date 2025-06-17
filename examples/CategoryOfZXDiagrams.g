@@ -2,6 +2,7 @@
 #! @Section Example
 
 #! @Example
+
 LoadPackage( "ZXCalculusForCAP", false );
 #! true
 
@@ -60,25 +61,25 @@ Display( PreCompose( ev, coev ) );
 #!   and 0 edges
 #!   [  ].
 
-IdentityMorphism( one ) + IdentityMorphism( two ) = IdentityMorphism( three );
+IdentityMorphism( one ) + IdentityMorphism( two ) = id;
 #! true
 
-AssociatorLeftToRight( zero, one, two ) = IdentityMorphism( three );
+AssociatorLeftToRight( zero, one, two ) = id;
 #! true
 
-AssociatorRightToLeft( zero, one, two ) = IdentityMorphism( three );
+AssociatorRightToLeft( zero, one, two ) = id;
 #! true
 
-LeftUnitor( three ) = IdentityMorphism( three );
+LeftUnitor( three ) = id;
 #! true
 
-LeftUnitorInverse( three ) = IdentityMorphism( three );
+LeftUnitorInverse( three ) = id;
 #! true
 
-RightUnitor( three ) = IdentityMorphism( three );
+RightUnitor( three ) = id;
 #! true
 
-RightUnitorInverse( three ) = IdentityMorphism( three );
+RightUnitorInverse( three ) = id;
 #! true
 
 Braiding( one, two ) = BraidingInverse( two, one );
