@@ -2,25 +2,29 @@
   
   [1XIndex[101X
   
-  [2XAsInteger[102X, for IsZXDiagramObject 2.3-1 
-  [2XCategoryOfCospans_for_ZXCalculus[102X, for IsCapCategory 1.1-1 
-  [2XCategoryOfZXDiagrams[102X 2.1-1 
-  [2XCategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers[102X 2.1-3 
+  [2XAsInteger[102X, for IsObjectInCategoryOfZXDiagrams 1.2-1 
+  [2XCategoryOfCospans_for_ZXCalculus[102X, for IsCapCategory 2.1-1 
+  [2XCategoryOfZXDiagrams[102X 1.1-1 
+  [2XCategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers[102X 1.1-7 
   [2XExportAsQGraphFile[102X 3.1-2 
   [2XExportAsQGraphString[102X 3.1-1 
+  [2XH_Gate[102X, for IsCategoryOfZXDiagrams 1.1-6 
   [2XImportFromQGraphFile[102X 3.1-4 
   [2XImportFromQGraphString[102X 3.1-3 
-  [2XIsCategoryOfCospans[102X 1.2-1 
-  [2XIsCategoryOfCospansMorphism[102X 1.2-3 
-  [2XIsCategoryOfCospansObject[102X 1.2-2 
-  [2XIsCategoryOfZXDiagrams[102X 2.2-1 
-  [2XIsZXDiagramMorphism[102X 2.2-3 
-  [2XIsZXDiagramObject[102X 2.2-2 
-  [2XUnderlyingCategory[102X, for IsCategoryOfCospans 1.3-1 
-  [2XUnderlyingMorphismPair[102X, for IsCategoryOfCospansMorphism 1.3-3 
-  [2XUnderlyingObject[102X, for IsCategoryOfCospansObject 1.3-2 
-  [2XVertexLabeledGraph[102X, for IsZXDiagramMorphism 2.3-2 
-  [2XZX[102X 2.1-2 
+  [2XIsCategoryOfCospans[102X 2.3-1 
+  [2XIsCategoryOfCospansMorphism[102X 2.3-3 
+  [2XIsCategoryOfCospansObject[102X 2.3-2 
+  [2XIsCategoryOfZXDiagrams[102X 1.4-1 
+  [2XIsMorphismInCategoryOfZXDiagrams[102X 1.4-3 
+  [2XIsObjectInCategoryOfZXDiagrams[102X 1.4-2 
+  [2XQubits[102X, for IsCategoryOfZXDiagrams, IsInt 1.1-3 
+  [2XUnderlyingCategory[102X, for IsCategoryOfCospans 2.2-1 
+  [2XUnderlyingMorphismPair[102X, for IsCategoryOfCospansMorphism 2.2-3 
+  [2XUnderlyingObject[102X, for IsCategoryOfCospansObject 2.2-2 
+  [2XVertexLabeledGraph[102X, for IsMorphismInCategoryOfZXDiagrams 1.2-2 
+  [2XX_Spider[102X, for IsCategoryOfZXDiagrams, IsStringRep, IsInt, IsInt 1.1-5 
+  [2XZ_Spider[102X, for IsCategoryOfZXDiagrams, IsStringRep, IsInt, IsInt 1.1-4 
+  [2XZX[102X 1.1-2 
   
   
   -------------------------------------------------------

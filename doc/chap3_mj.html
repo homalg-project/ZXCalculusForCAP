@@ -33,6 +33,9 @@
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7C0A2FEC7F454DBF">3.1-3 ImportFromQGraphString</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X78BEE8BC7EB97076">3.1-4 ImportFromQGraphFile</a></span>
 </div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3_mj.html#X85861B017AEEC50B">3.2 <span class="Heading">Example</span></a>
+</span>
+</div>
 </div>
 
 <h3>3 <span class="Heading">Tools</span></h3>
@@ -74,6 +77,47 @@
 <p>Returns: a morphism</p>
 
 <p>Takes a category of ZX-diagrams and a filename <em>file</em> and imports the ZX-diagram in <em>file</em> as a morphism. This function is only available if the package <code class="code">json</code> is available. See https://github.com/Quantomatic/quantomatic/blob/stable/docs/json_formats.txt for an overview of the qgraph format.</p>
+
+<p><a id="X85861B017AEEC50B" name="X85861B017AEEC50B"></a></p>
+
+<h4>3.2 <span class="Heading">Example</span></h4>
+
+<p>Test ExportAsQGraphFile and ImportFromQGraphFile. Due to reordering during import/export, we have to make some roundtrips until import/export is stable.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "ZXCalculusForCAP", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ZX;</span>
+CategoryOfZXDiagrams( )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">X_1_2 := X_Spider( 1, 2 );</span>
+&lt;A morphism in CategoryOfZXDiagrams( )&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefinedForMorphisms( X_1_2 );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Z_2_1 := Z_Spider( 2, 1 );</span>
+&lt;A morphism in CategoryOfZXDiagrams( )&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefinedForMorphisms( Z_2_1 );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">X_1_2_Z_2_1 := PreCompose( X_1_2, Z_2_1 );</span>
+&lt;A morphism in CategoryOfZXDiagrams( )&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefinedForMorphisms( X_1_2_Z_2_1 );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">#</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">tmp_dir := DirectoryTemporary( );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ExportAsQGraphFile( X_1_2_Z_2_1, Filename( tmp_dir, "X_1_2_Z_2_1" ) );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">reimported := ImportFromQGraphFile( ZX, Filename( tmp_dir, "X_1_2_Z_2_1" ) );</span>
+&lt;A morphism in CategoryOfZXDiagrams( )&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefinedForMorphisms( reimported );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">json := ExportAsQGraphString( X_1_2_Z_2_1 );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">mor1 := ImportFromQGraphString( ZX, json );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">json2 := ExportAsQGraphString( mor1 );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">mor2 := ImportFromQGraphString( ZX, json2 );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">json3 := ExportAsQGraphString( mor2 );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">mor3 := ImportFromQGraphString( ZX, json3 );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsEqualForMorphisms( mor2, mor3 ) and json2 = json3;</span>
+true
+</pre></div>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap2_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap4_mj.html">[Next Chapter]</a>&nbsp;  </div>

@@ -10,8 +10,8 @@ SetPackageInfo( rec(
 
 PackageName := "ZXCalculusForCAP",
 Subtitle := "The category of ZX-diagrams",
-Version := "2025.06-01",
-Date := "2025-06-15",
+Version := "2025.06-03",
+Date := "2025-06-18",
 License := "GPL-2.0-or-later",
 
 Persons := [
@@ -67,9 +67,9 @@ PackageDoc := rec(
 ),
 
 Dependencies := rec(
-  GAP := ">= 4.12.1",
+  GAP := ">= 4.13.0",
   NeededOtherPackages := [
-      [ "CAP", ">= 2023.08-18" ],
+      [ "CAP", ">= 2025.06-06" ],
       [ "MonoidalCategories", ">= 2023.05-03" ], # monoidal structure
       [ "FinSetsForCAP", ">= 2023.06-05" ], # SKELETAL_FIN_SETS_ExplicitCoequalizer_primitive_input
   ],

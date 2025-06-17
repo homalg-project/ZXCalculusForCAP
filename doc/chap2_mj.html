@@ -8,7 +8,7 @@
 <script type="text/javascript"
   src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
-<title>GAP (ZXCalculusForCAP) - Chapter 2: The category of ZX diagrams</title>
+<title>GAP (ZXCalculusForCAP) - Chapter 2: The category of cospans</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta name="generator" content="GAPDoc2HTML" />
 <link rel="stylesheet" type="text/css" href="manual.css" />
@@ -23,103 +23,93 @@
 <div class="chlinkprevnexttop">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap1_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap3_mj.html">[Next Chapter]</a>&nbsp;  </div>
 
 <p id="mathjaxlink" class="pcenter"><a href="chap2.html">[MathJax off]</a></p>
-<p><a id="X7C69E44F834B04E2" name="X7C69E44F834B04E2"></a></p>
-<div class="ChapSects"><a href="chap2_mj.html#X7C69E44F834B04E2">2 <span class="Heading">The category of ZX diagrams</span></a>
+<p><a id="X79367938843339D6" name="X79367938843339D6"></a></p>
+<div class="ChapSects"><a href="chap2_mj.html#X79367938843339D6">2 <span class="Heading">The category of cospans</span></a>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2_mj.html#X86EC0F0A78ECBC10">2.1 <span class="Heading">Constructors</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X7CC773177F1234B6">2.1-1 CategoryOfZXDiagrams</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X7EEE07D7832D87ED">2.1-2 ZX</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X860190AD857B53EE">2.1-3 CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X82FB4D85781B989C">2.1-1 CategoryOfCospans_for_ZXCalculus</a></span>
 </div></div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2_mj.html#X84EFA4C07D4277BB">2.2 <span class="Heading">Filters</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2_mj.html#X7C701DBF7BAE649A">2.2 <span class="Heading">Attributes</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X791CDFBA82A0CDCD">2.2-1 IsCategoryOfZXDiagrams</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X86C391E57CC63569">2.2-2 IsZXDiagramObject</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X7FB0021887D2C5EF">2.2-3 IsZXDiagramMorphism</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X866BF76C7CBA7572">2.2-1 UnderlyingCategory</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X844CC6E37DCCBB01">2.2-2 UnderlyingObject</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X802CE8517C4708A5">2.2-3 UnderlyingMorphismPair</a></span>
 </div></div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2_mj.html#X7C701DBF7BAE649A">2.3 <span class="Heading">Attributes</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2_mj.html#X84EFA4C07D4277BB">2.3 <span class="Heading">Filters</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X78880FEA780FAE71">2.3-1 AsInteger</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X85A42149825DBD28">2.3-2 VertexLabeledGraph</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X798B520B78AC6B42">2.3-1 IsCategoryOfCospans</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X7A7567207ED76ED2">2.3-2 IsCategoryOfCospansObject</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X82E92C90811719A7">2.3-3 IsCategoryOfCospansMorphism</a></span>
 </div></div>
 </div>
 
-<h3>2 <span class="Heading">The category of ZX diagrams</span></h3>
+<h3>2 <span class="Heading">The category of cospans</span></h3>
 
 <p><a id="X86EC0F0A78ECBC10" name="X86EC0F0A78ECBC10"></a></p>
 
 <h4>2.1 <span class="Heading">Constructors</span></h4>
 
-<p><a id="X7CC773177F1234B6" name="X7CC773177F1234B6"></a></p>
+<p><a id="X82FB4D85781B989C" name="X82FB4D85781B989C"></a></p>
 
-<h5>2.1-1 CategoryOfZXDiagrams</h5>
+<h5>2.1-1 CategoryOfCospans_for_ZXCalculus</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CategoryOfZXDiagrams</code>( <var class="Arg">arg</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Returns: a category of zx diagrams</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CategoryOfCospans_for_ZXCalculus</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: a category of cospans</p>
 
-<p>Creates a category of ZX diagrams.</p>
-
-<p><a id="X7EEE07D7832D87ED" name="X7EEE07D7832D87ED"></a></p>
-
-<h5>2.1-2 ZX</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ZX</code></td><td class="tdright">(&nbsp;global variable&nbsp;)</td></tr></table></div>
-<p>The default instance of the category of ZX diagrams. It is automatically created while loading this package.</p>
-
-<p><a id="X860190AD857B53EE" name="X860190AD857B53EE"></a></p>
-
-<h5>2.1-3 CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers</code>( <var class="Arg">arg</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Returns: a category of zx diagrams</p>
-
-<p>Creates a category of ZX diagrams as a tower. Only available if the package <code class="code">FunctorCategories</code> is available.</p>
-
-<p><a id="X84EFA4C07D4277BB" name="X84EFA4C07D4277BB"></a></p>
-
-<h4>2.2 <span class="Heading">Filters</span></h4>
-
-<p><a id="X791CDFBA82A0CDCD" name="X791CDFBA82A0CDCD"></a></p>
-
-<h5>2.2-1 IsCategoryOfZXDiagrams</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsCategoryOfZXDiagrams</code></td><td class="tdright">(&nbsp;filter&nbsp;)</td></tr></table></div>
-<p>The filter of categories of ZX-diagrams.</p>
-
-<p><a id="X86C391E57CC63569" name="X86C391E57CC63569"></a></p>
-
-<h5>2.2-2 IsZXDiagramObject</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsZXDiagramObject</code></td><td class="tdright">(&nbsp;filter&nbsp;)</td></tr></table></div>
-<p>The filter of objects in a category of ZX-diagrams.</p>
-
-<p><a id="X7FB0021887D2C5EF" name="X7FB0021887D2C5EF"></a></p>
-
-<h5>2.2-3 IsZXDiagramMorphism</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsZXDiagramMorphism</code></td><td class="tdright">(&nbsp;filter&nbsp;)</td></tr></table></div>
-<p>The filter of morphisms in a category of ZX-diagrams.</p>
+<p>Creates a category of cospans in the cocartesian category <var class="Arg">C</var> with a rigid symmetric monoidal structure induced by the cocartesian structure of <var class="Arg">C</var>.</p>
 
 <p><a id="X7C701DBF7BAE649A" name="X7C701DBF7BAE649A"></a></p>
 
-<h4>2.3 <span class="Heading">Attributes</span></h4>
+<h4>2.2 <span class="Heading">Attributes</span></h4>
 
-<p><a id="X78880FEA780FAE71" name="X78880FEA780FAE71"></a></p>
+<p><a id="X866BF76C7CBA7572" name="X866BF76C7CBA7572"></a></p>
 
-<h5>2.3-1 AsInteger</h5>
+<h5>2.2-1 UnderlyingCategory</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AsInteger</code>( <var class="Arg">obj</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>The integer defining an object in a category of ZX-diagrams.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UnderlyingCategory</code>( <var class="Arg">obj</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>The category underlying a category of cospans.</p>
 
-<p><a id="X85A42149825DBD28" name="X85A42149825DBD28"></a></p>
+<p><a id="X844CC6E37DCCBB01" name="X844CC6E37DCCBB01"></a></p>
 
-<h5>2.3-2 VertexLabeledGraph</h5>
+<h5>2.2-2 UnderlyingObject</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VertexLabeledGraph</code>( <var class="Arg">mor</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>The labeled graph defining a morphism in a category of ZX-diagrams.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UnderlyingObject</code>( <var class="Arg">obj</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>The object defining an object in a category of cospans.</p>
+
+<p><a id="X802CE8517C4708A5" name="X802CE8517C4708A5"></a></p>
+
+<h5>2.2-3 UnderlyingMorphismPair</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UnderlyingMorphismPair</code>( <var class="Arg">obj</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>The pair of morphisms defining a morphism in a category of cospans.</p>
+
+<p><a id="X84EFA4C07D4277BB" name="X84EFA4C07D4277BB"></a></p>
+
+<h4>2.3 <span class="Heading">Filters</span></h4>
+
+<p><a id="X798B520B78AC6B42" name="X798B520B78AC6B42"></a></p>
+
+<h5>2.3-1 IsCategoryOfCospans</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsCategoryOfCospans</code></td><td class="tdright">(&nbsp;filter&nbsp;)</td></tr></table></div>
+<p>The filter of categories of cospans.</p>
+
+<p><a id="X7A7567207ED76ED2" name="X7A7567207ED76ED2"></a></p>
+
+<h5>2.3-2 IsCategoryOfCospansObject</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsCategoryOfCospansObject</code></td><td class="tdright">(&nbsp;filter&nbsp;)</td></tr></table></div>
+<p>The filter of objects in a category of cospans.</p>
+
+<p><a id="X82E92C90811719A7" name="X82E92C90811719A7"></a></p>
+
+<h5>2.3-3 IsCategoryOfCospansMorphism</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsCategoryOfCospansMorphism</code></td><td class="tdright">(&nbsp;filter&nbsp;)</td></tr></table></div>
+<p>The filter of morphisms in a category of cospans.</p>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap1_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap3_mj.html">[Next Chapter]</a>&nbsp;  </div>

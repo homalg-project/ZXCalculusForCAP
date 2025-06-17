@@ -6,10 +6,10 @@
                          [1X The category of ZX-diagrams [101X
   
   
-                                   2025.06-01
+                                   2025.06-03
   
   
-                                  15 June 2025
+                                  18 June 2025
   
   
                                 Fabian Zickgraf
@@ -30,35 +30,41 @@
   
   [1XContents (ZXCalculusForCAP)[101X
   
-  1 [33X[0;0YThe category of cospans[133X
+  1 [33X[0;0YThe category of ZX-diagrams[133X
     1.1 [33X[0;0YConstructors[133X
-      1.1-1 CategoryOfCospans_for_ZXCalculus
-    1.2 [33X[0;0YFilters[133X
-      1.2-1 IsCategoryOfCospans
-      1.2-2 IsCategoryOfCospansObject
-      1.2-3 IsCategoryOfCospansMorphism
-    1.3 [33X[0;0YAttributes[133X
-      1.3-1 UnderlyingCategory
-      1.3-2 UnderlyingObject
-      1.3-3 UnderlyingMorphismPair
-  2 [33X[0;0YThe category of ZX diagrams[133X
+      1.1-1 CategoryOfZXDiagrams
+      1.1-2 ZX
+      1.1-3 Qubits
+      1.1-4 Z_Spider
+      1.1-5 X_Spider
+      1.1-6 H_Gate
+      1.1-7 CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers
+    1.2 [33X[0;0YAttributes[133X
+      1.2-1 AsInteger
+      1.2-2 VertexLabeledGraph
+    1.3 [33X[0;0YExample[133X
+    1.4 [33X[0;0YFilters[133X
+      1.4-1 IsCategoryOfZXDiagrams
+      1.4-2 IsObjectInCategoryOfZXDiagrams
+      1.4-3 IsMorphismInCategoryOfZXDiagrams
+  2 [33X[0;0YThe category of cospans[133X
     2.1 [33X[0;0YConstructors[133X
-      2.1-1 CategoryOfZXDiagrams
-      2.1-2 ZX
-      2.1-3 CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers
-    2.2 [33X[0;0YFilters[133X
-      2.2-1 IsCategoryOfZXDiagrams
-      2.2-2 IsZXDiagramObject
-      2.2-3 IsZXDiagramMorphism
-    2.3 [33X[0;0YAttributes[133X
-      2.3-1 AsInteger
-      2.3-2 VertexLabeledGraph
+      2.1-1 CategoryOfCospans_for_ZXCalculus
+    2.2 [33X[0;0YAttributes[133X
+      2.2-1 UnderlyingCategory
+      2.2-2 UnderlyingObject
+      2.2-3 UnderlyingMorphismPair
+    2.3 [33X[0;0YFilters[133X
+      2.3-1 IsCategoryOfCospans
+      2.3-2 IsCategoryOfCospansObject
+      2.3-3 IsCategoryOfCospansMorphism
   3 [33X[0;0YTools[133X
     3.1 [33X[0;0YImporting and exporting ZX-diagrams[133X
       3.1-1 ExportAsQGraphString
       3.1-2 ExportAsQGraphFile
       3.1-3 ImportFromQGraphString
       3.1-4 ImportFromQGraphFile
+    3.2 [33X[0;0YExample[133X
   4 [33X[0;0YPrecompilation[133X
     4.1 [33X[0;0YPrecompiling the category of ZX-diagrams[133X
   

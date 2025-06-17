@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-<title>GAP (ZXCalculusForCAP) - Chapter 1: The category of cospans</title>
+<title>GAP (ZXCalculusForCAP) - Chapter 1: The category of ZX-diagrams</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta name="generator" content="GAPDoc2HTML" />
 <link rel="stylesheet" type="text/css" href="manual.css" />
@@ -20,93 +20,245 @@
 <div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap0.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap2.html">[Next Chapter]</a>&nbsp;  </div>
 
 <p id="mathjaxlink" class="pcenter"><a href="chap1_mj.html">[MathJax on]</a></p>
-<p><a id="X79367938843339D6" name="X79367938843339D6"></a></p>
-<div class="ChapSects"><a href="chap1.html#X79367938843339D6">1 <span class="Heading">The category of cospans</span></a>
+<p><a id="X837D1A3A8039BDE1" name="X837D1A3A8039BDE1"></a></p>
+<div class="ChapSects"><a href="chap1.html#X837D1A3A8039BDE1">1 <span class="Heading">The category of ZX-diagrams</span></a>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap1.html#X86EC0F0A78ECBC10">1.1 <span class="Heading">Constructors</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X82FB4D85781B989C">1.1-1 CategoryOfCospans_for_ZXCalculus</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X7CC773177F1234B6">1.1-1 CategoryOfZXDiagrams</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X7EEE07D7832D87ED">1.1-2 ZX</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X8523CA6C804BA8BC">1.1-3 Qubits</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X7D9A77D07ED708BD">1.1-4 Z_Spider</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X80B3F76E8037EEAF">1.1-5 X_Spider</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X7DD2405182D31B4C">1.1-6 H_Gate</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X860190AD857B53EE">1.1-7 CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers</a></span>
 </div></div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap1.html#X84EFA4C07D4277BB">1.2 <span class="Heading">Filters</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap1.html#X7C701DBF7BAE649A">1.2 <span class="Heading">Attributes</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X798B520B78AC6B42">1.2-1 IsCategoryOfCospans</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X7A7567207ED76ED2">1.2-2 IsCategoryOfCospansObject</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X82E92C90811719A7">1.2-3 IsCategoryOfCospansMorphism</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X81D83D3A7B747CC0">1.2-1 AsInteger</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X8189B94A78A9A0E1">1.2-2 VertexLabeledGraph</a></span>
 </div></div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap1.html#X7C701DBF7BAE649A">1.3 <span class="Heading">Attributes</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap1.html#X85861B017AEEC50B">1.3 <span class="Heading">Example</span></a>
+</span>
+</div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap1.html#X84EFA4C07D4277BB">1.4 <span class="Heading">Filters</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X866BF76C7CBA7572">1.3-1 UnderlyingCategory</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X844CC6E37DCCBB01">1.3-2 UnderlyingObject</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X802CE8517C4708A5">1.3-3 UnderlyingMorphismPair</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X791CDFBA82A0CDCD">1.4-1 IsCategoryOfZXDiagrams</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X7F5A2BB07E2D086B">1.4-2 IsObjectInCategoryOfZXDiagrams</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X8484D6D77FADB625">1.4-3 IsMorphismInCategoryOfZXDiagrams</a></span>
 </div></div>
 </div>
 
-<h3>1 <span class="Heading">The category of cospans</span></h3>
+<h3>1 <span class="Heading">The category of ZX-diagrams</span></h3>
 
 <p><a id="X86EC0F0A78ECBC10" name="X86EC0F0A78ECBC10"></a></p>
 
 <h4>1.1 <span class="Heading">Constructors</span></h4>
 
-<p><a id="X82FB4D85781B989C" name="X82FB4D85781B989C"></a></p>
+<p><a id="X7CC773177F1234B6" name="X7CC773177F1234B6"></a></p>
 
-<h5>1.1-1 CategoryOfCospans_for_ZXCalculus</h5>
+<h5>1.1-1 CategoryOfZXDiagrams</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CategoryOfCospans_for_ZXCalculus</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
-<p>Returns: a category of cospans</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CategoryOfZXDiagrams</code>(  )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: a category of ZX-diagrams</p>
 
-<p>Creates a category of cospans in the cocartesian category <var class="Arg">C</var> with a rigid symmetric monoidal structure induced by the cocartesian structure of <var class="Arg">C</var>.</p>
+<p>Creates a category of ZX-diagrams.</p>
 
-<p><a id="X84EFA4C07D4277BB" name="X84EFA4C07D4277BB"></a></p>
+<p><a id="X7EEE07D7832D87ED" name="X7EEE07D7832D87ED"></a></p>
 
-<h4>1.2 <span class="Heading">Filters</span></h4>
+<h5>1.1-2 ZX</h5>
 
-<p><a id="X798B520B78AC6B42" name="X798B520B78AC6B42"></a></p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ZX</code></td><td class="tdright">(&nbsp;global variable&nbsp;)</td></tr></table></div>
+<p>The default instance of the category of ZX-diagrams. It is automatically created while loading this package.</p>
 
-<h5>1.2-1 IsCategoryOfCospans</h5>
+<p><a id="X8523CA6C804BA8BC" name="X8523CA6C804BA8BC"></a></p>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsCategoryOfCospans</code></td><td class="tdright">(&nbsp;filter&nbsp;)</td></tr></table></div>
-<p>The filter of categories of cospans.</p>
+<h5>1.1-3 Qubits</h5>
 
-<p><a id="X7A7567207ED76ED2" name="X7A7567207ED76ED2"></a></p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Qubits</code>( <var class="Arg">zx</var>, <var class="Arg">n</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: an object</p>
 
-<h5>1.2-2 IsCategoryOfCospansObject</h5>
+<p>Create <var class="Arg">n</var> qubits as an object in the category <var class="Arg">zx</var> of ZX-diagrams.</p>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsCategoryOfCospansObject</code></td><td class="tdright">(&nbsp;filter&nbsp;)</td></tr></table></div>
-<p>The filter of objects in a category of cospans.</p>
+<p><a id="X7D9A77D07ED708BD" name="X7D9A77D07ED708BD"></a></p>
 
-<p><a id="X82E92C90811719A7" name="X82E92C90811719A7"></a></p>
+<h5>1.1-4 Z_Spider</h5>
 
-<h5>1.2-3 IsCategoryOfCospansMorphism</h5>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Z_Spider</code>( <var class="Arg">zx</var>, <var class="Arg">phi</var>, <var class="Arg">nr_inputs</var>, <var class="Arg">nr_outputs</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: a morphism</p>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsCategoryOfCospansMorphism</code></td><td class="tdright">(&nbsp;filter&nbsp;)</td></tr></table></div>
-<p>The filter of morphisms in a category of cospans.</p>
+<p>Create an <span class="Math">Z</span>-spider of phase <var class="Arg">phi</var> with <var class="Arg">nr_inputs</var> inputs and <var class="Arg">nr_outputs</var> outputs as a morphism in the category <var class="Arg">zx</var> of ZX-diagrams.</p>
+
+<p><a id="X80B3F76E8037EEAF" name="X80B3F76E8037EEAF"></a></p>
+
+<h5>1.1-5 X_Spider</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; X_Spider</code>( <var class="Arg">zx</var>, <var class="Arg">phi</var>, <var class="Arg">nr_inputs</var>, <var class="Arg">nr_outputs</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: a morphism</p>
+
+<p>Create an <span class="Math">X</span>-spider of phase <var class="Arg">phi</var> with <var class="Arg">nr_inputs</var> inputs and <var class="Arg">nr_outputs</var> outputs as a morphism in the category <var class="Arg">zx</var> of ZX-diagrams.</p>
+
+<p><a id="X7DD2405182D31B4C" name="X7DD2405182D31B4C"></a></p>
+
+<h5>1.1-6 H_Gate</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; H_Gate</code>( <var class="Arg">zx</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: a morphism</p>
+
+<p>Create an H-gate with <span class="Math">1</span> input and <span class="Math">1</span> output as a morphism in the category <var class="Arg">zx</var> of ZX-diagrams.</p>
+
+<p><a id="X860190AD857B53EE" name="X860190AD857B53EE"></a></p>
+
+<h5>1.1-7 CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers</code>(  )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: a category of ZX-diagrams</p>
+
+<p>Creates a category of ZX-diagrams as a tower. Only available if the package <code class="code">FunctorCategories</code> is available.</p>
 
 <p><a id="X7C701DBF7BAE649A" name="X7C701DBF7BAE649A"></a></p>
 
-<h4>1.3 <span class="Heading">Attributes</span></h4>
+<h4>1.2 <span class="Heading">Attributes</span></h4>
 
-<p><a id="X866BF76C7CBA7572" name="X866BF76C7CBA7572"></a></p>
+<p><a id="X81D83D3A7B747CC0" name="X81D83D3A7B747CC0"></a></p>
 
-<h5>1.3-1 UnderlyingCategory</h5>
+<h5>1.2-1 AsInteger</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UnderlyingCategory</code>( <var class="Arg">obj</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>The category underlying a category of cospans.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AsInteger</code>( <var class="Arg">obj</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>The integer defining an object in a category of ZX-diagrams.</p>
 
-<p><a id="X844CC6E37DCCBB01" name="X844CC6E37DCCBB01"></a></p>
+<p><a id="X8189B94A78A9A0E1" name="X8189B94A78A9A0E1"></a></p>
 
-<h5>1.3-2 UnderlyingObject</h5>
+<h5>1.2-2 VertexLabeledGraph</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UnderlyingObject</code>( <var class="Arg">obj</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>The object defining an object in a category of cospans.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; VertexLabeledGraph</code>( <var class="Arg">mor</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>The labeled graph defining a morphism in a category of ZX-diagrams.</p>
 
-<p><a id="X802CE8517C4708A5" name="X802CE8517C4708A5"></a></p>
+<p><a id="X85861B017AEEC50B" name="X85861B017AEEC50B"></a></p>
 
-<h5>1.3-3 UnderlyingMorphismPair</h5>
+<h4>1.3 <span class="Heading">Example</span></h4>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; UnderlyingMorphismPair</code>( <var class="Arg">obj</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>The pair of morphisms defining a morphism in a category of cospans.</p>
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "ZXCalculusForCAP", false );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ZX;</span>
+CategoryOfZXDiagrams( )
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">zero := Qubits( 0 );</span>
+&lt;An object in CategoryOfZXDiagrams( ) representing 0 input/output vertices&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">one := Qubits( 1 );</span>
+&lt;An object in CategoryOfZXDiagrams( ) representing 1 input/output vertices&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">two := Qubits( 2 );</span>
+&lt;An object in CategoryOfZXDiagrams( ) representing 2 input/output vertices&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">three := Qubits( 3 );</span>
+&lt;An object in CategoryOfZXDiagrams( ) representing 3 input/output vertices&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">three = one + two;</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">three = zero + three;</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">id := IdentityMorphism( three );</span>
+&lt;An identity morphism in CategoryOfZXDiagrams( )&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ev := EvaluationForDual( three );</span>
+&lt;A morphism in CategoryOfZXDiagrams( )&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">coev := CoevaluationForDual( three );</span>
+&lt;A morphism in CategoryOfZXDiagrams( )&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( ev, IdentityMorphism( zero ) );</span>
+&lt;A morphism in CategoryOfZXDiagrams( )&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( IdentityMorphism( TensorProduct( three, three ) ), ev );</span>
+&lt;A morphism in CategoryOfZXDiagrams( )&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( coev, IdentityMorphism( TensorProduct( three, three ) ) );</span>
+&lt;A morphism in CategoryOfZXDiagrams( )&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PreCompose( IdentityMorphism( zero ), coev );</span>
+&lt;A morphism in CategoryOfZXDiagrams( )&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( PreCompose( coev, ev ) );</span>
+A morphism in CategoryOfZXDiagrams( ) given by a ZX-diagram \
+with 0 vertex labels
+  [  ],
+  inputs
+  [  ],
+  outputs
+  [  ],
+  and 0 edges
+  [  ].
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Display( PreCompose( ev, coev ) );</span>
+A morphism in CategoryOfZXDiagrams( ) given by a ZX-diagram \
+with 6 vertex labels
+  [ "neutral", "neutral", "neutral", "neutral", "neutral", "neutral" ],
+  inputs
+  [ 0, 1, 2, 0, 1, 2 ],
+  outputs
+  [ 3, 4, 5, 3, 4, 5 ],
+  and 0 edges
+  [  ].
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IdentityMorphism( one ) + IdentityMorphism( two ) = id;</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AssociatorLeftToRight( zero, one, two ) = id;</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AssociatorRightToLeft( zero, one, two ) = id;</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LeftUnitor( three ) = id;</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LeftUnitorInverse( three ) = id;</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RightUnitor( three ) = id;</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RightUnitorInverse( three ) = id;</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Braiding( one, two ) = BraidingInverse( two, one );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">#</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">X_1_1 := X_Spider( 1, 1 );</span>
+&lt;A morphism in CategoryOfZXDiagrams( )&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefinedForMorphisms( X_1_1 );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Z_1_1 := Z_Spider( 1, 1 );</span>
+&lt;A morphism in CategoryOfZXDiagrams( )&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefinedForMorphisms( Z_1_1 );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H := H_Gate( );</span>
+&lt;A morphism in CategoryOfZXDiagrams( )&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefinedForMorphisms( H );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">X_1_2 := X_Spider( 1, 2 );</span>
+&lt;A morphism in CategoryOfZXDiagrams( )&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefinedForMorphisms( X_1_2 );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Z_2_1 := Z_Spider( 2, 1 );</span>
+&lt;A morphism in CategoryOfZXDiagrams( )&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefinedForMorphisms( Z_2_1 );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">X_1_2_Z_2_1 := PreCompose( X_1_2, Z_2_1 );</span>
+&lt;A morphism in CategoryOfZXDiagrams( )&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefinedForMorphisms( X_1_2_Z_2_1 );</span>
+true
+</pre></div>
+
+<p><a id="X84EFA4C07D4277BB" name="X84EFA4C07D4277BB"></a></p>
+
+<h4>1.4 <span class="Heading">Filters</span></h4>
+
+<p><a id="X791CDFBA82A0CDCD" name="X791CDFBA82A0CDCD"></a></p>
+
+<h5>1.4-1 IsCategoryOfZXDiagrams</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsCategoryOfZXDiagrams</code></td><td class="tdright">(&nbsp;filter&nbsp;)</td></tr></table></div>
+<p>The filter of categories of ZX-diagrams.</p>
+
+<p><a id="X7F5A2BB07E2D086B" name="X7F5A2BB07E2D086B"></a></p>
+
+<h5>1.4-2 IsObjectInCategoryOfZXDiagrams</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsObjectInCategoryOfZXDiagrams</code></td><td class="tdright">(&nbsp;filter&nbsp;)</td></tr></table></div>
+<p>The filter of objects in a category of ZX-diagrams.</p>
+
+<p><a id="X8484D6D77FADB625" name="X8484D6D77FADB625"></a></p>
+
+<h5>1.4-3 IsMorphismInCategoryOfZXDiagrams</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsMorphismInCategoryOfZXDiagrams</code></td><td class="tdright">(&nbsp;filter&nbsp;)</td></tr></table></div>
+<p>The filter of morphisms in a category of ZX-diagrams.</p>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap0.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap2.html">[Next Chapter]</a>&nbsp;  </div>
