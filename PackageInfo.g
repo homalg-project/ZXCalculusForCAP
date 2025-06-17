@@ -67,7 +67,7 @@ PackageDoc := rec(
 ),
 
 Dependencies := rec(
-  GAP := ">= 4.12.1",
+  GAP := ">= 4.13.0",
   NeededOtherPackages := [
       [ "CAP", ">= 2023.08-18" ],
       [ "MonoidalCategories", ">= 2023.05-03" ], # monoidal structure
