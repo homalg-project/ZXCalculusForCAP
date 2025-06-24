@@ -25,9 +25,11 @@ three = zero + three;
 three = 3 * one;
 #! true
 
-id := IdentityMorphism( three );
+id := IdentityMorphism( one );
 #! <An identity morphism in CategoryOfZXDiagrams( )>
-id = 3 * IdentityMorphism( one );
+id3 := IdentityMorphism( three );
+#! <An identity morphism in CategoryOfZXDiagrams( )>
+id3 = 3 * id;
 #! true
 ev := EvaluationForDual( three );
 #! <A morphism in CategoryOfZXDiagrams( )>
@@ -65,31 +67,30 @@ Display( PreCompose( ev, coev ) );
 #!   and 0 edges
 #!   [  ].
 
-IdentityMorphism( one ) + IdentityMorphism( two ) = id;
+IdentityMorphism( one ) + IdentityMorphism( two ) = id3;
 #! true
 
-AssociatorLeftToRight( zero, one, two ) = id;
+AssociatorLeftToRight( zero, one, two ) = id3;
 #! true
 
-AssociatorRightToLeft( zero, one, two ) = id;
+AssociatorRightToLeft( zero, one, two ) = id3;
 #! true
 
-LeftUnitor( three ) = id;
+LeftUnitor( three ) = id3;
 #! true
 
-LeftUnitorInverse( three ) = id;
+LeftUnitorInverse( three ) = id3;
 #! true
 
-RightUnitor( three ) = id;
+RightUnitor( three ) = id3;
 #! true
 
-RightUnitorInverse( three ) = id;
+RightUnitorInverse( three ) = id3;
 #! true
 
 Braiding( one, two ) = BraidingInverse( two, one );
 #! true
 
-#
 X_1_1 := X_Spider( 1, 1 );
 #! <A morphism in CategoryOfZXDiagrams( )>
 IsWellDefinedForMorphisms( X_1_1 );
@@ -118,6 +119,13 @@ IsWellDefinedForMorphisms( Z_2_1 );
 X_1_2_Z_2_1 := PreCompose( X_1_2, Z_2_1 );
 #! <A morphism in CategoryOfZXDiagrams( )>
 IsWellDefinedForMorphisms( X_1_2_Z_2_1 );
+#! true
+
+GHZ := ( 3 * X_Spider( 0, 1 ) ) * ( id + H + id ) *
+       ( X_1_2 + Z_Spider( 1, 1 ) + X_1_2 ) *
+       ( id + Z_Spider( 3, 1 ) + id );
+#! <A morphism in CategoryOfZXDiagrams( )>
+IsWellDefinedForMorphisms( GHZ );
 #! true
 
 #! @EndExample
