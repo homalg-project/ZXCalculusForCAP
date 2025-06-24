@@ -99,8 +99,7 @@ true
 &lt;A morphism in CategoryOfZXDiagrams( )&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefinedForMorphisms( X_1_2_Z_2_1 );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">#</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">tmp_dir := DirectoryTemporary( );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">tmp_dir := DirectoryTemporary( );;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ExportAsQGraphFile( X_1_2_Z_2_1, Filename( tmp_dir, "X_1_2_Z_2_1" ) );</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">reimported := ImportFromQGraphFile( ZX, Filename( tmp_dir, "X_1_2_Z_2_1" ) );</span>
 &lt;A morphism in CategoryOfZXDiagrams( )&gt;

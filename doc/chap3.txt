@@ -71,8 +71,7 @@
     [4X[28X<A morphism in CategoryOfZXDiagrams( )>[128X[104X
     [4X[25Xgap>[125X [27XIsWellDefinedForMorphisms( X_1_2_Z_2_1 );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27X#[127X[104X
-    [4X[25X>[125X [27Xtmp_dir := DirectoryTemporary( );;[127X[104X
+    [4X[25Xgap>[125X [27Xtmp_dir := DirectoryTemporary( );;[127X[104X
     [4X[25Xgap>[125X [27XExportAsQGraphFile( X_1_2_Z_2_1, Filename( tmp_dir, "X_1_2_Z_2_1" ) );[127X[104X
     [4X[25Xgap>[125X [27Xreimported := ImportFromQGraphFile( ZX, Filename( tmp_dir, "X_1_2_Z_2_1" ) );[127X[104X
     [4X[28X<A morphism in CategoryOfZXDiagrams( )>[128X[104X
