@@ -22,9 +22,13 @@ three = one + two;
 #! true
 three = zero + three;
 #! true
+three = 3 * one;
+#! true
 
 id := IdentityMorphism( three );
 #! <An identity morphism in CategoryOfZXDiagrams( )>
+id = 3 * IdentityMorphism( one );
+#! true
 ev := EvaluationForDual( three );
 #! <A morphism in CategoryOfZXDiagrams( )>
 coev := CoevaluationForDual( three );
