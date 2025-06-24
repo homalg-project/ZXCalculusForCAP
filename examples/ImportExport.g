@@ -27,7 +27,6 @@ X_1_2_Z_2_1 := PreCompose( X_1_2, Z_2_1 );
 IsWellDefinedForMorphisms( X_1_2_Z_2_1 );
 #! true
 
-#
 tmp_dir := DirectoryTemporary( );;
 ExportAsQGraphFile( X_1_2_Z_2_1, Filename( tmp_dir, "X_1_2_Z_2_1" ) );
 reimported := ImportFromQGraphFile( ZX, Filename( tmp_dir, "X_1_2_Z_2_1" ) );
