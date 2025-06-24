@@ -163,9 +163,11 @@ true
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">three = 3 * one;</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">id := IdentityMorphism( three );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">id := IdentityMorphism( one );</span>
 &lt;An identity morphism in CategoryOfZXDiagrams( )&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">id = 3 * IdentityMorphism( one );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">id3 := IdentityMorphism( three );</span>
+&lt;An identity morphism in CategoryOfZXDiagrams( )&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">id3 = 3 * id;</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ev := EvaluationForDual( three );</span>
 &lt;A morphism in CategoryOfZXDiagrams( )&gt;
@@ -199,24 +201,23 @@ with 6 vertex labels
   [ 3, 4, 5, 3, 4, 5 ],
   and 0 edges
   [  ].
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IdentityMorphism( one ) + IdentityMorphism( two ) = id;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IdentityMorphism( one ) + IdentityMorphism( two ) = id3;</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AssociatorLeftToRight( zero, one, two ) = id;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AssociatorLeftToRight( zero, one, two ) = id3;</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AssociatorRightToLeft( zero, one, two ) = id;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AssociatorRightToLeft( zero, one, two ) = id3;</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LeftUnitor( three ) = id;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LeftUnitor( three ) = id3;</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LeftUnitorInverse( three ) = id;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LeftUnitorInverse( three ) = id3;</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RightUnitor( three ) = id;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RightUnitor( three ) = id3;</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RightUnitorInverse( three ) = id;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RightUnitorInverse( three ) = id3;</span>
 true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Braiding( one, two ) = BraidingInverse( two, one );</span>
 true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">#</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">X_1_1 := X_Spider( 1, 1 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">X_1_1 := X_Spider( 1, 1 );</span>
 &lt;A morphism in CategoryOfZXDiagrams( )&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefinedForMorphisms( X_1_1 );</span>
 true
@@ -239,6 +240,12 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">X_1_2_Z_2_1 := PreCompose( X_1_2, Z_2_1 );</span>
 &lt;A morphism in CategoryOfZXDiagrams( )&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefinedForMorphisms( X_1_2_Z_2_1 );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GHZ := ( 3 * X_Spider( 0, 1 ) ) * ( id + H + id ) *</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">       ( X_1_2 + Z_Spider( 1, 1 ) + X_1_2 ) *</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">       ( id + Z_Spider( 3, 1 ) + id );</span>
+&lt;A morphism in CategoryOfZXDiagrams( )&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsWellDefinedForMorphisms( GHZ );</span>
 true
 </pre></div>
 

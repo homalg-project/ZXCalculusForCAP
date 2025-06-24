@@ -94,9 +94,11 @@
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27Xthree = 3 * one;[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27Xid := IdentityMorphism( three );[127X[104X
+    [4X[25Xgap>[125X [27Xid := IdentityMorphism( one );[127X[104X
     [4X[28X<An identity morphism in CategoryOfZXDiagrams( )>[128X[104X
-    [4X[25Xgap>[125X [27Xid = 3 * IdentityMorphism( one );[127X[104X
+    [4X[25Xgap>[125X [27Xid3 := IdentityMorphism( three );[127X[104X
+    [4X[28X<An identity morphism in CategoryOfZXDiagrams( )>[128X[104X
+    [4X[25Xgap>[125X [27Xid3 = 3 * id;[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27Xev := EvaluationForDual( three );[127X[104X
     [4X[28X<A morphism in CategoryOfZXDiagrams( )>[128X[104X
@@ -130,24 +132,23 @@
     [4X[28X  [ 3, 4, 5, 3, 4, 5 ],[128X[104X
     [4X[28X  and 0 edges[128X[104X
     [4X[28X  [  ].[128X[104X
-    [4X[25Xgap>[125X [27XIdentityMorphism( one ) + IdentityMorphism( two ) = id;[127X[104X
+    [4X[25Xgap>[125X [27XIdentityMorphism( one ) + IdentityMorphism( two ) = id3;[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XAssociatorLeftToRight( zero, one, two ) = id;[127X[104X
+    [4X[25Xgap>[125X [27XAssociatorLeftToRight( zero, one, two ) = id3;[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XAssociatorRightToLeft( zero, one, two ) = id;[127X[104X
+    [4X[25Xgap>[125X [27XAssociatorRightToLeft( zero, one, two ) = id3;[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XLeftUnitor( three ) = id;[127X[104X
+    [4X[25Xgap>[125X [27XLeftUnitor( three ) = id3;[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XLeftUnitorInverse( three ) = id;[127X[104X
+    [4X[25Xgap>[125X [27XLeftUnitorInverse( three ) = id3;[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XRightUnitor( three ) = id;[127X[104X
+    [4X[25Xgap>[125X [27XRightUnitor( three ) = id3;[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27XRightUnitorInverse( three ) = id;[127X[104X
+    [4X[25Xgap>[125X [27XRightUnitorInverse( three ) = id3;[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XBraiding( one, two ) = BraidingInverse( two, one );[127X[104X
     [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27X#[127X[104X
-    [4X[25X>[125X [27XX_1_1 := X_Spider( 1, 1 );[127X[104X
+    [4X[25Xgap>[125X [27XX_1_1 := X_Spider( 1, 1 );[127X[104X
     [4X[28X<A morphism in CategoryOfZXDiagrams( )>[128X[104X
     [4X[25Xgap>[125X [27XIsWellDefinedForMorphisms( X_1_1 );[127X[104X
     [4X[28Xtrue[128X[104X
@@ -170,6 +171,12 @@
     [4X[25Xgap>[125X [27XX_1_2_Z_2_1 := PreCompose( X_1_2, Z_2_1 );[127X[104X
     [4X[28X<A morphism in CategoryOfZXDiagrams( )>[128X[104X
     [4X[25Xgap>[125X [27XIsWellDefinedForMorphisms( X_1_2_Z_2_1 );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XGHZ := ( 3 * X_Spider( 0, 1 ) ) * ( id + H + id ) *[127X[104X
+    [4X[25X>[125X [27X       ( X_1_2 + Z_Spider( 1, 1 ) + X_1_2 ) *[127X[104X
+    [4X[25X>[125X [27X       ( id + Z_Spider( 3, 1 ) + id );[127X[104X
+    [4X[28X<A morphism in CategoryOfZXDiagrams( )>[128X[104X
+    [4X[25Xgap>[125X [27XIsWellDefinedForMorphisms( GHZ );[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
