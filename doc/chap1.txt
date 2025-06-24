@@ -92,8 +92,12 @@
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27Xthree = zero + three;[127X[104X
     [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xthree = 3 * one;[127X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27Xid := IdentityMorphism( three );[127X[104X
     [4X[28X<An identity morphism in CategoryOfZXDiagrams( )>[128X[104X
+    [4X[25Xgap>[125X [27Xid = 3 * IdentityMorphism( one );[127X[104X
+    [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27Xev := EvaluationForDual( three );[127X[104X
     [4X[28X<A morphism in CategoryOfZXDiagrams( )>[128X[104X
     [4X[25Xgap>[125X [27Xcoev := CoevaluationForDual( three );[127X[104X
