@@ -93,39 +93,39 @@ Braiding( one, two ) = BraidingInverse( two, one );
 
 X_1_1 := X_Spider( 1, 1 );
 #! <A morphism in CategoryOfZXDiagrams( )>
-IsWellDefinedForMorphisms( X_1_1 );
+IsWellDefined( X_1_1 );
 #! true
 
 Z_1_1 := Z_Spider( 1, 1 );
 #! <A morphism in CategoryOfZXDiagrams( )>
-IsWellDefinedForMorphisms( Z_1_1 );
+IsWellDefined( Z_1_1 );
 #! true
 
 H := H_Gate( );
 #! <A morphism in CategoryOfZXDiagrams( )>
-IsWellDefinedForMorphisms( H );
+IsWellDefined( H );
 #! true
 
 X_1_2 := X_Spider( 1, 2 );
 #! <A morphism in CategoryOfZXDiagrams( )>
-IsWellDefinedForMorphisms( X_1_2 );
+IsWellDefined( X_1_2 );
 #! true
 
 Z_2_1 := Z_Spider( 2, 1 );
 #! <A morphism in CategoryOfZXDiagrams( )>
-IsWellDefinedForMorphisms( Z_2_1 );
+IsWellDefined( Z_2_1 );
 #! true
 
 X_1_2_Z_2_1 := PreCompose( X_1_2, Z_2_1 );
 #! <A morphism in CategoryOfZXDiagrams( )>
-IsWellDefinedForMorphisms( X_1_2_Z_2_1 );
+IsWellDefined( X_1_2_Z_2_1 );
 #! true
 
 GHZ := ( 3 * X_Spider( 0, 1 ) ) * ( id + H + id ) *
        ( X_1_2 + Z_Spider( 1, 1 ) + X_1_2 ) *
        ( id + Z_Spider( 3, 1 ) + id );
 #! <A morphism in CategoryOfZXDiagrams( )>
-IsWellDefinedForMorphisms( GHZ );
+IsWellDefined( GHZ );
 #! true
 
 #! @EndExample
