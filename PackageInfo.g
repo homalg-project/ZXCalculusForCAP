@@ -10,8 +10,8 @@ SetPackageInfo( rec(
 
 PackageName := "ZXCalculusForCAP",
 Subtitle := "The category of ZX-diagrams",
-Version := "2025.06-07",
-Date := "2025-06-26",
+Version := "2025.06-08",
+Date := "2025-06-27",
 License := "GPL-2.0-or-later",
 
 Persons := [

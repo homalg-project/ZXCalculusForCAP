@@ -150,33 +150,33 @@
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XX_1_1 := X_Spider( 1, 1 );[127X[104X
     [4X[28X<A morphism in CategoryOfZXDiagrams( )>[128X[104X
-    [4X[25Xgap>[125X [27XIsWellDefinedForMorphisms( X_1_1 );[127X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( X_1_1 );[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XZ_1_1 := Z_Spider( 1, 1 );[127X[104X
     [4X[28X<A morphism in CategoryOfZXDiagrams( )>[128X[104X
-    [4X[25Xgap>[125X [27XIsWellDefinedForMorphisms( Z_1_1 );[127X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( Z_1_1 );[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XH := H_Gate( );[127X[104X
     [4X[28X<A morphism in CategoryOfZXDiagrams( )>[128X[104X
-    [4X[25Xgap>[125X [27XIsWellDefinedForMorphisms( H );[127X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( H );[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XX_1_2 := X_Spider( 1, 2 );[127X[104X
     [4X[28X<A morphism in CategoryOfZXDiagrams( )>[128X[104X
-    [4X[25Xgap>[125X [27XIsWellDefinedForMorphisms( X_1_2 );[127X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( X_1_2 );[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XZ_2_1 := Z_Spider( 2, 1 );[127X[104X
     [4X[28X<A morphism in CategoryOfZXDiagrams( )>[128X[104X
-    [4X[25Xgap>[125X [27XIsWellDefinedForMorphisms( Z_2_1 );[127X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( Z_2_1 );[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XX_1_2_Z_2_1 := PreCompose( X_1_2, Z_2_1 );[127X[104X
     [4X[28X<A morphism in CategoryOfZXDiagrams( )>[128X[104X
-    [4X[25Xgap>[125X [27XIsWellDefinedForMorphisms( X_1_2_Z_2_1 );[127X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( X_1_2_Z_2_1 );[127X[104X
     [4X[28Xtrue[128X[104X
     [4X[25Xgap>[125X [27XGHZ := ( 3 * X_Spider( 0, 1 ) ) * ( id + H + id ) *[127X[104X
     [4X[25X>[125X [27X       ( X_1_2 + Z_Spider( 1, 1 ) + X_1_2 ) *[127X[104X
     [4X[25X>[125X [27X       ( id + Z_Spider( 3, 1 ) + id );[127X[104X
     [4X[28X<A morphism in CategoryOfZXDiagrams( )>[128X[104X
-    [4X[25Xgap>[125X [27XIsWellDefinedForMorphisms( GHZ );[127X[104X
+    [4X[25Xgap>[125X [27XIsWellDefined( GHZ );[127X[104X
     [4X[28Xtrue[128X[104X
   [4X[32X[104X
   
