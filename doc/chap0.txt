@@ -6,10 +6,10 @@
                          [1X The category of ZX-diagrams [101X
   
   
-                                   2025.06-06
+                                   2025.06-07
   
   
-                                  24 June 2025
+                                  26 June 2025
   
   
                                 Fabian Zickgraf
