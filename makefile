@@ -58,16 +58,29 @@ test-spacing:
 	rm spacing_diff
 	rm spacing_diff_no_blanks
 
-test-gap_to_julia: doc
-	if [ -d "../FinSetsForCAP" ]; then make -C "../FinSetsForCAP" doc; fi
-	git clone https://github.com/homalg-project/CAP_project.jl.git ~/.julia/dev/CAP_project.jl
-	sh -c "cd ~/.julia/dev/CAP_project.jl && export PATH="~/.julia/dev/CAP_project.jl/gap_to_julia:$$PATH" && gap_to_julia CAP && gap_to_julia MonoidalCategories && gap_to_julia CartesianCategories && gap_to_julia Toposes && gap_to_julia FinSetsForCAP && gap_to_julia ZXCalculusForCAP"
-	julia -e 'using Pkg; Pkg.develop(path = "/home/gap/.julia/dev/CAP_project.jl/CAP");'
-	julia -e 'using Pkg; Pkg.develop(path = "/home/gap/.julia/dev/CAP_project.jl/MonoidalCategories");'
-	julia -e 'using Pkg; Pkg.develop(path = "/home/gap/.julia/dev/CAP_project.jl/CartesianCategories");'
-	julia -e 'using Pkg; Pkg.develop(path = "/home/gap/.julia/dev/CAP_project.jl/Toposes");'
-	julia -e 'using Pkg; Pkg.develop(path = "/home/gap/.julia/dev/CAP_project.jl/FinSetsForCAP");'
-	julia -e 'using Pkg; Pkg.develop(path = "/home/gap/.julia/dev/CAP_project.jl/ZXCalculusForCAP");'
+test-gap_to_julia:
+	@if [ ! -d "$$HOME/.gap/PackageJanitor" ]; then \
+		git clone --depth 1 -vv https://github.com/homalg-project/PackageJanitor.git "$$HOME/.gap/PackageJanitor"; \
+	else \
+		echo "PackageJanitor already exists, skipping clone."; \
+	fi
+	@if [ ! -d "$$HOME/.julia/dev/CAP_project.jl" ]; then \
+		git clone --depth 1 -vv https://github.com/homalg-project/CAP_project.jl.git "$$HOME/.julia/dev/CAP_project.jl"; \
+	else \
+		echo "CAP_project.jl already exists, skipping clone."; \
+	fi
+	julia -e 'using Pkg; Pkg.develop(path = homedir() * "/.julia/dev/CAP_project.jl/CAP");'
+	julia -e 'using Pkg; Pkg.develop(path = homedir() * "/.julia/dev/CAP_project.jl/MonoidalCategories");'
+	julia -e 'using Pkg; Pkg.develop(path = homedir() * "/.julia/dev/CAP_project.jl/CartesianCategories");'
+	julia -e 'using Pkg; Pkg.develop(path = homedir() * "/.julia/dev/CAP_project.jl/Toposes");'
+	julia -e 'using Pkg; Pkg.develop(path = homedir() * "/.julia/dev/CAP_project.jl/FinSetsForCAP");'
+	julia -e 'using Pkg; Pkg.develop(path = homedir() * "/.julia/dev/CAP_project.jl/ZXCalculusForCAP");'
+	make -C "$$HOME/.julia/dev/CAP_project.jl/CAP" gen-full
+	make -C "$$HOME/.julia/dev/CAP_project.jl/MonoidalCategories" gen-full
+	make -C "$$HOME/.julia/dev/CAP_project.jl/CartesianCategories" gen-full
+	make -C "$$HOME/.julia/dev/CAP_project.jl/Toposes" gen-full
+	make -C "$$HOME/.julia/dev/CAP_project.jl/FinSetsForCAP" gen-full
+	make -C "$$HOME/.julia/dev/CAP_project.jl/ZXCalculusForCAP/" gen-full
 	julia -e 'using Pkg; Pkg.test("ZXCalculusForCAP");'
 
 ci-test: test-basic-spacing test-spacing test-doc test-with-coverage test-with-coverage-without-precompiled-code test-gap_to_julia
