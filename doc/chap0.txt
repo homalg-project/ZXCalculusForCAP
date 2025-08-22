@@ -6,10 +6,10 @@
                          [1X The category of ZX-diagrams [101X
   
   
-                                   2025.08-01
+                                   2025.08-02
   
   
-                                 18 August 2025
+                                 22 August 2025
   
   
                                 Fabian Zickgraf
