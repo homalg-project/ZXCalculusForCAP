@@ -10,18 +10,32 @@ SetPackageInfo( rec(
 
 PackageName := "ZXCalculusForCAP",
 Subtitle := "The category of ZX-diagrams",
-Version := "2025.08-02",
-Date := "2025-08-22",
+Version := "2025.08-03",
+Date := "2025-08-24",
 License := "GPL-2.0-or-later",
 
 Persons := [
   rec(
+    IsAuthor := true,
+    IsMaintainer := true,
+    FirstNames := "Mohamed",
+    LastName := "Barakat",
+    WWWHome := "https://mohamed-barakat.github.io/",
+    Email := "mohamed.barakat@uni-siegen.de",
+    PostalAddress := Concatenation(
+               "Walter-Flex-Str. 3\n",
+               "57068 Siegen\n",
+               "Germany" ),
+    Place := "Siegen",
+    Institution := "University of Siegen",
+  ),
+  rec(
     FirstNames := "Fabian",
     LastName := "Zickgraf",
     WWWHome := "https://zickgraf.github.io/",
-    Email := "fabian.zickgraf@uni-siegen.de",
+    Email := "f.zickgraf@dashdos.com",
     IsAuthor := true,
-    IsMaintainer := true,
+    IsMaintainer := false,
     PostalAddress := Concatenation(
                "Walter-Flex-Straße 3\n",
                "57072 Siegen\n",

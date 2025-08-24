@@ -6,18 +6,28 @@
                          [1X The category of ZX-diagrams [101X
   
   
-                                   2025.08-02
+                                   2025.08-03
   
   
-                                 22 August 2025
+                                 24 August 2025
   
+  
+                                Mohamed Barakat
   
                                 Fabian Zickgraf
   
   
   
+  Mohamed Barakat
+      Email:    [7Xmailto:mohamed.barakat@uni-siegen.de[107X
+      Homepage: [7Xhttps://mohamed-barakat.github.io/[107X
+      Address:  [33X[0;14YWalter-Flex-Str. 3[133X
+                [33X[0;14Y57068 Siegen[133X
+                [33X[0;14YGermany[133X
+  
+  
   Fabian Zickgraf
-      Email:    [7Xmailto:fabian.zickgraf@uni-siegen.de[107X
+      Email:    [7Xmailto:f.zickgraf@dashdos.com[107X
       Homepage: [7Xhttps://zickgraf.github.io/[107X
       Address:  [33X[0;14YWalter-Flex-Straße 3[133X
                 [33X[0;14Y57072 Siegen[133X

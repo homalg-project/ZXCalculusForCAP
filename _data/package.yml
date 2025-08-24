@@ -1,17 +1,19 @@
 name: ZXCalculusForCAP
-version: "2025.08-02"
+version: "2025.08-03"
 license: "GPL-2.0-or-later"
-date: 2025-08-22
+date: 2025-08-24
 description: |
     The category of ZX-diagrams
 
 authors:
+    - name: Mohamed Barakat
+      url: https://mohamed-barakat.github.io/
     - name: Fabian Zickgraf
       url: https://zickgraf.github.io/
 
 maintainers:
-    - name: Fabian Zickgraf
-      url: https://zickgraf.github.io/
+    - name: Mohamed Barakat
+      url: https://mohamed-barakat.github.io/
 
 GAP: ">= 4.13.0"
 
@@ -40,11 +42,11 @@ packageinfo: https://homalg-project.github.io/ZXCalculusForCAP/PackageInfo.g
 
 downloads:
     - name: .tar.gz
-      url: https://github.com/homalg-project/ZXCalculusForCAP/releases/download/v2025.08-02/ZXCalculusForCAP-2025.08-02.tar.gz
+      url: https://github.com/homalg-project/ZXCalculusForCAP/releases/download/v2025.08-03/ZXCalculusForCAP-2025.08-03.tar.gz
     - name: .zip
-      url: https://github.com/homalg-project/ZXCalculusForCAP/releases/download/v2025.08-02/ZXCalculusForCAP-2025.08-02.zip
+      url: https://github.com/homalg-project/ZXCalculusForCAP/releases/download/v2025.08-03/ZXCalculusForCAP-2025.08-03.zip
 
-pdf: https://github.com/homalg-project/ZXCalculusForCAP/releases/download/v2025.08-02/ZXCalculusForCAP-2025.08-02-manual.pdf
+pdf: https://github.com/homalg-project/ZXCalculusForCAP/releases/download/v2025.08-03/ZXCalculusForCAP-2025.08-03-manual.pdf
 
 abstract: |
 
@@ -53,10 +55,10 @@ doc-html: doc/chap0.html
 doc-pdf: doc/manual.pdf
 citeas: |
     <p class='BibEntry'>
-    [<span class='BibKey'>Zic22</span>]   <b class='BibAuthor'>Zickgraf, F.</b>,
+    [<span class='BibKey'>BZ24</span>]   <b class='BibAuthor'>Barakat, M. and Zickgraf, F.</b>,
      <i class='BibTitle'>ZXCalculusForCAP, The category of ZX-diagrams,
-             Version 2025.08-02</i>
-     (<span class='BibYear'>8-22</span>)<br />
+             Version 2025.08-03</i>
+     (<span class='BibYear'>8-24</span>)<br />
     (<span class='BibNote'>GAP package</span>),
     <span class='BibHowpublished'><a href="https://homalg-project.github.io/pkg/ZXCalculusForCAP">https://homalg-project.github.io/pkg/ZXCalculusForCAP</a></span>.
     </p>
@@ -64,18 +66,18 @@ citeas: |
 
 bibtex: |
     @misc{ ZXCalculusForCAP,
-      author =           {Zickgraf, F.},
+      author =           {Barakat, M. and Zickgraf, F.},
       title =            {{ZXCalculusForCAP},       {The       category       of
                           ZX\texttt{\symbol{45}}diagrams},             {V}ersion
-                          2025.08\texttt{\symbol{45}}02},
+                          2025.08\texttt{\symbol{45}}03},
       month =            {5\texttt{\symbol{45}}},
-      year =             {8\texttt{\symbol{45}}22},
+      year =             {8\texttt{\symbol{45}}24},
       note =             {GAP package},
       howpublished =     {\href
                           {https://homalg-project.github.io/pkg/ZXCalculusForCAP}
                           {\texttt{https://homalg\texttt{\symbol{45}}project.github.io/}\discretionary
                           {}{}{}\texttt{pkg/}\discretionary
                           {}{}{}\texttt{ZXCalculusForCAP}}},
-      printedkey =       {Zic22}
+      printedkey =       {BZ24}
     }
 
