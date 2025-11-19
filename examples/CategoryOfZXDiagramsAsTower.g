@@ -120,8 +120,8 @@ IsWellDefined( X_1_2_Z_2_1 );
 #! true
 
 GHZ := ( 3 * X_Spider( zx, 0, 1 ) ) * ( id + H + id ) *
-       ( X_1_2 + Z_Spider( zx, 1, 1 ) + X_1_2 ) *
-       ( id + Z_Spider( zx, 3, 1 ) + id );
+       ( id + Z_Spider( zx, 1, 2 ) + X_1_2 ) *
+       ( X_Spider( zx, 2, 1 ) + Z_2_1 + id );
 #! <A morphism in CategoryOfZXDiagrams( )>
 IsWellDefined( GHZ );
 #! true
