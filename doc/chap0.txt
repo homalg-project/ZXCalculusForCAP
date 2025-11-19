@@ -6,10 +6,10 @@
                          [1X The category of ZX-diagrams [101X
   
   
-                                   2025.08-03
+                                   2025.11-01
   
   
-                                 24 August 2025
+                                19 November 2025
   
   
                                 Mohamed Barakat
