@@ -4,9 +4,12 @@
 
 #! @Example
 
-#! #@if ValueOption( "no_precompiled_code" ) <> true and _gap_old_formatting
+#! #@if ValueOption( "no_precompiled_code" ) <> true
 
 LoadPackage( "ZXCalculusForCAP", false );
+#! true
+
+LoadPackage( "CompilerForCAP", ">= 2025.11-01", false );
 #! true
 
 ReadPackageOnce( "FinSetsForCAP", "gap/CompilerLogic.gi" );
