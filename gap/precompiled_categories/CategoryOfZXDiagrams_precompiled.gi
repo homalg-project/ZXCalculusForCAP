@@ -249,7 +249,7 @@ function ( cat_1, alpha_1 )
     deduped_1_1 := Length( deduped_10_1 );
     return CAP_JIT_EXPR_CASE_WRAPPER( function (  )
                       if not ForAll( deduped_6_1, function ( a_3 )
-                                   return (IsBigInt( a_3 ) and a_3 >= 0);
+                                   return IsBigInt( a_3 ) and a_3 >= 0;
                                end ) then
                           return false;
                       elif deduped_7_1 <> Length( deduped_6_1 ) then
@@ -263,10 +263,10 @@ function ( cat_1, alpha_1 )
                       fi;
                       return;
                   end )(  ) and deduped_5_1 and true and (ListWithIdenticalEntries( deduped_7_1, deduped_12_1 ) = List( [ 0 .. deduped_7_1 - 1 ], function ( i_2 )
-                    return deduped_3_1[1 + deduped_6_1[(1 + i_2)]];
+                    return deduped_3_1[1 + deduped_6_1[1 + i_2]];
                 end ) and true) and (CAP_JIT_EXPR_CASE_WRAPPER( function (  )
                       if not ForAll( deduped_8_1, function ( a_3 )
-                                   return (IsBigInt( a_3 ) and a_3 >= 0);
+                                   return IsBigInt( a_3 ) and a_3 >= 0;
                                end ) then
                           return false;
                       elif deduped_9_1 <> Length( deduped_8_1 ) then
@@ -280,7 +280,7 @@ function ( cat_1, alpha_1 )
                       fi;
                       return;
                   end )(  ) and deduped_5_1 and true and (ListWithIdenticalEntries( deduped_9_1, deduped_12_1 ) = List( [ 0 .. deduped_9_1 - 1 ], function ( i_2 )
-                    return deduped_3_1[1 + deduped_8_1[(1 + i_2)]];
+                    return deduped_3_1[1 + deduped_8_1[1 + i_2]];
                 end ) and true));
 end
 ########
@@ -298,7 +298,7 @@ function ( cat_1, arg2_1 )
     deduped_1_1 := ListWithIdenticalEntries( deduped_2_1, deduped_3_1 );
     return CAP_JIT_EXPR_CASE_WRAPPER( function (  )
                   if not ForAll( deduped_1_1, function ( a_3 )
-                               return (IsBigInt( a_3 ) and a_3 >= 0);
+                               return IsBigInt( a_3 ) and a_3 >= 0;
                            end ) then
                       return false;
                   elif deduped_2_1 <> deduped_2_1 then
@@ -453,34 +453,34 @@ function ( cat_1, alpha_1, beta_1 )
     deduped_19_1 := SKELETAL_FIN_SETS_ExplicitCoequalizer_primitive_input( deduped_25_1, [ NTuple( 3, deduped_33_1, List( [ 0 .. deduped_33_1 - 1 ], function ( i_2 )
                     return hoisted_1_1[1 + i_2];
                 end ), deduped_25_1 ), NTuple( 3, deduped_34_1, List( [ 0 .. deduped_34_1 - 1 ], function ( i_2 )
-                    return deduped_27_1 + hoisted_2_1[(1 + i_2)];
+                    return deduped_27_1 + hoisted_2_1[1 + i_2];
                 end ), deduped_25_1 ) ] );
     deduped_18_1 := Concatenation( List( deduped_23_1, function ( i_2 )
               return CAP_JIT_INCOMPLETE_LOGIC( CAP_JIT_INCOMPLETE_LOGIC( deduped_35_1[1 + i_2] )[2] );
           end ), List( deduped_24_1, function ( i_2 )
-              return deduped_27_1 + CAP_JIT_INCOMPLETE_LOGIC( CAP_JIT_INCOMPLETE_LOGIC( deduped_36_1[(1 + i_2)] )[2] );
+              return deduped_27_1 + CAP_JIT_INCOMPLETE_LOGIC( CAP_JIT_INCOMPLETE_LOGIC( deduped_36_1[1 + i_2] )[2] );
           end ) );
     deduped_17_1 := Concatenation( List( deduped_23_1, function ( i_2 )
               return CAP_JIT_INCOMPLETE_LOGIC( CAP_JIT_INCOMPLETE_LOGIC( deduped_35_1[1 + i_2] )[1] );
           end ), List( deduped_24_1, function ( i_2 )
-              return deduped_27_1 + CAP_JIT_INCOMPLETE_LOGIC( CAP_JIT_INCOMPLETE_LOGIC( deduped_36_1[(1 + i_2)] )[1] );
+              return deduped_27_1 + CAP_JIT_INCOMPLETE_LOGIC( CAP_JIT_INCOMPLETE_LOGIC( deduped_36_1[1 + i_2] )[1] );
           end ) );
     hoisted_15_1 := ListN( deduped_17_1, deduped_18_1, function ( s_2, t_2 )
             return t_2;
         end );
     deduped_5_1 := List( [ 0 .. deduped_25_1 - 1 ], function ( x_2 )
             return -1 + BigInt( SafeUniquePositionProperty( deduped_19_1, function ( c_3 )
-                        return (x_2 in c_3);
+                        return x_2 in c_3;
                     end ) );
         end );
     hoisted_16_1 := List( deduped_21_1, function ( i_2 )
-            return deduped_5_1[1 + hoisted_15_1[(1 + i_2)]];
+            return deduped_5_1[1 + hoisted_15_1[1 + i_2]];
         end );
     hoisted_13_1 := ListN( deduped_17_1, deduped_18_1, function ( s_2, t_2 )
             return s_2;
         end );
     hoisted_14_1 := List( deduped_21_1, function ( i_2 )
-            return deduped_5_1[1 + hoisted_13_1[(1 + i_2)]];
+            return deduped_5_1[1 + hoisted_13_1[1 + i_2]];
         end );
     hoisted_10_1 := List( [ 0 .. deduped_28_1 - 1 ], function ( i_2 )
             return deduped_5_1[1 + (deduped_27_1 + i_2)];
@@ -499,9 +499,9 @@ function ( cat_1, alpha_1, beta_1 )
                 fi;
                 return;
             end ), List( [ 0 .. AsInteger( deduped_37_1 ) - 1 ], function ( i_2 )
-                return hoisted_8_1[1 + hoisted_7_1[(1 + i_2)]];
+                return hoisted_8_1[1 + hoisted_7_1[1 + i_2]];
             end ), List( [ 0 .. AsInteger( deduped_38_1 ) - 1 ], function ( i_2 )
-                return hoisted_10_1[1 + hoisted_9_1[(1 + i_2)]];
+                return hoisted_10_1[1 + hoisted_9_1[1 + i_2]];
             end ), ListN( List( deduped_20_1, function ( x_2 )
                   return hoisted_14_1[1 + x_2[1]];
               end ), List( deduped_20_1, function ( x_2 )
@@ -554,7 +554,7 @@ function ( cat_1, alpha_1, beta_1 )
     deduped_22_1 := Concatenation( List( deduped_25_1, function ( i_2 )
               return hoisted_13_1[1 + i_2];
           end ), List( deduped_26_1, function ( i_2 )
-              return deduped_29_1 + hoisted_14_1[(1 + i_2)];
+              return deduped_29_1 + hoisted_14_1[1 + i_2];
           end ) );
     hoisted_12_1 := List( deduped_38_1, function ( a_2 )
             return a_2[1];
@@ -565,7 +565,7 @@ function ( cat_1, alpha_1, beta_1 )
     deduped_21_1 := Concatenation( List( deduped_25_1, function ( i_2 )
               return hoisted_11_1[1 + i_2];
           end ), List( deduped_26_1, function ( i_2 )
-              return deduped_29_1 + hoisted_12_1[(1 + i_2)];
+              return deduped_29_1 + hoisted_12_1[1 + i_2];
           end ) );
     deduped_20_1 := SKELETAL_FIN_SETS_ExplicitCoequalizer_primitive_input( deduped_28_1, [ deduped_24_1, deduped_24_1 ] );
     hoisted_2_1 := deduped_42_1[2];
@@ -573,24 +573,24 @@ function ( cat_1, alpha_1, beta_1 )
     deduped_19_1 := SKELETAL_FIN_SETS_ExplicitCoequalizer_primitive_input( deduped_27_1, [ NTuple( 3, deduped_35_1, List( [ 0 .. deduped_35_1 - 1 ], function ( i_2 )
                     return hoisted_1_1[1 + i_2];
                 end ), deduped_27_1 ), NTuple( 3, deduped_36_1, List( [ 0 .. deduped_36_1 - 1 ], function ( i_2 )
-                    return deduped_29_1 + hoisted_2_1[(1 + i_2)];
+                    return deduped_29_1 + hoisted_2_1[1 + i_2];
                 end ), deduped_27_1 ) ] );
     hoisted_17_1 := ListN( deduped_21_1, deduped_22_1, function ( s_2, t_2 )
             return t_2;
         end );
     deduped_5_1 := List( [ 0 .. deduped_27_1 - 1 ], function ( x_2 )
             return -1 + BigInt( SafeUniquePositionProperty( deduped_19_1, function ( c_3 )
-                        return (x_2 in c_3);
+                        return x_2 in c_3;
                     end ) );
         end );
     hoisted_18_1 := List( deduped_23_1, function ( i_2 )
-            return deduped_5_1[1 + hoisted_17_1[(1 + i_2)]];
+            return deduped_5_1[1 + hoisted_17_1[1 + i_2]];
         end );
     hoisted_15_1 := ListN( deduped_21_1, deduped_22_1, function ( s_2, t_2 )
             return s_2;
         end );
     hoisted_16_1 := List( deduped_23_1, function ( i_2 )
-            return deduped_5_1[1 + hoisted_15_1[(1 + i_2)]];
+            return deduped_5_1[1 + hoisted_15_1[1 + i_2]];
         end );
     hoisted_10_1 := List( [ 0 .. deduped_30_1 - 1 ], function ( i_2 )
             return deduped_5_1[1 + (deduped_29_1 + i_2)];
@@ -609,9 +609,9 @@ function ( cat_1, alpha_1, beta_1 )
                 fi;
                 return;
             end ), List( [ 0 .. AsInteger( deduped_39_1 ) - 1 ], function ( i_2 )
-                return hoisted_8_1[1 + hoisted_7_1[(1 + i_2)]];
+                return hoisted_8_1[1 + hoisted_7_1[1 + i_2]];
             end ), List( [ 0 .. AsInteger( deduped_40_1 ) - 1 ], function ( i_2 )
-                return hoisted_10_1[1 + hoisted_9_1[(1 + i_2)]];
+                return hoisted_10_1[1 + hoisted_9_1[1 + i_2]];
             end ), ListN( List( deduped_20_1, function ( x_2 )
                   return hoisted_16_1[1 + x_2[1]];
               end ), List( deduped_20_1, function ( x_2 )
@@ -691,19 +691,19 @@ function ( cat_1, s_1, alpha_1, beta_1, r_1 )
     return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, r_1, VertexLabeledGraph, NTuple( 4, Concatenation( deduped_10_1, deduped_14_1[1] ), Concatenation( List( [ 0 .. AsInteger( Source( alpha_1 ) ) - 1 ], function ( i_2 )
                   return hoisted_1_1[1 + i_2];
               end ), List( [ 0 .. AsInteger( Source( beta_1 ) ) - 1 ], function ( i_2 )
-                  return deduped_3_1 + hoisted_2_1[(1 + i_2)];
+                  return deduped_3_1 + hoisted_2_1[1 + i_2];
               end ) ), Concatenation( List( [ 0 .. AsInteger( Range( alpha_1 ) ) - 1 ], function ( i_2 )
                   return hoisted_4_1[1 + i_2];
               end ), List( [ 0 .. AsInteger( Range( beta_1 ) ) - 1 ], function ( i_2 )
-                  return deduped_3_1 + hoisted_5_1[(1 + i_2)];
+                  return deduped_3_1 + hoisted_5_1[1 + i_2];
               end ) ), ListN( Concatenation( List( deduped_8_1, function ( i_2 )
                     return CAP_JIT_INCOMPLETE_LOGIC( CAP_JIT_INCOMPLETE_LOGIC( deduped_11_1[1 + i_2] )[1] );
                 end ), List( deduped_9_1, function ( i_2 )
-                    return deduped_3_1 + CAP_JIT_INCOMPLETE_LOGIC( CAP_JIT_INCOMPLETE_LOGIC( deduped_12_1[(1 + i_2)] )[1] );
+                    return deduped_3_1 + CAP_JIT_INCOMPLETE_LOGIC( CAP_JIT_INCOMPLETE_LOGIC( deduped_12_1[1 + i_2] )[1] );
                 end ) ), Concatenation( List( deduped_8_1, function ( i_2 )
                     return CAP_JIT_INCOMPLETE_LOGIC( CAP_JIT_INCOMPLETE_LOGIC( deduped_11_1[1 + i_2] )[2] );
                 end ), List( deduped_9_1, function ( i_2 )
-                    return deduped_3_1 + CAP_JIT_INCOMPLETE_LOGIC( CAP_JIT_INCOMPLETE_LOGIC( deduped_12_1[(1 + i_2)] )[2] );
+                    return deduped_3_1 + CAP_JIT_INCOMPLETE_LOGIC( CAP_JIT_INCOMPLETE_LOGIC( deduped_12_1[1 + i_2] )[2] );
                 end ) ), function ( s_2, t_2 )
                 return NTuple( 2, s_2, t_2 );
             end ) ) );
@@ -745,19 +745,19 @@ function ( cat_1, s_1, alpha_1, beta_1, r_1 )
     return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, r_1, VertexLabeledGraph, NTuple( 4, Concatenation( deduped_12_1, deduped_16_1[1] ), Concatenation( List( [ 0 .. AsInteger( Source( alpha_1 ) ) - 1 ], function ( i_2 )
                   return hoisted_1_1[1 + i_2];
               end ), List( [ 0 .. AsInteger( Source( beta_1 ) ) - 1 ], function ( i_2 )
-                  return deduped_3_1 + hoisted_2_1[(1 + i_2)];
+                  return deduped_3_1 + hoisted_2_1[1 + i_2];
               end ) ), Concatenation( List( [ 0 .. AsInteger( Range( alpha_1 ) ) - 1 ], function ( i_2 )
                   return hoisted_4_1[1 + i_2];
               end ), List( [ 0 .. AsInteger( Range( beta_1 ) ) - 1 ], function ( i_2 )
-                  return deduped_3_1 + hoisted_5_1[(1 + i_2)];
+                  return deduped_3_1 + hoisted_5_1[1 + i_2];
               end ) ), ListN( Concatenation( List( deduped_10_1, function ( i_2 )
                     return hoisted_6_1[1 + i_2];
                 end ), List( deduped_11_1, function ( i_2 )
-                    return deduped_3_1 + hoisted_7_1[(1 + i_2)];
+                    return deduped_3_1 + hoisted_7_1[1 + i_2];
                 end ) ), Concatenation( List( deduped_10_1, function ( i_2 )
                     return hoisted_8_1[1 + i_2];
                 end ), List( deduped_11_1, function ( i_2 )
-                    return deduped_3_1 + hoisted_9_1[(1 + i_2)];
+                    return deduped_3_1 + hoisted_9_1[1 + i_2];
                 end ) ), function ( s_2, t_2 )
                 return NTuple( 2, s_2, t_2 );
             end ) ) );

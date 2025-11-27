@@ -9,6 +9,9 @@
 LoadPackage( "ZXCalculusForCAP", false );
 #! true
 
+LoadPackage( "CompilerForCAP", ">= 2025.11-01", false );
+#! true
+
 ReadPackageOnce( "FinSetsForCAP", "gap/CompilerLogic.gi" );
 #! true
 
