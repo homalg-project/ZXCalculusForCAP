@@ -1,7 +1,7 @@
 name: ZXCalculusForCAP
-version: "2025.11-01"
+version: "2025.11-02"
 license: "GPL-2.0-or-later"
-date: 2025-11-19
+date: 2025-11-27
 description: |
     The category of ZX-diagrams
 
@@ -42,11 +42,11 @@ packageinfo: https://homalg-project.github.io/ZXCalculusForCAP/PackageInfo.g
 
 downloads:
     - name: .tar.gz
-      url: https://github.com/homalg-project/ZXCalculusForCAP/releases/download/v2025.11-01/ZXCalculusForCAP-2025.11-01.tar.gz
+      url: https://github.com/homalg-project/ZXCalculusForCAP/releases/download/v2025.11-02/ZXCalculusForCAP-2025.11-02.tar.gz
     - name: .zip
-      url: https://github.com/homalg-project/ZXCalculusForCAP/releases/download/v2025.11-01/ZXCalculusForCAP-2025.11-01.zip
+      url: https://github.com/homalg-project/ZXCalculusForCAP/releases/download/v2025.11-02/ZXCalculusForCAP-2025.11-02.zip
 
-pdf: https://github.com/homalg-project/ZXCalculusForCAP/releases/download/v2025.11-01/ZXCalculusForCAP-2025.11-01-manual.pdf
+pdf: https://github.com/homalg-project/ZXCalculusForCAP/releases/download/v2025.11-02/ZXCalculusForCAP-2025.11-02-manual.pdf
 
 abstract: |
 
@@ -55,10 +55,10 @@ doc-html: doc/chap0.html
 doc-pdf: doc/manual.pdf
 citeas: |
     <p class='BibEntry'>
-    [<span class='BibKey'>BZ19</span>]   <b class='BibAuthor'>Barakat, M. and Zickgraf, F.</b>,
+    [<span class='BibKey'>BZ27</span>]   <b class='BibAuthor'>Barakat, M. and Zickgraf, F.</b>,
      <i class='BibTitle'>ZXCalculusForCAP, The category of ZX-diagrams,
-             Version 2025.11-01</i>
-     (<span class='BibYear'>1-19</span>)<br />
+             Version 2025.11-02</i>
+     (<span class='BibYear'>1-27</span>)<br />
     (<span class='BibNote'>GAP package</span>),
     <span class='BibHowpublished'><a href="https://homalg-project.github.io/pkg/ZXCalculusForCAP">https://homalg-project.github.io/pkg/ZXCalculusForCAP</a></span>.
     </p>
@@ -69,15 +69,15 @@ bibtex: |
       author =           {Barakat, M. and Zickgraf, F.},
       title =            {{ZXCalculusForCAP},       {The       category       of
                           ZX\texttt{\symbol{45}}diagrams},             {V}ersion
-                          2025.11\texttt{\symbol{45}}01},
+                          2025.11\texttt{\symbol{45}}02},
       month =            {5\texttt{\symbol{45}}},
-      year =             {1\texttt{\symbol{45}}19},
+      year =             {1\texttt{\symbol{45}}27},
       note =             {GAP package},
       howpublished =     {\href
                           {https://homalg-project.github.io/pkg/ZXCalculusForCAP}
                           {\texttt{https://homalg\texttt{\symbol{45}}project.github.io/}\discretionary
                           {}{}{}\texttt{pkg/}\discretionary
                           {}{}{}\texttt{ZXCalculusForCAP}}},
-      printedkey =       {BZ19}
+      printedkey =       {BZ27}
     }
 
