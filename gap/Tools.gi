@@ -7,16 +7,19 @@
 if IsPackageMarkedForLoading( "json", "2.1.1" ) then
 
   InstallGlobalFunction( ExportAsQGraphString,
-    
     function ( phi )
-      local tuple, labels, input_positions, output_positions, edges, input_positions_indices, output_positions_indices, wire_vertices, node_vertices, vertex_names, padding_length, get_vertex_name, vertex_name, is_input, is_output, input_position, output_position, undir_edges, edge, edge_name, src_vertex_name, tgt_vertex_name, qgraph, pos, edge_counter;
+      local quadruple, labels, input_positions, output_positions, edges,
+            input_positions_indices, output_positions_indices,
+            wire_vertices, node_vertices, vertex_names, padding_length, get_vertex_name, vertex_name,
+            is_input, is_output, input_position, output_position, undir_edges, edge, edge_name,
+            src_vertex_name, tgt_vertex_name, qgraph, pos, edge_counter;
         
-        tuple := ZX_RemovedInnerNeutralNodes( MorphismDatum( phi ) );
+        quadruple := ZX_RemovedInnerNeutralNodes( MorphismDatum( phi ) );
         
-        labels := ShallowCopy( tuple[1] );
-        input_positions := ShallowCopy( tuple[2] );
-        output_positions := ShallowCopy( tuple[3] );
-        edges := ShallowCopy( tuple[4] );
+        labels := ShallowCopy( quadruple[1] );
+        input_positions := ShallowCopy( quadruple[2] );
+        output_positions := ShallowCopy( quadruple[3] );
+        edges := ShallowCopy( quadruple[4] );
         
         # input_positions and output_positions might be ranges, which are immutable in Julia
         # -> convert to regular lists
@@ -256,10 +259,9 @@ if IsPackageMarkedForLoading( "json", "2.1.1" ) then
         
     end );
     
-  InstallGlobalFunction( ExportAsQGraphFile,
-    
-    function ( phi, filename )
-      local tuple, labels, input_positions, output_positions, edges, input_positions_indices, output_positions_indices, wire_vertices, node_vertices, vertex_names, padding_length, get_vertex_name, vertex_name, is_input, is_output, input_position, output_position, undir_edges, edge, edge_name, src_vertex_name, tgt_vertex_name, qgraph, pos, edge_counter;
+    InstallGlobalFunction( ExportAsQGraphFile,
+      function ( phi, filename )
+        local qgraph;
         
         qgraph := ExportAsQGraphString( phi );
         
@@ -271,9 +273,10 @@ if IsPackageMarkedForLoading( "json", "2.1.1" ) then
     end );
     
     InstallGlobalFunction( ImportFromQGraphString,
-      
       function ( cat, qgraph )
-        local labels, edges, wire_vertices, node_vertices, undir_edges, vertex_names, input_positions, output_positions, edge, src_vertex, tgt_vertex, annotation, data, full_type, io_positions, src_index, tgt_index, via_index, source, range, mor, name;
+        local labels, edges, wire_vertices, node_vertices, undir_edges, vertex_names,
+              input_positions, output_positions, edge, src_vertex, tgt_vertex, annotation, data,
+              full_type, io_positions, src_index, tgt_index, via_index, source, range, mor, name;
         
         labels := [ ];
         edges := [ ];
@@ -488,7 +491,6 @@ if IsPackageMarkedForLoading( "json", "2.1.1" ) then
     end );
     
     InstallGlobalFunction( ImportFromQGraphFile,
-      
       function ( cat, filename )
         local qgraph;
         
