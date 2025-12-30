@@ -101,6 +101,3 @@ DeclareGlobalName( "ZX_LabelToInteger" );
 DeclareGlobalName( "ZX_IntegerToLabel" );
 DeclareGlobalName( "ZX_RemovedInnerNeutralNodes" );
 DeclareGlobalName( "S_ZX_EDGES" );
-
-DeclareGlobalFunction( "SKELETAL_FIN_SETS_ExplicitCoequalizer_primitive_input" );
-CapJitAddTypeSignature( "SKELETAL_FIN_SETS_ExplicitCoequalizer_primitive_input", [ IsInt, IsList ], CapJitDataTypeOfListOf( CapJitDataTypeOfListOf( IsInt ) ) );

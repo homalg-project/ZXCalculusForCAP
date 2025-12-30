@@ -539,13 +539,3 @@ InstallMethod( DisplayString,
     );
     
 end );
-
-InstallGlobalFunction( SKELETAL_FIN_SETS_ExplicitCoequalizer_primitive_input,
-  function ( s, D )
-    
-    s := FinSet( SkeletalFinSets, BigInt( s ) );
-    D := List( D, x -> MapOfFinSets( SkeletalFinSets, FinSet( SkeletalFinSets, BigInt( x[1] ) ), List( x[2], y -> BigInt( y ) ), FinSet( SkeletalFinSets, BigInt( x[3] ) ) ) );
-    
-    return SKELETAL_FIN_SETS_ExplicitCoequalizer( s, D );
-    
-end );

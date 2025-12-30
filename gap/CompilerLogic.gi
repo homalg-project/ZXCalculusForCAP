@@ -95,16 +95,6 @@ CapJitAddLogicTemplate(
 ##
 CapJitAddLogicTemplate(
     rec(
-        variable_names := [ "s", "D" ],
-        src_template := "SKELETAL_FIN_SETS_ExplicitCoequalizer( s, D )",
-        dst_template := "SKELETAL_FIN_SETS_ExplicitCoequalizer_primitive_input( Cardinality( s ), List( D, x -> Triple( Cardinality( Source( x ) ), AsList( x ), Cardinality( Range( x ) ) ) ) )",
-        new_funcs := [ [ "x" ] ],
-    )
-);
-
-##
-CapJitAddLogicTemplate(
-    rec(
         variable_names := [ "entry" ],
         src_template := "ListWithIdenticalEntries( 2, entry )",
         dst_template := "[ entry, entry ]",
