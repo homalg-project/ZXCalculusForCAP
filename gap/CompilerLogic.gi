@@ -145,3 +145,13 @@ CapJitAddLogicTemplate(
         dst_template := "[ from .. to ]",
     )
 );
+
+##
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "bool" ],
+        variable_filters := [ IsBool ],
+        src_template := "bool and true",
+        dst_template := "bool",
+    )
+);
