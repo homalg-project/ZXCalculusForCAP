@@ -15,7 +15,7 @@ ReadPackage( "ZXCalculusForCAP", "gap/Tools.gi" );
 #= comment for Julia
 if IsPackageMarkedForLoading( "FunctorCategories", ">= 2023.07-01" ) then
     
-    ReadPackage( "ZXCalculusForCAP", "gap/CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers.gi" );
+    ReadPackage( "ZXCalculusForCAP", "gap/CategoryOfZXDiagrams_as_a_tower.gi" );
     
 fi;
 # =#
