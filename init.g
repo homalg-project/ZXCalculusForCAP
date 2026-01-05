@@ -8,6 +8,6 @@ ReadPackage( "ZXCalculusForCAP", "gap/CategoryOfCospans_for_ZXCalculus.gd" );
 
 ReadPackage( "ZXCalculusForCAP", "gap/CategoryOfZXDiagrams.gd" );
 
-ReadPackage( "ZXCalculusForCAP", "gap/CategoryOfZXDiagrams_as_CategoryOfCospans_CategoryOfDecoratedQuivers.gd" );
+ReadPackage( "ZXCalculusForCAP", "gap/CategoryOfZXDiagrams_as_a_tower.gd" );
 
 ReadPackage( "ZXCalculusForCAP", "gap/Tools.gd" );
