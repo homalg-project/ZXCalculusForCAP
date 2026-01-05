@@ -6,10 +6,10 @@
                          [1X The category of ZX-diagrams [101X
   
   
-                                   2025.12-04
+                                   2026.01-01
   
   
-                                 1 January 2026
+                                 5 January 2026
   
   
                                 Mohamed Barakat
