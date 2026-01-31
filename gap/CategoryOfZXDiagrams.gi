@@ -12,7 +12,8 @@
 #BindGlobal( "S_ZX_NODES", [ "neutral", "Z", "X", "H" ] );
 #BindGlobal( "S_ZX_EDGES", [ [ 0, 1 ], [ 0, 2 ], [ 0, 3 ] ] );
 
-BindGlobal( "S_ZX_NODES", [ "neutral", "Z", "Zπ", "X", "Xπ", "H" ] );
+## original: BindGlobal( "S_ZX_NODES", [ "neutral", "H", "Z", "X", "Zπ", "Xπ" ] );
+BindGlobal( "S_ZX_NODES", [ "neutral", "H", "Z", "X", "Zπ", "Xπ" ] );
 BindGlobal( "S_ZX_EDGES", List( [ 1 .. Length( S_ZX_NODES ) - 1 ], i -> [ 0, i ] ) );
 
 BindGlobal( "ZX_LabelToInteger", function ( label )
@@ -489,6 +490,12 @@ InstallOtherMethod( \*,
     return Iterated( ListWithIdenticalEntries( m, qubits ), {a,b} -> a + b, TensorUnit( CapCategory( qubits ) ) );
     
 end );
+
+####################################
+#
+# View and Display methods
+#
+####################################
 
 ##
 InstallMethod( ViewString,
