@@ -76,6 +76,11 @@ test-gap_to_julia:
 		for pkg in CAP MonoidalCategories CartesianCategories Toposes FinSetsForCAP ZXCalculusForCAP; do \
 			make -C "$$HOME/.julia/dev/CAP_project.jl/$${pkg}" gen-full; \
 		done; \
-		julia -e "using Pkg; Pkg.test(\"ZXCalculusForCAP\")";'
+		for pkg in CAP MonoidalCategories CartesianCategories Toposes FinSetsForCAP ZXCalculusForCAP; do \
+			julia -e "using Pkg; Pkg.test(\"$${pkg}\")"; \
+		done'
 
 ci-test: test-basic-spacing test-spacing test-doc test-with-coverage test-with-coverage-without-precompiled-code test-gap_to_julia
+
+match_tests_to_examples:
+	python3 $$([ -f ../dev/match_tst_to_examples.py ] && echo ../dev/match_tst_to_examples.py || echo dev/match_tst_to_examples.py) .
