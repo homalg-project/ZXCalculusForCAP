@@ -38,19 +38,22 @@
   
   [1X2.3-1 IsCategoryOfCospans[101X
   
-  [33X[1;0Y[29X[2XIsCategoryOfCospans[102X [32X filter[133X
+  [33X[1;0Y[29X[2XIsCategoryOfCospans[102X( [3Xarg[103X ) [32X filter[133X
+  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
   
   [33X[0;0YThe filter of categories of cospans.[133X
   
   [1X2.3-2 IsCategoryOfCospansObject[101X
   
-  [33X[1;0Y[29X[2XIsCategoryOfCospansObject[102X [32X filter[133X
+  [33X[1;0Y[29X[2XIsCategoryOfCospansObject[102X( [3Xarg[103X ) [32X filter[133X
+  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
   
   [33X[0;0YThe filter of objects in a category of cospans.[133X
   
   [1X2.3-3 IsCategoryOfCospansMorphism[101X
   
-  [33X[1;0Y[29X[2XIsCategoryOfCospansMorphism[102X [32X filter[133X
+  [33X[1;0Y[29X[2XIsCategoryOfCospansMorphism[102X( [3Xarg[103X ) [32X filter[133X
+  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
   
   [33X[0;0YThe filter of morphisms in a category of cospans.[133X
   

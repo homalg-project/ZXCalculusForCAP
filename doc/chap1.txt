@@ -185,19 +185,22 @@
   
   [1X1.4-1 IsCategoryOfZXDiagrams[101X
   
-  [33X[1;0Y[29X[2XIsCategoryOfZXDiagrams[102X [32X filter[133X
+  [33X[1;0Y[29X[2XIsCategoryOfZXDiagrams[102X( [3Xarg[103X ) [32X filter[133X
+  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
   
   [33X[0;0YThe filter of categories of ZX-diagrams.[133X
   
   [1X1.4-2 IsObjectInCategoryOfZXDiagrams[101X
   
-  [33X[1;0Y[29X[2XIsObjectInCategoryOfZXDiagrams[102X [32X filter[133X
+  [33X[1;0Y[29X[2XIsObjectInCategoryOfZXDiagrams[102X( [3Xarg[103X ) [32X filter[133X
+  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
   
   [33X[0;0YThe filter of objects in a category of ZX-diagrams.[133X
   
   [1X1.4-3 IsMorphismInCategoryOfZXDiagrams[101X
   
-  [33X[1;0Y[29X[2XIsMorphismInCategoryOfZXDiagrams[102X [32X filter[133X
+  [33X[1;0Y[29X[2XIsMorphismInCategoryOfZXDiagrams[102X( [3Xarg[103X ) [32X filter[133X
+  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X or [9Xfalse[109X[133X
   
   [33X[0;0YThe filter of morphisms in a category of ZX-diagrams.[133X
   

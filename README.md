@@ -21,9 +21,8 @@ To obtain current versions of all dependencies, `git clone` (or `git pull` to up
 | 1. | [**homalg_project**](https://github.com/homalg-project/homalg_project#readme) | https://github.com/homalg-project/homalg_project.git |
 | 2. | [**CAP_project**](https://github.com/homalg-project/CAP_project#readme) | https://github.com/homalg-project/CAP_project.git |
 | 3. | [**FinSetsForCAP**](https://github.com/homalg-project/FinSetsForCAP#readme) | https://github.com/homalg-project/FinSetsForCAP.git |
-| 4. | [**HigherHomologicalAlgebra**](https://github.com/homalg-project/HigherHomologicalAlgebra#readme) | https://github.com/homalg-project/HigherHomologicalAlgebra.git |
-| 5. | [**QPA2**](https://github.com/homalg-project/QPA2#readme) | https://github.com/homalg-project/QPA2.git |
-| 6. | [**CategoricalTowers**](https://github.com/homalg-project/CategoricalTowers#readme) | https://github.com/homalg-project/CategoricalTowers.git |
+| 4. | [**QPA2**](https://github.com/homalg-project/QPA2#readme) | https://github.com/homalg-project/QPA2.git |
+| 5. | [**CategoricalTowers**](https://github.com/homalg-project/CategoricalTowers#readme) | https://github.com/homalg-project/CategoricalTowers.git |
 
 [html-img]: https://img.shields.io/badge/🔗%20HTML-stable-blue.svg
 [html-url]: https://homalg-project.github.io/ZXCalculusForCAP/doc/chap0_mj.html
