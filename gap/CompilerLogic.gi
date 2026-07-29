@@ -155,3 +155,13 @@ CapJitAddLogicTemplate(
         dst_template := "bool",
     )
 );
+
+##
+CapJitAddLogicTemplate(
+    rec(
+        variable_names := [ "list" ],
+        variable_filters := [ IsList ],
+        src_template := "Concatenation( CapJitTypedExpression( [  ], { } -> rec( filter := IsList, element_type := rec( filter := IsInt ) ) ), list )",
+        dst_template := "list",
+    )
+);
