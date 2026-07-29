@@ -303,13 +303,10 @@ end
         
 ########
 function ( cat_1, a_1, s_1 )
-    local hoisted_1_1, deduped_2_1, deduped_3_1;
-    deduped_3_1 := AsInteger( a_1 );
-    deduped_2_1 := deduped_3_1 - 1;
-    hoisted_1_1 := [ BigInt( 0 ) .. deduped_2_1 ];
-    return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, a_1, VertexLabeledGraph, NTuple( 4, ListWithIdenticalEntries( deduped_3_1, "neutral" ), List( [ 0 .. AsInteger( s_1 ) - 1 ], function ( x_2 )
-                return -1 + BigInt( SafePosition( hoisted_1_1, x_2 ) );
-            end ), [ 0 .. deduped_2_1 ], CapJitTypedExpression( [  ], function (  )
+    local deduped_1_1, deduped_2_1;
+    deduped_2_1 := AsInteger( a_1 );
+    deduped_1_1 := [ 0 .. deduped_2_1 - 1 ];
+    return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, a_1, VertexLabeledGraph, NTuple( 4, ListWithIdenticalEntries( deduped_2_1, "neutral" ), deduped_1_1, deduped_1_1, CapJitTypedExpression( [  ], function (  )
                 return rec(
                     filter := IsList,
                     element_type := rec(
@@ -591,13 +588,9 @@ end
         
 ########
 function ( cat_1, a_1, s_1 )
-    local hoisted_1_1, deduped_2_1, deduped_3_1;
-    deduped_3_1 := AsInteger( a_1 );
-    deduped_2_1 := [ 0 .. AsInteger( s_1 ) - 1 ];
-    hoisted_1_1 := [ 0 .. deduped_3_1 - 1 ];
-    return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, a_1, VertexLabeledGraph, NTuple( 4, ListWithIdenticalEntries( deduped_3_1, "neutral" ), List( deduped_2_1, function ( x_2 )
-                return -1 + BigInt( SafePosition( hoisted_1_1, x_2 ) );
-            end ), deduped_2_1, CapJitTypedExpression( [  ], function (  )
+    local deduped_1_1;
+    deduped_1_1 := AsInteger( a_1 );
+    return CreateCapCategoryMorphismWithAttributes( cat_1, s_1, a_1, VertexLabeledGraph, NTuple( 4, ListWithIdenticalEntries( deduped_1_1, "neutral" ), [ 0 .. deduped_1_1 - 1 ], [ 0 .. AsInteger( s_1 ) - 1 ], CapJitTypedExpression( [  ], function (  )
                 return rec(
                     filter := IsList,
                     element_type := rec(
