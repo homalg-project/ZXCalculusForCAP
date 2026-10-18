@@ -74,7 +74,7 @@ test-gap_to_julia:
 			julia -e "using Pkg; Pkg.develop(path = homedir() * \"/.julia/dev/CAP_project.jl/$${pkg}\")"; \
 		done; \
 		for pkg in CAP MonoidalCategories CartesianCategories Toposes FinSetsForCAP ZXCalculusForCAP; do \
-			make -C "$$HOME/.julia/dev/CAP_project.jl/$${pkg}" gen-full; \
+			make -C "$$HOME/.julia/dev/CAP_project.jl/$${pkg}" gen; \
 		done; \
 		for pkg in CAP MonoidalCategories CartesianCategories Toposes FinSetsForCAP ZXCalculusForCAP; do \
 			julia -e "using Pkg; Pkg.test(\"$${pkg}\")"; \
